@@ -92,6 +92,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aesoper/hotkey@workspace:packages/hotkey":
+  version: 0.0.0-use.local
+  resolution: "@aesoper/hotkey@workspace:packages/hotkey"
+  dependencies:
+    "@aesoper/build-cli": "workspace:^"
+    "@tsconfig/node18": "npm:^18.2.2"
+    "@vue/tsconfig": "npm:^0.4.0"
+    hotkeys-js: "npm:^3.13.2"
+  peerDependencies:
+    hotkeys-js: ^3.13.2
+  languageName: unknown
+  linkType: soft
+
 "@aesoper/i18n@workspace:packages/i18n":
   version: 0.0.0-use.local
   resolution: "@aesoper/i18n@workspace:packages/i18n"
@@ -6629,6 +6642,13 @@ __metadata:
   dependencies:
     lru-cache: "npm:^10.0.1"
   checksum: 361c4254f717f06d581a5a90aa0156a945e662e05ebbb533c1fa9935f10886d8247db48cbbcf9667f02e519e6479bf16dcdcf3124c3030e76c4c3ca2c88ee9d3
+  languageName: node
+  linkType: hard
+
+"hotkeys-js@npm:^3.13.2":
+  version: 3.13.3
+  resolution: "hotkeys-js@npm:3.13.3"
+  checksum: 30d313ebb834be6f3a63d5a733c6e1789ffd011d872d5b3b54c5127175dc089e91cb235a7c4f3eb1dda68451b356c3fcf4f8b62db28d0be13912767a9de96564
   languageName: node
   linkType: hard
 

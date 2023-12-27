@@ -6,4 +6,5 @@ lerna run build \
   --scope @aesoper/storage \
   --scope @aesoper/hooks \
   --scope @aesoper/i18n \
-  --scope @aesoper/eventbus
+  --scope @aesoper/eventbus \
+  --scope @aesoper/hotkey
