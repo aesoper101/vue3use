@@ -65,6 +65,48 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aesoper/eventbus@workspace:packages/eventbus":
+  version: 0.0.0-use.local
+  resolution: "@aesoper/eventbus@workspace:packages/eventbus"
+  dependencies:
+    "@aesoper/build-cli": "workspace:^"
+    "@aesoper/shared": "workspace:^"
+    "@tsconfig/node18": "npm:^18.2.2"
+    "@vue/tsconfig": "npm:^0.4.0"
+    mitt: "npm:^3.0.1"
+  peerDependencies:
+    mitt: ^3.0.1
+  languageName: unknown
+  linkType: soft
+
+"@aesoper/hooks@workspace:packages/hooks":
+  version: 0.0.0-use.local
+  resolution: "@aesoper/hooks@workspace:packages/hooks"
+  dependencies:
+    "@aesoper/build-cli": "workspace:^"
+    "@tsconfig/node18": "npm:^18.2.2"
+    "@vue/tsconfig": "npm:^0.4.0"
+    vue: "npm:^3.3.10"
+  peerDependencies:
+    vue: ^3.3.10
+  languageName: unknown
+  linkType: soft
+
+"@aesoper/i18n@workspace:packages/i18n":
+  version: 0.0.0-use.local
+  resolution: "@aesoper/i18n@workspace:packages/i18n"
+  dependencies:
+    "@aesoper/build-cli": "workspace:^"
+    "@tsconfig/node18": "npm:^18.2.2"
+    "@vue/tsconfig": "npm:^0.4.0"
+    vue: "npm:^3.3.10"
+    vue-i18n: "npm:^9.8.0"
+  peerDependencies:
+    vue: ^3.3.10
+    vue-i18n: ^9.8.0
+  languageName: unknown
+  linkType: soft
+
 "@aesoper/logger@workspace:packages/logger":
   version: 0.0.0-use.local
   resolution: "@aesoper/logger@workspace:packages/logger"
@@ -79,7 +121,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aesoper/shared@workspace:packages/shared":
+"@aesoper/shared@workspace:^, @aesoper/shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@aesoper/shared@workspace:packages/shared"
   dependencies:
@@ -1043,6 +1085,33 @@ __metadata:
   version: 3.0.2
   resolution: "@hutson/parse-repository-url@npm:3.0.2"
   checksum: d9197757ecad2df18d29d3e1d1fe0716d458fd88b849c71cbec9e78239f911074c97e8d764dfd8ed890431c1137e52dd7a337207fd65be20ce0784f7860ae4d1
+  languageName: node
+  linkType: hard
+
+"@intlify/core-base@npm:9.8.0":
+  version: 9.8.0
+  resolution: "@intlify/core-base@npm:9.8.0"
+  dependencies:
+    "@intlify/message-compiler": "npm:9.8.0"
+    "@intlify/shared": "npm:9.8.0"
+  checksum: 8ab2d867a84d171a98caf48b334c0dc3ac631dd648d1dfd4b18f54873e633c9b2b29da1611d45715e324ec6269bf610ac57b767b6de47b148a51185630be60a0
+  languageName: node
+  linkType: hard
+
+"@intlify/message-compiler@npm:9.8.0":
+  version: 9.8.0
+  resolution: "@intlify/message-compiler@npm:9.8.0"
+  dependencies:
+    "@intlify/shared": "npm:9.8.0"
+    source-map-js: "npm:^1.0.2"
+  checksum: 2bcee190710da97b9a3654b6581568573e999c431ee43f279e8aad0a24c4f071ccec9f5436f89a29bd639720f95d960799f2bb87809341609ffe8910d46b7507
+  languageName: node
+  linkType: hard
+
+"@intlify/shared@npm:9.8.0":
+  version: 9.8.0
+  resolution: "@intlify/shared@npm:9.8.0"
+  checksum: d867ac19367fd591474349482cb5be4b1873bc4104014de4ede42db41c5af89a8575e5d1777cdb4270648623b3957f407082f2bc34dfa6cb558ef3fe4b5b958b
   languageName: node
   linkType: hard
 
@@ -2535,6 +2604,13 @@ __metadata:
     "@vue/compiler-dom": "npm:3.3.13"
     "@vue/shared": "npm:3.3.13"
   checksum: 88bfe02b06d2ba8041de5fff9ce95324e7b0e8319bca4233a5e58a34e63f69c62a48bee908bd0bd7a1a3dadd1e939034a819965c1a96072537831d9c0e6388a0
+  languageName: node
+  linkType: hard
+
+"@vue/devtools-api@npm:^6.5.0":
+  version: 6.5.1
+  resolution: "@vue/devtools-api@npm:6.5.1"
+  checksum: d28b00a64df2c5b3351f74ad28ec7fe65e9ee6e20e585c0130ae6ab74b7e616d4eda3b3e82d39ad391e959be4bbb7aa7221d8253bbca1f3021ad07d4430095f9
   languageName: node
   linkType: hard
 
@@ -8683,6 +8759,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mitt@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "mitt@npm:3.0.1"
+  checksum: 3ab4fdecf3be8c5255536faa07064d05caa3dd332bd318ff02e04621f7b3069ca1de9106cfe8e7ced675abfc2bec2ce4c4ef321c4a1bb1fb29df8ae090741913
+  languageName: node
+  linkType: hard
+
 "mkdirp@npm:^1.0.3, mkdirp@npm:^1.0.4":
   version: 1.0.4
   resolution: "mkdirp@npm:1.0.4"
@@ -13034,6 +13117,19 @@ __metadata:
   peerDependencies:
     eslint: ">=6.0.0"
   checksum: da0e0bcc603e7845253f1600e595f91de7f46ad1947827008aca5e545de405993f83dabfc01c57c9d0d95d22040a2d0f9d82cb640918e18e3d8dcff2c98513fc
+  languageName: node
+  linkType: hard
+
+"vue-i18n@npm:^9.8.0":
+  version: 9.8.0
+  resolution: "vue-i18n@npm:9.8.0"
+  dependencies:
+    "@intlify/core-base": "npm:9.8.0"
+    "@intlify/shared": "npm:9.8.0"
+    "@vue/devtools-api": "npm:^6.5.0"
+  peerDependencies:
+    vue: ^3.0.0
+  checksum: f210c93b96a8a5121c24a840d358cc68ea96febbd3e5063236e4958b6281b25b337c493c5bee2d7fa6543efaced29be3870be7f20e2874beeccbd2d9826ced9f
   languageName: node
   linkType: hard
 
