@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/shared",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "> TODO: description",
   "author": {
     "name": "aesoper",
@@ -37,7 +37,7 @@
     "test": "vitest run --coverage"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "^1.0.4",
+    "@aesoper/build-cli": "^1.0.5",
     "@tsconfig/node18": "^18.2.2",
     "@vue/tsconfig": "^0.4.0"
   },
@@ -45,5 +45,5 @@
     "vue": "^3.3.10",
     "vue-types": "^5.1.1"
   },
-  "gitHead": "dd681862c1e43ee3da67f315ce308688c58284d5"
+  "gitHead": "30b67e4ccece1038a44a4a9667c0783ea2027a29"
 }

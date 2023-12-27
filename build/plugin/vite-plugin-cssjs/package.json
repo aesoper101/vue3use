@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/vite-plugin-cssjs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "> TODO: description",
   "homepage": "",
   "repository": {
@@ -42,5 +42,5 @@
   },
   "readme": "ERROR: No README data found!",
   "_id": "@aesoper/vite-plugin-cssjs@1.0.0",
-  "gitHead": "dd681862c1e43ee3da67f315ce308688c58284d5"
+  "gitHead": "30b67e4ccece1038a44a4a9667c0783ea2027a29"
 }

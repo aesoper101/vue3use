@@ -12,12 +12,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aesoper/build-cli@npm:^1.0.4, @aesoper/build-cli@workspace:build/cli/build-cli":
+"@aesoper/build-cli@npm:^1.0.5, @aesoper/build-cli@workspace:build/cli/build-cli":
   version: 0.0.0-use.local
   resolution: "@aesoper/build-cli@workspace:build/cli/build-cli"
   dependencies:
-    "@aesoper/vite-plugin-cssjs": "npm:^1.0.4"
-    "@aesoper/vite-plugin-external": "npm:^1.0.4"
+    "@aesoper/vite-plugin-cssjs": "npm:^1.0.5"
+    "@aesoper/vite-plugin-external": "npm:^1.0.5"
     "@tsconfig/node18": "npm:^18.2.2"
     "@types/clean-css": "npm:^4.2.11"
     "@types/ejs": "npm:^3.1.5"
@@ -69,7 +69,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aesoper/shared@workspace:packages/shared"
   dependencies:
-    "@aesoper/build-cli": "npm:^1.0.4"
+    "@aesoper/build-cli": "npm:^1.0.5"
     "@tsconfig/node18": "npm:^18.2.2"
     "@vue/tsconfig": "npm:^0.4.0"
     vue: "npm:^3.3.10"
@@ -77,7 +77,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aesoper/vite-plugin-cssjs@npm:^1.0.4, @aesoper/vite-plugin-cssjs@workspace:build/plugin/vite-plugin-cssjs":
+"@aesoper/vite-plugin-cssjs@npm:^1.0.5, @aesoper/vite-plugin-cssjs@workspace:build/plugin/vite-plugin-cssjs":
   version: 0.0.0-use.local
   resolution: "@aesoper/vite-plugin-cssjs@workspace:build/plugin/vite-plugin-cssjs"
   dependencies:
@@ -89,7 +89,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aesoper/vite-plugin-external@npm:^1.0.4, @aesoper/vite-plugin-external@workspace:build/plugin/vite-plugin-external":
+"@aesoper/vite-plugin-external@npm:^1.0.5, @aesoper/vite-plugin-external@workspace:build/plugin/vite-plugin-external":
   version: 0.0.0-use.local
   resolution: "@aesoper/vite-plugin-external@workspace:build/plugin/vite-plugin-external"
   dependencies:

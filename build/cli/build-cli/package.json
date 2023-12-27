@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/build-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "> TODO: description",
   "homepage": "",
   "repository": {
@@ -62,8 +62,8 @@
     "write-package": "^7.0.0"
   },
   "devDependencies": {
-    "@aesoper/vite-plugin-cssjs": "^1.0.4",
-    "@aesoper/vite-plugin-external": "^1.0.4",
+    "@aesoper/vite-plugin-cssjs": "^1.0.5",
+    "@aesoper/vite-plugin-external": "^1.0.5",
     "@tsconfig/node18": "^18.2.2",
     "@types/clean-css": "^4.2.11",
     "@types/ejs": "^3.1.5",
@@ -77,5 +77,5 @@
   },
   "readme": "ERROR: No README data found!",
   "_id": "@e-ui/eui-cli@1.0.0",
-  "gitHead": "dd681862c1e43ee3da67f315ce308688c58284d5"
+  "gitHead": "30b67e4ccece1038a44a4a9667c0783ea2027a29"
 }
