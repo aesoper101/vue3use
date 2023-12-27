@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/build-cli",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "> TODO: description",
   "homepage": "",
   "repository": {
@@ -62,8 +62,8 @@
     "write-package": "^7.0.0"
   },
   "devDependencies": {
-    "@aesoper/vite-plugin-cssjs": "^1.0.5",
-    "@aesoper/vite-plugin-external": "^1.0.5",
+    "@aesoper/vite-plugin-cssjs": "^1.1.0",
+    "@aesoper/vite-plugin-external": "^1.1.0",
     "@tsconfig/node18": "^18.2.2",
     "@types/clean-css": "^4.2.11",
     "@types/ejs": "^3.1.5",
