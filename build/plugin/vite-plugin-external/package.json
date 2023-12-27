@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/vite-plugin-external",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "> TODO: description",
   "homepage": "",
   "repository": {
@@ -41,5 +41,6 @@
     "unbuild": "^2.0.0"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "@aesoper/vite-plugin-external@1.0.0"
+  "_id": "@aesoper/vite-plugin-external@1.0.0",
+  "gitHead": "dd681862c1e43ee3da67f315ce308688c58284d5"
 }
