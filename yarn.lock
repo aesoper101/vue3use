@@ -12,7 +12,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aesoper/build-cli@npm:^1.1.0, @aesoper/build-cli@workspace:^, @aesoper/build-cli@workspace:build/cli/build-cli":
+"@aesoper/build-cli@npm:^1.1.1, @aesoper/build-cli@workspace:^, @aesoper/build-cli@workspace:build/cli/build-cli":
   version: 0.0.0-use.local
   resolution: "@aesoper/build-cli@workspace:build/cli/build-cli"
   dependencies:
@@ -83,7 +83,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aesoper/shared@workspace:packages/shared"
   dependencies:
-    "@aesoper/build-cli": "npm:^1.1.0"
+    "@aesoper/build-cli": "npm:^1.1.1"
     "@tsconfig/node18": "npm:^18.2.2"
     "@vue/tsconfig": "npm:^0.4.0"
     vue: "npm:^3.3.10"
