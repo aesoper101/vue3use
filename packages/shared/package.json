@@ -45,5 +45,9 @@
     "vue": "^3.3.10",
     "vue-types": "^5.1.1"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "gitHead": "30b67e4ccece1038a44a4a9667c0783ea2027a29"
 }
