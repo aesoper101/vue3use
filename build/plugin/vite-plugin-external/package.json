@@ -1,0 +1,45 @@
+{
+  "name": "@aesoper/vite-plugin-external",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aesoper101/vue3use.git",
+    "directory": "build/plugins/vite-plugin-external"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "aesoper",
+    "email": "weilanzhuan@163.com"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub"
+  },
+  "dependencies": {
+    "typescript": "^5.3.3",
+    "vite": "^5.0.6"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.2",
+    "@vue/tsconfig": "^0.4.0",
+    "unbuild": "^2.0.0"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "@aesoper/vite-plugin-external@1.0.0"
+}

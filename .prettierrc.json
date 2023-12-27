@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/prettierrc",
+  "semi": true,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "quoteProps": "consistent",
+  "endOfLine": "lf",
+  "printWidth": 80,
+  "htmlWhitespaceSensitivity": "strict",
+  "importOrder": [
+    "^vue(.*)",
+    "@vue/(.*)$",
+    "@([^/]*)/([^\\.]*)\\.(less|scss|css|sass|json)",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
+}

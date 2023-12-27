@@ -1,0 +1,48 @@
+{
+  "name": "@aesoper/shared",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": {
+    "name": "aesoper",
+    "email": "weilanzhuan@163.com"
+  },
+  "homepage": "",
+  "license": "MIT",
+  "type": "module",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
+  "unpkg": "./dist/shared.min.js",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js",
+      "types": "./es/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "es",
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aesoper101/vue3use.git",
+    "directory": "packages/shared"
+  },
+  "scripts": {
+    "build": "yarn run build:library && yarn run dtsgen",
+    "build:library": "build-cli build:library -u",
+    "dtsgen": "build-cli dtsgen 'src/**/*.{ts,tsx,vue}' -o es",
+    "test": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@aesoper/build-cli": "workspace:^",
+    "@tsconfig/node18": "^18.2.2",
+    "@vue/tsconfig": "^0.4.0"
+  },
+  "dependencies": {
+    "vue": "^3.3.10",
+    "vue-types": "^5.1.1"
+  }
+}

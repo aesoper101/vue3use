@@ -1,0 +1,23 @@
+# 忽略目录
+node_modules
+test-cases
+test
+__tests__
+output
+build
+dist
+demo
+es
+lib
+scripts/tests.sh
+.*
+~*
+
+# 忽略文件
+**/*.min.js
+**/*-min.js
+**/*.bundle.js
+
+
+.yarnrc.yml
+.yarn

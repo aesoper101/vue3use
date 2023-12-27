@@ -1,0 +1,18 @@
+{
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "ignored-file",
+        ".gitignore",
+        ".(git|npm|yarn|stylelint|prettier)(ignore|rc)",
+        "**/*.md",
+        "**/tests/**",
+        "**/__tests__/**"
+      ],
+      "message": "chore(release): publish %v"
+    }
+  },
+  "npmClient": "yarn",
+  "packages": ["packages/*", "build/*/**"],
+  "version": "independent"
+}
