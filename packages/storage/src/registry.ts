@@ -27,7 +27,9 @@ export interface CreateStorageOptions extends StorageOptions {
 }
 
 export function createStorage(
-  args: CreateStorageOptions = { drivers: ['localStorage', 'memoryStorage'] },
+  args: CreateStorageOptions = {
+    drivers: ['localStorage', 'sessionStorage', 'memoryStorage'],
+  },
 ): Storage {
   const { drivers, ...options } = args;
   let storage: Storage | null = null;
