@@ -1,0 +1,49 @@
+{
+  "name": "@aesoper/factory",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": {
+    "name": "aesoper",
+    "email": "weilanzhuan@163.com"
+  },
+  "homepage": "",
+  "license": "MIT",
+  "type": "module",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
+  "unpkg": "./dist/factory.min.js",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js",
+      "types": "./es/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "es",
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aesoper101/vue3use.git",
+    "directory": "packages/factory"
+  },
+  "scripts": {
+    "build": "yarn run build:library && yarn run dtsgen",
+    "build:library": "build-cli build:library -u",
+    "dtsgen": "build-cli dtsgen 'src/**/*.{ts,tsx,vue}' -o es",
+    "clean": "build-cli clean",
+    "test": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@aesoper/build-cli": "workspace:^",
+    "@tsconfig/node18": "^18.2.2",
+    "@vue/tsconfig": "^0.4.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
