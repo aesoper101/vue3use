@@ -30,6 +30,10 @@ export function defineFactory<Args extends any[] = any[], Instance = any>(
   });
 }
 
+export function hasFactory(name: string): boolean {
+  return factoryMap.has(name);
+}
+
 export function createInstance<Args extends any[] = any[], Instance = any>(
   name: string,
   ...args: Args
