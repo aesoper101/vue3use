@@ -16,24 +16,35 @@ export function registerStorage(name: string, storage: StorageConstructor) {
   registry.set(name, storage);
 }
 
+type StorageDriver =
+  | 'localStorage'
+  | 'sessionStorage'
+  | 'memoryStorage'
+  | string;
+
 export interface CreateStorageOptions extends StorageOptions {
-  driver?: 'localStorage' | 'sessionStorage' | string;
+  drivers?: StorageDriver[];
 }
 
 export function createStorage(
-  args: CreateStorageOptions = { driver: 'localStorage' },
+  args: CreateStorageOptions = { drivers: ['localStorage', 'memoryStorage'] },
 ): Storage {
-  const { driver = 'localStorage' } = args;
+  const { drivers, ...options } = args;
+  let storage: Storage | null = null;
 
-  const storage = registry.get(driver);
+  for (const driver in drivers) {
+    const storageConstructor = registry.get(driver);
+    if (storageConstructor) {
+      storage = new storageConstructor(options);
+      if (storage.isSupported()) {
+        break;
+      }
+    }
+  }
+
   if (!storage) {
-    throw new Error(`Storage driver "${driver}" does not exist.`);
+    throw new Error('No storage driver is supported.');
   }
 
-  const stg = new storage(args);
-  if (!stg.isSupported()) {
-    throw new Error(`Storage driver "${driver}" is not supported.`);
-  }
-
-  return stg;
+  return storage;
 }

@@ -1,10 +1,10 @@
 {
-  "name": "<%= packageName %>",
+  "name": "@aesoper/config",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": {
-    "name": "<%= gitUser %>",
-    "email": "<%= gitEmail %>"
+    "name": "aesoper",
+    "email": "weilanzhuan@163.com"
   },
   "homepage": "",
   "license": "MIT",
@@ -12,48 +12,42 @@
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
-  "unpkg": "./dist/<%= unpkgName %>.min.js",
+  "unpkg": "./dist/config.min.js",
   "exports": {
     ".": {
       "import": "./es/index.js",
       "require": "./lib/index.js",
       "types": "./es/index.d.ts"
-    }<% if (style) { %>,
-    "./*": "./*"<% } %>
+    }
   },
   "files": [
     "dist",
     "es",
     "lib"
   ],
-<% if (style) { %>
-  "sideEffects": [
-    "dist/*",
-    "es/**/style/*",
-    "lib/**/style/*",
-    "*.less"
-  ],
-<% } %>
   "repository": {
     "type": "git",
-    "url": "<%= gitURL %>",
-    "directory": "<%= repositoryDir %>"
+    "url": "git@github.com:aesoper101/vue3use.git",
+    "directory": "packages/config"
   },
   "scripts": {
-    "build": "yarn run build:library && <% if (style) { %> yarn run build:style && <% } %>yarn run dtsgen",
+    "build": "yarn run build:library && yarn run dtsgen",
     "build:library": "build-cli build:library -u",
     "dtsgen": "build-cli dtsgen 'src/**/*.{ts,tsx,vue}' -o es",
-<% if (style) { %>
-    "build:style": "yarn run lessgen && build-cli build:style",
-    "lessgen": "build-cli lessgen",
-<% } %>
     "clean": "build-cli clean",
     "test": "vitest run --coverage"
   },
   "devDependencies": {
     "@aesoper/build-cli": "workspace:^",
     "@tsconfig/node18": "^18.2.2",
+    "@types/lodash.get": "^4",
+    "@types/lodash.has": "^4",
     "@vue/tsconfig": "^0.4.0"
+  },
+  "dependencies": {
+    "@aesoper/shared": "workspace:^",
+    "lodash.get": "^4.4.2",
+    "lodash.has": "^4.5.2"
   },
   "publishConfig": {
     "access": "public",
