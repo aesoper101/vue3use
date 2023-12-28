@@ -164,6 +164,7 @@ __metadata:
   resolution: "@aesoper/preference@workspace:packages/preference"
   dependencies:
     "@aesoper/build-cli": "workspace:^"
+    "@aesoper/storage": "workspace:^"
     "@tsconfig/node18": "npm:^18.2.2"
     "@vue/tsconfig": "npm:^0.4.0"
   languageName: unknown
@@ -181,7 +182,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aesoper/storage@workspace:packages/storage":
+"@aesoper/storage@workspace:^, @aesoper/storage@workspace:packages/storage":
   version: 0.0.0-use.local
   resolution: "@aesoper/storage@workspace:packages/storage"
   dependencies:
