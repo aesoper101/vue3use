@@ -41,16 +41,17 @@
   },
   "scripts": {
     "build": "yarn run build:library && <% if (style) { %> yarn run build:style && <% } %>yarn run dtsgen",
-    "build:library": "vis-cli build:library -u",
-    "dtsgen": "vis-cli dtsgen 'src/**/*.{ts,tsx,vue}' -o es",
+    "build:library": "build-cli build:library -u",
+    "dtsgen": "build-cli dtsgen 'src/**/*.{ts,tsx,vue}' -o es",
 <% if (style) { %>
-    "build:style": "yarn run lessgen && vis-cli build:style",
-    "lessgen": "vis-cli lessgen",
+    "build:style": "yarn run lessgen && build-cli build:style",
+    "lessgen": "build-cli lessgen",
 <% } %>
+    "clean": "build-cli clean",
     "test": "vitest run --coverage"
   },
   "devDependencies": {
-    "@beedt/vis-cli": "workspace:^",
+    "@aesoper/build-cli": "workspace:^",
     "@tsconfig/node18": "^18.2.2",
     "@vue/tsconfig": "^0.4.0"
   },

@@ -20,9 +20,9 @@
   ],
   "scripts": {
     "build": "yarn build:lib && yarn build:cli && yarn build:plugin",
-    "build:cli": "./scripts/build-cli.sh",
-    "build:lib": "scripts/build-lib.sh",
-    "build:plugin": "./scripts/build-plugin.sh",
+    "build:cli": "lerna run --scope \"@aesoper/*-cli\" build",
+    "build:lib": "lerna run --ignore \"@aesoper/*-cli\" --ignore \"@aesoper/vite-*\" build",
+    "build:plugin": "lerna run --scope \"@aesoper/vite-*\" build",
     "postinstall": "husky install",
     "lintstaged": "lint-staged"
   },
