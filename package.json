@@ -19,7 +19,7 @@
     "build/*/**"
   ],
   "scripts": {
-    "build": "yarn build:lib && yarn build:cli && yarn build:plugin",
+    "build": "yarn build:plugin && yarn build:cli && yarn build:lib",
     "build:cli": "lerna run --scope \"@aesoper/*-cli\" build",
     "build:lib": "lerna run --ignore \"@aesoper/*-cli\" --ignore \"@aesoper/vite-*\" build",
     "build:plugin": "lerna run --scope \"@aesoper/vite-*\" build",
