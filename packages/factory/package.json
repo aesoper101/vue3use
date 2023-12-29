@@ -38,12 +38,13 @@
     "test": "vitest run --coverage"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "workspace:^",
+    "@aesoper/build-cli": "^1.1.4",
     "@tsconfig/node18": "^18.2.2",
     "@vue/tsconfig": "^0.4.0"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  }
+  },
+  "gitHead": "0629aa659e41122749651012088fa162c0a472b4"
 }
