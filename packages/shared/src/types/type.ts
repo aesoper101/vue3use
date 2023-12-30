@@ -28,3 +28,13 @@ export type OverrideDeep<T, U> = T extends object
 export type AnyFunc<T = any> = (...args: any[]) => T;
 
 export type Func = () => void;
+
+export type KeyValue<T = any> = Record<string, T>;
+
+export type IfAny<T, Y, N> = 0 extends 1 & T ? Y : N;
+
+export type IsAny<T> = IfAny<T, true, false>;
+
+export type IfEmpty<T, Y, N> = T extends never | '' | null | undefined ? Y : N;
+
+export type IfExtends<T, X, Y, N> = T extends X ? Y : N;

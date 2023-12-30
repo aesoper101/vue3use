@@ -4,3 +4,4 @@ export * from './vue';
 export * from './exception';
 export * from './array';
 export * from './env';
+export * from './bool';

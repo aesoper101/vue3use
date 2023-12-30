@@ -9,3 +9,7 @@ export function isFunction(obj: any): obj is (...args: any[]) => any {
 export function isWindow(el: any): el is Window {
   return el === window;
 }
+
+export function isObject(obj: any): obj is Record<string, any> {
+  return obj !== null && typeof obj === 'object';
+}
