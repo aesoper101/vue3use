@@ -1,6 +1,6 @@
 import {
-  ComputedRef,
-  PropType,
+  type ComputedRef,
+  type PropType,
   computed,
   defineComponent,
   inject,
