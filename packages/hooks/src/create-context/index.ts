@@ -37,7 +37,10 @@ export function createContext<T>(defaultValue: T) {
   });
 
   const useContext = () =>
-    inject<ComputedRef<T>>(contextSymbolKey) || computed(() => defaultValue);
+    inject<ComputedRef<T>>(
+      contextSymbolKey,
+      computed(() => defaultValue),
+    );
 
   // eslint-disable-next-line vue/one-component-per-file
   const Consumer = defineComponent({
