@@ -70,7 +70,7 @@ __metadata:
   resolution: "@aesoper/config@workspace:packages/config"
   dependencies:
     "@aesoper/build-cli": "npm:^1.1.5"
-    "@aesoper/shared": "npm:^1.1.5"
+    "@aesoper/shared": "npm:^1.1.6"
     "@tsconfig/node18": "npm:^18.2.2"
     "@types/lodash.get": "npm:^4"
     "@types/lodash.has": "npm:^4"
@@ -85,7 +85,7 @@ __metadata:
   resolution: "@aesoper/eventbus@workspace:packages/eventbus"
   dependencies:
     "@aesoper/build-cli": "npm:^1.1.5"
-    "@aesoper/shared": "npm:^1.1.5"
+    "@aesoper/shared": "npm:^1.1.6"
     "@tsconfig/node18": "npm:^18.2.2"
     "@vue/tsconfig": "npm:^0.4.0"
     mitt: "npm:^3.0.1"
@@ -170,7 +170,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aesoper/shared@npm:^1.1.5, @aesoper/shared@workspace:packages/shared":
+"@aesoper/shared@npm:^1.1.6, @aesoper/shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@aesoper/shared@workspace:packages/shared"
   dependencies:
@@ -12811,11 +12811,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A>=3 < 6#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>":
   version: 5.3.3
-  resolution: "typescript@patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=29ae49"
+  resolution: "typescript@patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: e22df47df9b2b2f2617b8bf511a29aea3d177f9f7a0756818230a76b01cbd7da988bf55f9463aaa1a4c1ff90b80f8dc5676460d4e9dfc010572cbba59b822b0c
+  checksum: 1d0a5f4ce496c42caa9a30e659c467c5686eae15d54b027ee7866744952547f1be1262f2d40de911618c242b510029d51d43ff605dba8fb740ec85ca2d3f9500
   languageName: node
   linkType: hard
 

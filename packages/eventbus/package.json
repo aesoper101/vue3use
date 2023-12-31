@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/eventbus",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "> TODO: description",
   "author": {
     "name": "aesoper",
@@ -42,7 +42,7 @@
     "@vue/tsconfig": "^0.4.0"
   },
   "dependencies": {
-    "@aesoper/shared": "^1.1.5",
+    "@aesoper/shared": "^1.1.6",
     "mitt": "^3.0.1"
   },
   "peerDependencies": {
