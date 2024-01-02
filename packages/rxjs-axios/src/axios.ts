@@ -12,7 +12,7 @@ import { Observable, lastValueFrom } from 'rxjs';
 
 import { ref } from 'vue';
 
-import type { RequestInterceptor, ResponseInterceptor } from '../es';
+import type { RequestInterceptor, ResponseInterceptor } from './interface';
 import {
   RequestHeaders,
   type RxjsAxiosAPI,
