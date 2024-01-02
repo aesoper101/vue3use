@@ -8,6 +8,7 @@ import axios, {
   isCancel,
 } from 'axios';
 import createAuthRefreshInterceptor from 'axios-auth-refresh';
+import qs from 'qs';
 import { Observable, lastValueFrom } from 'rxjs';
 
 import { ref } from 'vue';
@@ -23,15 +24,10 @@ import {
 
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 
-// 通过uri, params, data, method 用qs生成一个唯一的key
-function generateKey(uri: string, params: any, data: any, method: string) {
-  // qs.stringify()
-  return;
-}
-
 class HttpClient implements RxjsAxiosAPI {
   private _axiosInstance: AxiosInstance;
   private deviceID?: string | null = null;
+  private fetchMap: Map<string, RxjsAxiosRequestConfig> = new Map();
 
   constructor(private readonly options: RxjsAxiosOptions = { timeout: 2500 }) {
     this._axiosInstance = axios.create({
@@ -77,7 +73,6 @@ class HttpClient implements RxjsAxiosAPI {
 
   /**
    * 添加请求拦截器,注意是先进后出
-   * @param interceptor
    * @private
    */
   private _addRequestInterceptor(interceptor?: RequestInterceptor) {
@@ -87,10 +82,17 @@ class HttpClient implements RxjsAxiosAPI {
           config.headers.set(RequestHeaders.HeaderDeviceID, this.deviceID);
         }
 
-        return interceptor ? interceptor(config) : config;
+        this.removePendingRequest(config);
+        this.addPendingRequest(config);
+
+        return interceptor && interceptor.onFulfilled
+          ? interceptor.onFulfilled(config)
+          : config;
       },
       (error) => {
-        return Promise.reject(AxiosError.from(error));
+        return interceptor && interceptor.onRejected
+          ? interceptor.onRejected(error)
+          : Promise.reject(AxiosError.from(error));
       },
     );
   }
@@ -103,9 +105,13 @@ class HttpClient implements RxjsAxiosAPI {
   private _addResponseInterceptor(interceptor?: ResponseInterceptor) {
     this._axiosInstance.interceptors.response.use(
       (value) => {
-        return interceptor ? interceptor(value) : value;
+        this.removePendingRequest(value.config);
+        return interceptor && interceptor.onFulfilled
+          ? interceptor.onFulfilled(value)
+          : value;
       },
       (error) => {
+        this.removePendingRequest(error.config || {});
         if (isCancel(error)) {
           console.log('Request canceled', error.message);
         } else {
@@ -113,15 +119,36 @@ class HttpClient implements RxjsAxiosAPI {
             console.log('AxiosError', error?.message);
           }
 
-          return Promise.reject(AxiosError.from(error));
+          return interceptor && interceptor.onRejected
+            ? interceptor.onRejected(error)
+            : Promise.reject(AxiosError.from(error));
         }
       },
     );
     return this;
   }
 
+  private generateKey(config: AxiosRequestConfig): string {
+    const { method, url, data = {}, params = {} } = config;
+    return [method, url, qs.stringify(data), qs.stringify(params)].join('&');
+  }
+
+  private removePendingRequest(config: AxiosRequestConfig) {
+    const key = this.generateKey(config);
+    if (this.fetchMap.has(key)) {
+      const _abort = this.fetchMap.get(key)?._abort;
+      _abort && _abort();
+      this.fetchMap.delete(key);
+    }
+  }
+
+  private addPendingRequest(config: AxiosRequestConfig) {
+    const key = this.generateKey(config);
+    this.fetchMap.set(key, config);
+  }
+
   private _request<T = any>(
-    config: AxiosRequestConfig,
+    config: RxjsAxiosRequestConfig,
   ): Observable<AxiosResponse<T>> {
     return new Observable<AxiosResponse<T>>((subscriber) => {
       const controller = new AbortController();
@@ -150,6 +177,12 @@ class HttpClient implements RxjsAxiosAPI {
       } else {
         config.signal = signal;
       }
+
+      config._abort = () => {
+        if (!config.signal?.aborted) {
+          controller.abort();
+        }
+      };
 
       const handleError = (err: any) => {
         abortable = false;

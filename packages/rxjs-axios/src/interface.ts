@@ -8,7 +8,9 @@ import type { Observable } from 'rxjs';
 
 import type { Ref } from 'vue';
 
-export interface RxjsAxiosRequestConfig extends AxiosRequestConfig {}
+export interface RxjsAxiosRequestConfig extends AxiosRequestConfig {
+  [key: string]: any;
+}
 
 type True = true;
 export interface ReactiveRequestOptions {
@@ -41,14 +43,19 @@ export interface RxjsAxiosOptions
   responseInterceptor?: ResponseInterceptor;
 }
 
-export type RequestInterceptor = (
-  config: InternalAxiosRequestConfig,
-) => InternalAxiosRequestConfig | Promise<InternalAxiosRequestConfig>;
+export interface RequestInterceptor {
+  onFulfilled?: (
+    value: InternalAxiosRequestConfig,
+  ) => InternalAxiosRequestConfig | Promise<InternalAxiosRequestConfig>;
+  onRejected?: (error: any) => any;
+}
 
-export type ResponseInterceptor = (
-  response: AxiosResponse,
-) => AxiosResponse | Promise<AxiosResponse>;
-
+export interface ResponseInterceptor {
+  onFulfilled?: (
+    value: AxiosResponse,
+  ) => AxiosResponse | Promise<AxiosResponse>;
+  onRejected?: (error: any) => any;
+}
 export enum RequestHeaders {
   HeaderDeviceID = 'X-Device-Id',
 }
