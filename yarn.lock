@@ -187,6 +187,8 @@ __metadata:
     uuid: "npm:^9.0.1"
     vue: "npm:^3.3.10"
   peerDependencies:
+    axios: ^1.6.3
+    rxjs: ^7.8.1
     vue: ^3.3.10
   languageName: unknown
   linkType: soft
