@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/rxjs-axios",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "> TODO: description",
   "author": {
     "name": "aesoper",
@@ -62,5 +62,5 @@
     "rxjs": "^7.8.1",
     "vue": "^3.3.10"
   },
-  "gitHead": "1d7deec82cb68fcc1711ff7d6d7dc1d611e9c6c2"
+  "gitHead": "fa039978acb27bb8cdda3c9fd44980affadbddb0"
 }
