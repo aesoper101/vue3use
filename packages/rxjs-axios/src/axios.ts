@@ -4,20 +4,22 @@ import axios, {
   type AxiosInstance,
   type AxiosRequestConfig,
   type AxiosResponse,
-  type InternalAxiosRequestConfig,
   isAxiosError,
   isCancel,
 } from 'axios';
-import {
-  Observable,
-  type RetryConfig,
-  catchError,
-  map,
-  retry,
-  tap,
-} from 'rxjs';
+import createAuthRefreshInterceptor from 'axios-auth-refresh';
+import { Observable, lastValueFrom } from 'rxjs';
 
-import type { RxjsAxiosAPI, RxjsAxiosRequestConfig } from './interface';
+import { ref } from 'vue';
+
+import type { RequestInterceptor, ResponseInterceptor } from '../es';
+import {
+  RequestHeaders,
+  type RxjsAxiosAPI,
+  type RxjsAxiosOptions,
+  type RxjsAxiosRequestConfig,
+  type RxjsReactiveResponse,
+} from './interface';
 
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 
@@ -27,38 +29,40 @@ function generateKey(uri: string, params: any, data: any, method: string) {
   return;
 }
 
-export interface RxjsAxiosOptions extends AxiosRequestConfig {
-  retry?: RetryConfig;
-  showRefreshToken?: (response: AxiosResponse) => boolean;
-  refreshAccessToken?: <T = any>() => Observable<AxiosResponse<T> | T>;
-  requestInterceptor?: RequestInterceptor;
-  responseInterceptor?: ResponseInterceptor;
-}
-
-export type RequestInterceptor = (
-  config: InternalAxiosRequestConfig,
-) => InternalAxiosRequestConfig | Promise<InternalAxiosRequestConfig>;
-
-export type ResponseInterceptor = (
-  response: AxiosResponse,
-) => AxiosResponse | Promise<AxiosResponse>;
-
-enum RequestHeaders {
-  HeaderDeviceID = 'X-Device-Id',
-}
-
-class RxjsAxios implements RxjsAxiosAPI {
+class HttpClient implements RxjsAxiosAPI {
   private _axiosInstance: AxiosInstance;
   private deviceID?: string | null = null;
-  private _refreshTokenInProgress = false;
 
   constructor(private readonly options: RxjsAxiosOptions = { timeout: 2500 }) {
     this._axiosInstance = axios.create({
       ...options,
     });
     this.initGrafanaDeviceID().then();
-    this._addRequestInterceptor(options?.requestInterceptor);
-    this._addResponseInterceptor(options?.responseInterceptor);
+    this._addRequestInterceptor(this.options?.requestInterceptor);
+    this._addResponseInterceptor(this.options?.responseInterceptor);
+    this.setRefreshTokenInterceptor();
+  }
+
+  private setRefreshTokenInterceptor() {
+    if (this.options?.refreshAccessToken) {
+      createAuthRefreshInterceptor(
+        this._axiosInstance,
+        (response: AxiosResponse): Promise<any> => {
+          return new Promise((resolve, reject) => {
+            //@ts-ignore
+            const refreshRequest = this.options.refreshAccessToken(response);
+            lastValueFrom(refreshRequest)
+              .then((res) => {
+                resolve(res);
+              })
+              .catch((err) => {
+                reject(err);
+              });
+          });
+        },
+        this.options,
+      );
+    }
   }
 
   private async initGrafanaDeviceID() {
@@ -71,6 +75,11 @@ class RxjsAxios implements RxjsAxiosAPI {
     }
   }
 
+  /**
+   * 添加请求拦截器,注意是先进后出
+   * @param interceptor
+   * @private
+   */
   private _addRequestInterceptor(interceptor?: RequestInterceptor) {
     this._axiosInstance.interceptors.request.use(
       (config) => {
@@ -78,15 +87,19 @@ class RxjsAxios implements RxjsAxiosAPI {
           config.headers.set(RequestHeaders.HeaderDeviceID, this.deviceID);
         }
 
-        const _config = interceptor ? interceptor(config) : config;
-        return _config;
+        return interceptor ? interceptor(config) : config;
       },
       (error) => {
-        return Promise.reject(error);
+        return Promise.reject(AxiosError.from(error));
       },
     );
   }
 
+  /**
+   * 添加响应拦截器,注意是先进先出
+   * @param interceptor
+   * @private
+   */
   private _addResponseInterceptor(interceptor?: ResponseInterceptor) {
     this._axiosInstance.interceptors.response.use(
       (value) => {
@@ -107,40 +120,10 @@ class RxjsAxios implements RxjsAxiosAPI {
     return this;
   }
 
-  request<T = any>(config: AxiosRequestConfig): Observable<AxiosResponse<T>>;
-  request<T = any>(
-    config: AxiosRequestConfig,
-    options: { getResponse: true },
-  ): Observable<T>;
-  request<T = any>(
-    config: AxiosRequestConfig,
-    options?: { getResponse: true },
-  ): Observable<AxiosResponse<T> | T> {
-    return this._request(config, options).pipe(
-      retry(this.options.retry || { count: 0 }),
-      tap((response) => {
-        if (
-          this.options.showRefreshToken &&
-          this.options.showRefreshToken(response)
-        ) {
-          console.log('Refresh token');
-          this._refreshTokenInProgress = true;
-        }
-      }),
-      map((response) =>
-        options?.getResponse === true ? response : response.data,
-      ),
-      catchError((err) => {
-        throw AxiosError.from(err);
-      }),
-    );
-  }
-
   private _request<T = any>(
     config: AxiosRequestConfig,
-    options?: { getResponse: true },
-  ): Observable<AxiosResponse<T> | T> {
-    return new Observable<AxiosResponse<T> | T>((subscriber) => {
+  ): Observable<AxiosResponse<T>> {
+    return new Observable<AxiosResponse<T>>((subscriber) => {
       const controller = new AbortController();
       const { signal } = controller;
       let abortable = true;
@@ -189,129 +172,104 @@ class RxjsAxios implements RxjsAxiosAPI {
     });
   }
 
-  get<T = any>(url: string, config?: RxjsAxiosRequestConfig): Observable<T>;
-  get<T = any>(
+  delete<T = any>(
     url: string,
-    config?: RxjsAxiosRequestConfig & { getResponse: true },
-  ): Observable<AxiosResponse<T>>;
-  get<T = any>(
-    url: string,
-    config?:
-      | RxjsAxiosRequestConfig
-      | (RxjsAxiosRequestConfig & { getResponse: true }),
-  ): Observable<AxiosResponse<T> | T> {
-    const _config = config || {};
-    return this.request<T>({ ..._config, url, method: 'GET' });
+    config?: RxjsAxiosRequestConfig,
+  ): Observable<AxiosResponse<T>> {
+    return this.request({ url, method: 'DELETE', ...config });
   }
 
-  delete<T = any>(url: string, config?: RxjsAxiosRequestConfig): Observable<T>;
-  delete<T = any>(
+  get<T = any>(
     url: string,
-    config?: RxjsAxiosRequestConfig & { getResponse: true },
-  ): Observable<AxiosResponse<T>>;
-  delete<T = any>(
-    url: string,
-    config?:
-      | RxjsAxiosRequestConfig
-      | (RxjsAxiosRequestConfig & { getResponse: true }),
-  ): Observable<AxiosResponse<T> | T> {
-    const _config = config || {};
-    return this.request<T>({ ..._config, url, method: 'DELETE' });
+    config?: RxjsAxiosRequestConfig,
+  ): Observable<AxiosResponse<T>> {
+    return this.request({ url, method: 'GET', ...config });
   }
 
   getUri(config?: RxjsAxiosRequestConfig): string {
     return this._axiosInstance.getUri(config);
   }
 
-  head<T = any>(url: string, config?: RxjsAxiosRequestConfig): Observable<T>;
   head<T = any>(
     url: string,
-    config?: RxjsAxiosRequestConfig & { getResponse: true },
-  ): Observable<AxiosResponse<T>>;
-  head<T = any>(
-    url: string,
-    config?:
-      | RxjsAxiosRequestConfig
-      | (RxjsAxiosRequestConfig & { getResponse: true }),
-  ): Observable<AxiosResponse<T> | T> {
-    const _config = config || {};
-    return this.request<T>({ ..._config, url, method: 'HEAD' });
+    config?: RxjsAxiosRequestConfig,
+  ): Observable<AxiosResponse<T>> {
+    return this.request({ url, method: 'HEAD', ...config });
   }
 
   patch<T = any>(
     url: string,
     data?: any,
     config?: RxjsAxiosRequestConfig,
-  ): Observable<T>;
-  patch<T = any>(
-    url: string,
-    data?: any,
-    config?: RxjsAxiosRequestConfig & {
-      getResponse: true;
-    },
-  ): Observable<AxiosResponse<T>>;
-  patch<T = any>(
-    url: string,
-    data?: any,
-    config?:
-      | RxjsAxiosRequestConfig
-      | (RxjsAxiosRequestConfig & {
-          getResponse: true;
-        }),
-  ): Observable<AxiosResponse<T> | T> {
-    const _config = config || {};
-    return this.request<T>({ ..._config, url, method: 'PATCH', data });
+  ): Observable<AxiosResponse<T>> {
+    return this.request({ url, data, method: 'PATCH', ...config });
   }
 
   post<T = any>(
     url: string,
     data?: any,
     config?: RxjsAxiosRequestConfig,
-  ): Observable<T>;
-  post<T = any>(
-    url: string,
-    data?: any,
-    config?: RxjsAxiosRequestConfig & {
-      getResponse: true;
-    },
-  ): Observable<AxiosResponse<T>>;
-  post<T = any>(
-    url: string,
-    data?: any,
-    config?:
-      | RxjsAxiosRequestConfig
-      | (RxjsAxiosRequestConfig & {
-          getResponse: true;
-        }),
-  ): Observable<AxiosResponse<T> | T> {
-    const _config = config || {};
-    return this.request<T>({ ..._config, url, method: 'POST', data });
+  ): Observable<AxiosResponse<T>> {
+    return this.request({ url, data, method: 'POST', ...config });
   }
 
   put<T = any>(
     url: string,
     data?: any,
     config?: RxjsAxiosRequestConfig,
-  ): Observable<T>;
-  put<T = any>(
-    url: string,
-    data?: any,
-    config?: RxjsAxiosRequestConfig & {
-      getResponse: true;
-    },
-  ): Observable<AxiosResponse<T>>;
-  put<T = any>(
-    url: string,
-    data?: any,
-    config?:
-      | RxjsAxiosRequestConfig
-      | (RxjsAxiosRequestConfig & {
-          getResponse: true;
-        }),
-  ): Observable<AxiosResponse<T> | T> {
-    const _config = config || {};
-    return this.request<T>({ ..._config, url, method: 'PUT', data });
+  ): Observable<AxiosResponse<T>> {
+    return this.request({ url, data, method: 'PUT', ...config });
+  }
+
+  request<T = any>(
+    config: RxjsAxiosRequestConfig,
+  ): Observable<AxiosResponse<T>> {
+    return this._request(config);
+  }
+
+  transformResponseReactive<T = any>(
+    response$: () => Observable<AxiosResponse<T>>,
+  ): RxjsReactiveResponse<T> {
+    const isLoading = ref(false);
+    const error = ref<Error>();
+    const data = ref<T>();
+    const isFinished = ref(false);
+    const response = ref<AxiosResponse<T>>();
+    const isAborted = ref(false);
+
+    const subscriber = response$().subscribe({
+      next: (res) => {
+        response.value = res;
+        data.value = res.data;
+        isFinished.value = true;
+      },
+      error: (err) => {
+        error.value = err;
+        isFinished.value = true;
+      },
+      complete: () => {
+        isFinished.value = true;
+      },
+    });
+
+    const abort = () => {
+      if (subscriber.closed) {
+        return;
+      }
+      isAborted.value = true;
+      subscriber.unsubscribe();
+    };
+
+    return {
+      isLoading,
+      error,
+      data,
+      isFinished,
+      response,
+      isAborted,
+      abort,
+    };
   }
 }
 
-export { RxjsAxios };
+export { HttpClient };

@@ -181,9 +181,13 @@ __metadata:
     "@types/uuid": "npm:^9"
     "@vue/tsconfig": "npm:^0.4.0"
     axios: "npm:^1.6.3"
+    axios-auth-refresh: "npm:^3.3.6"
     qs: "npm:^6.11.2"
     rxjs: "npm:^7.8.1"
     uuid: "npm:^9.0.1"
+    vue: "npm:^3.3.10"
+  peerDependencies:
+    vue: ^3.3.10
   languageName: unknown
   linkType: soft
 
@@ -3330,6 +3334,15 @@ __metadata:
   version: 1.12.0
   resolution: "aws4@npm:1.12.0"
   checksum: 1e39c266f53b04daf88e112de93a6006375b386a1b7ab6197260886e39abd012aa90bdd87949c3bf9c30754846031f6d5d8ac4f8676628097c11065b5d39847a
+  languageName: node
+  linkType: hard
+
+"axios-auth-refresh@npm:^3.3.6":
+  version: 3.3.6
+  resolution: "axios-auth-refresh@npm:3.3.6"
+  peerDependencies:
+    axios: ">= 0.18 < 0.19.0 || >= 0.19.1"
+  checksum: c0089eceeec697f239315ca0b3c79f95cf45831eac92c7f8a7475c776dfa2d64017450422981fbd39a6786fdf10e95c40b70fc70648ed5e2b7fe466ba1e1e4a8
   languageName: node
   linkType: hard
 
