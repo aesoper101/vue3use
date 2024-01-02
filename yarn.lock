@@ -174,7 +174,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aesoper/rxjs-axios@workspace:packages/rxjs-axios"
   dependencies:
-    "@aesoper/shared": "workspace:^"
+    "@aesoper/shared": "npm:^1.1.6"
     "@fingerprintjs/fingerprintjs": "npm:^4.2.1"
     "@tsconfig/node18": "npm:^18.2.2"
     "@types/qs": "npm:^6"
@@ -193,7 +193,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aesoper/shared@npm:^1.1.6, @aesoper/shared@workspace:^, @aesoper/shared@workspace:packages/shared":
+"@aesoper/shared@npm:^1.1.6, @aesoper/shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@aesoper/shared@workspace:packages/shared"
   dependencies:
