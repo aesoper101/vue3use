@@ -8,3 +8,13 @@ export const createHttpClient = (createOptions?: RxjsAxiosOptions) => {
 
   return new HttpClient(Object.assign(defaultOptions, createOptions || {}));
 };
+
+let httpClient = createHttpClient();
+
+export const setDefaultHttpClient = (client: HttpClient) => {
+  httpClient = client;
+};
+
+export const getDefaultHttpClient = () => {
+  return httpClient;
+};
