@@ -8,3 +8,4 @@ export * from './bool';
 export * from './proxy';
 export * from './number';
 export * from './object';
+export * from './unique';

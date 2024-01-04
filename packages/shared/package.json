@@ -43,7 +43,8 @@
   },
   "dependencies": {
     "vue": "^3.3.10",
-    "vue-types": "^5.1.1"
+    "vue-types": "^5.1.1",
+    "xss": "^1.0.14"
   },
   "publishConfig": {
     "access": "public",
