@@ -60,5 +60,5 @@ export function sortArray<T>(
   arr: T[],
   sort: SortOrder.Ascending | SortOrder.Descending,
 ): T[] {
-  return [...arr].sort(sortValues(sort));
+  return arr.slice().sort(sortValues(sort));
 }
