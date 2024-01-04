@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/config",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "> TODO: description",
   "author": {
     "name": "aesoper",
@@ -45,7 +45,7 @@
     "@vue/tsconfig": "^0.4.0"
   },
   "dependencies": {
-    "@aesoper/shared": "^1.1.7",
+    "@aesoper/shared": "^1.1.8",
     "lodash.get": "^4.4.2",
     "lodash.has": "^4.5.2"
   },
