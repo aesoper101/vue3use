@@ -25,8 +25,6 @@ export function renderContent(
     return content(props);
   }
 
-  // return content ?? defaultContent ?? null;
-
   if (!content) {
     return defaultContent ? renderContent(defaultContent) : null;
   }

@@ -6,3 +6,5 @@ export * from './array';
 export * from './env';
 export * from './bool';
 export * from './proxy';
+export * from './number';
+export * from './object';
