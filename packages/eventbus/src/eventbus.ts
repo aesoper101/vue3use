@@ -1,44 +1,114 @@
-import type { Func } from '@aesoper/shared';
-import mitt, { type EventType, type Handler } from 'mitt';
+import EventEmitter from 'eventemitter3';
+import { Observable, Subscriber, type Unsubscribable } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
-import type { EventBus } from './interface';
+import type {
+  BusEvent,
+  BusEventHandler,
+  BusEventType,
+  EventFilterOptions,
+  IEventBus,
+  IScopedEventBus,
+} from './interface';
 
-const emitter = mitt();
+export class EventBus implements IEventBus, IScopedEventBus {
+  private emitter: EventEmitter;
+  private subscribers = new Map<Function, Subscriber<BusEvent>>();
 
-export const useEventBus = (): EventBus => {
-  const on = (event: EventType, handler: Handler): Func => {
-    emitter.on(event, handler);
+  constructor() {
+    this.emitter = new EventEmitter();
+  }
 
-    return () => {
-      off(event, handler);
-    };
-  };
+  publish<T extends BusEvent>(event: T): void {
+    this.emitter.emit(event.type, event);
+  }
 
-  const once = (event: EventType, handler: Handler): Func => {
-    const _handler = (evt: unknown): void => {
-      off(event, _handler);
-      handler(evt);
-    };
-    return on(event, _handler);
-  };
+  subscribe<T extends BusEvent>(
+    typeFilter: BusEventType<T>,
+    handler: BusEventHandler<T>,
+  ): Unsubscribable {
+    return this.getStream(typeFilter).subscribe({ next: handler });
+  }
 
-  const off = (event: EventType, handler: Handler): void => {
-    emitter.off(event, handler);
-  };
+  getStream<T extends BusEvent = BusEvent>(
+    eventType: BusEventType<T>,
+  ): Observable<T> {
+    return new Observable<T>((observer) => {
+      const handler = (event: T) => {
+        observer.next(event);
+      };
 
-  const emit = (event: EventType, evtData: unknown): void => {
-    emitter.emit(event, evtData);
-  };
+      this.emitter.on(eventType.type, handler);
+      this.subscribers.set(handler, observer);
 
-  const clear = (): void => {
-    emitter.all.clear();
-  };
+      return () => {
+        this.emitter.off(eventType.type, handler);
+        this.subscribers.delete(handler);
+      };
+    });
+  }
 
-  return {
-    on,
-    once,
-    off,
-    emit,
-    clear,
-  };
-};
+  newScopedBus(key: string, filter?: EventFilterOptions): ScopedEventBus {
+    return new ScopedEventBus([key], this, filter);
+  }
+
+  removeAllListeners() {
+    this.emitter.removeAllListeners();
+    for (const [key, sub] of this.subscribers) {
+      sub.complete();
+      this.subscribers.delete(key);
+    }
+  }
+}
+
+class ScopedEventBus implements IEventBus, IScopedEventBus {
+  // will be mutated by panel runners
+  filterConfig: EventFilterOptions;
+
+  constructor(
+    public path: string[],
+    private eventBus: IEventBus,
+    filter?: EventFilterOptions,
+  ) {
+    this.filterConfig = filter ?? { onlyLocal: false };
+  }
+
+  publish<T extends BusEvent>(event: T): void {
+    if (!event.origin) {
+      event.origin = this;
+    }
+    this.eventBus.publish(event);
+  }
+
+  filter<T extends BusEvent>(event: T) {
+    if (this.filterConfig.onlyLocal) {
+      return event.origin === this;
+    }
+    return true;
+  }
+
+  getStream<T extends BusEvent>(eventType: BusEventType<T>): Observable<T> {
+    return this.eventBus
+      .getStream(eventType)
+      .pipe(filter(this.filter.bind(this)));
+  }
+
+  // syntax sugar
+  subscribe<T extends BusEvent>(
+    typeFilter: BusEventType<T>,
+    handler: BusEventHandler<T>,
+  ): Unsubscribable {
+    return this.getStream(typeFilter).subscribe({ next: handler });
+  }
+
+  removeAllListeners(): void {
+    this.eventBus.removeAllListeners();
+  }
+
+  /**
+   * Creates a nested event bus structure
+   */
+  newScopedBus(key: string, filter: EventFilterOptions): IEventBus {
+    return new ScopedEventBus([...this.path, key], this, filter);
+  }
+}

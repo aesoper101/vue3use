@@ -1,10 +1,66 @@
-import type { Func } from '@aesoper/shared';
-import type { EventType, Handler } from 'mitt';
+import { Observable, type Unsubscribable } from 'rxjs';
 
-export interface EventBus {
-  on(eventType: EventType, handler: Handler): Func;
-  once(eventType: EventType, handler: Handler): Func;
-  off(eventType: EventType, handler: Handler): void;
-  emit(eventType: EventType, evtData: unknown): void;
-  clear(): void;
+/**
+ *
+ * @internal
+ */
+export interface BusEvent {
+  readonly type: string;
+  readonly payload?: any;
+  origin?: IEventBus;
+}
+
+export abstract class BusEventBase implements BusEvent {
+  readonly type: string;
+  readonly payload?: any;
+  readonly origin?: IEventBus;
+
+  constructor() {
+    //@ts-ignore
+    this.type = this.__proto__.constructor.type;
+  }
+}
+
+export interface BusEventType<T extends BusEvent> {
+  type: string;
+  new (...args: any[]): T;
+}
+
+export interface BusEventHandler<T extends BusEvent> {
+  (event: T): void;
+}
+
+export interface EventFilterOptions {
+  onlyLocal: boolean;
+}
+
+export interface IEventBus {
+  /**
+   * Publish single event
+   */
+  publish<T extends BusEvent>(event: T): void;
+
+  /**
+   * Get observable of events
+   */
+  getStream<T extends BusEvent>(eventType: BusEventType<T>): Observable<T>;
+
+  /**
+   * Subscribe to an event stream
+   *
+   * This function is a wrapper around the `getStream(...)` function
+   */
+  subscribe<T extends BusEvent>(
+    eventType: BusEventType<T>,
+    handler: BusEventHandler<T>,
+  ): Unsubscribable;
+
+  /**
+   * Remove all event subscriptions
+   */
+  removeAllListeners(): void;
+}
+
+export interface IScopedEventBus {
+  newScopedBus(key: string, filter: EventFilterOptions): IEventBus;
 }

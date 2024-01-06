@@ -43,10 +43,11 @@
   },
   "dependencies": {
     "@aesoper/shared": "^1.1.8",
-    "mitt": "^3.0.1"
+    "eventemitter3": "^5.0.1",
+    "rxjs": "^7.8.1"
   },
   "peerDependencies": {
-    "mitt": "^3.0.1"
+    "rxjs": "^7.8.1"
   },
   "publishConfig": {
     "access": "public",
