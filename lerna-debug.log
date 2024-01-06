@@ -8,7 +8,7 @@
 2 verbose packageConfigs Explicit "packages" configuration found in lerna.json. Resolving packages using the configured glob(s): ["packages/*","build/*/**"]
 3 verbose rootPath /Users/aesoper/Desktop/vue3use
 4 info versioning independent
-5 verbose session 8b2f30237e205892
+5 verbose session 20e2502067136ff3
 6 verbose user-agent lerna/8.0.1/node@v18.18.0+x64 (darwin)
 7 silly argv { _: [ 'publish' ], composed: 'publish', lernaVersion: '8.0.1' }
 8 verbose packageConfigs Explicit "packages" configuration found in lerna.json. Resolving packages using the configured glob(s): ["packages/*","build/*/**"]
@@ -22,8 +22,8 @@
 16 silly isBehindUpstream main is behind origin/main by 0 commit(s) and ahead by 1
 17 silly hasTags
 18 verbose hasTags true
-19 silly git-describe.sync "@aesoper/eventbus@1.0.8-1-g76c6183" => {"lastTagName":"@aesoper/eventbus@1.0.8","lastVersion":"1.0.8","refCount":"1","sha":"76c6183","isDirty":false}
-20 info Looking for changed packages since @aesoper/eventbus@1.0.8
+19 silly git-describe.sync "@aesoper/eventbus@1.0.9-1-g1544d70" => {"lastTagName":"@aesoper/eventbus@1.0.9","lastVersion":"1.0.9","refCount":"1","sha":"1544d70","isDirty":false}
+20 info Looking for changed packages since @aesoper/eventbus@1.0.9
 21 info ignoring diff in paths matching [
 21 info ignoring diff in paths matching   'ignored-file',
 21 info ignoring diff in paths matching   '.gitignore',
@@ -62,8 +62,8 @@
 49 silly checking diff packages/storage
 50 silly no diff found in @aesoper/storage
 51 verbose updated @aesoper/eventbus
-52 verbose git-describe undefined => "@aesoper/eventbus@1.0.8-1-g76c6183"
-53 silly git-describe parsed => {"lastTagName":"@aesoper/eventbus@1.0.8","lastVersion":"1.0.8","refCount":"1","sha":"76c6183","isDirty":false}
+52 verbose git-describe undefined => "@aesoper/eventbus@1.0.9-1-g1544d70"
+53 silly git-describe parsed => {"lastTagName":"@aesoper/eventbus@1.0.9","lastVersion":"1.0.9","refCount":"1","sha":"1544d70","isDirty":false}
 54 info execute Skipping releases
 55 silly lifecycle No script for "preversion" in "vue3use", continuing
 56 silly lifecycle No script for "preversion" in "@aesoper/eventbus", continuing
@@ -77,14 +77,14 @@
 64 silly gitAdd [ 'packages/eventbus/package.json', 'yarn.lock' ]
 65 silly gitCommit chore(release): publish %v
 65 silly gitCommit
-65 silly gitCommit  - @aesoper/eventbus@1.0.9
+65 silly gitCommit  - @aesoper/eventbus@1.0.10
 66 verbose git [
 66 verbose git   'commit',
 66 verbose git   '-F',
-66 verbose git   '/private/var/folders/yc/swn83zm15c57rddbd8f5hr6c0000gn/T/3ac86cbb-cf32-4644-90f3-1e8ab6a1ee88/lerna-commit.txt'
+66 verbose git   '/private/var/folders/yc/swn83zm15c57rddbd8f5hr6c0000gn/T/e07c798d-802d-4508-b99a-e8d0ed5e4899/lerna-commit.txt'
 66 verbose git ]
-67 silly gitTag @aesoper/eventbus@1.0.9 git tag %s -m %s
-68 verbose git [ 'tag', '@aesoper/eventbus@1.0.9', '-m', '@aesoper/eventbus@1.0.9' ]
+67 silly gitTag @aesoper/eventbus@1.0.10 git tag %s -m %s
+68 verbose git [ 'tag', '@aesoper/eventbus@1.0.10', '-m', '@aesoper/eventbus@1.0.10' ]
 69 silly lifecycle No script for "postversion" in "@aesoper/eventbus", continuing
 70 silly lifecycle No script for "postversion" in "vue3use", continuing
 71 info git Pushing tags...
@@ -93,7 +93,7 @@
 74 notice Skipping all user and access validation due to third-party registry
 75 notice Make sure you're authenticated properly ¯\_(ツ)_/¯
 76 silly getCurrentSHA
-77 verbose getCurrentSHA e71fd1395cf8baabd8a342eb864db7140e3170ec
+77 verbose getCurrentSHA ebb9c5f757e6e0f229203683a0d029b073e20d87
 78 silly lifecycle No script for "prepublish" in "vue3use", continuing
 79 silly lifecycle No script for "prepare" in "vue3use", continuing
 80 silly lifecycle No script for "prepublishOnly" in "vue3use", continuing
