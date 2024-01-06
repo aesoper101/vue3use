@@ -9,3 +9,6 @@ export * from './proxy';
 export * from './number';
 export * from './object';
 export * from './unique';
+export * from './sanitize';
+export * from './string';
+export * from './file';

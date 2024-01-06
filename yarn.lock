@@ -199,11 +199,25 @@ __metadata:
   resolution: "@aesoper/shared@workspace:packages/shared"
   dependencies:
     "@aesoper/build-cli": "npm:^1.1.5"
+    "@braintree/sanitize-url": "npm:^7.0.0"
     "@tsconfig/node18": "npm:^18.2.2"
+    "@types/dompurify": "npm:^3"
+    "@types/lodash": "npm:^4"
     "@vue/tsconfig": "npm:^0.4.0"
+    dompurify: "npm:^3.0.8"
+    lodash: "npm:^4.17.21"
+    marked: "npm:^11.1.1"
+    marked-mangle: "npm:^1.1.6"
     vue: "npm:^3.3.10"
     vue-types: "npm:^5.1.1"
     xss: "npm:^1.0.14"
+  peerDependencies:
+    "@braintree/sanitize-url": ^7.0.0
+    dompurify: ^3.0.8
+    lodash: ^4.17.21
+    vue: ^3.3.10
+    vue-types: ^5.1.1
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -651,6 +665,13 @@ __metadata:
   version: 0.2.3
   resolution: "@bcoe/v8-coverage@npm:0.2.3"
   checksum: 6b80ae4cb3db53f486da2dc63b6e190a74c8c3cca16bb2733f234a0b6a9382b09b146488ae08e2b22cf00f6c83e20f3e040a2f7894f05c045c946d6a090b1d52
+  languageName: node
+  linkType: hard
+
+"@braintree/sanitize-url@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@braintree/sanitize-url@npm:7.0.0"
+  checksum: d167d0be5281825e5b92e4eabf88e7f39bb757833173e42964fd326958e36d6aa4167d7b1e76547f2749c455985de846f01f9d3165215c81c9e3c41c7afa1a1d
   languageName: node
   linkType: hard
 
@@ -2137,6 +2158,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/dompurify@npm:^3":
+  version: 3.0.5
+  resolution: "@types/dompurify@npm:3.0.5"
+  dependencies:
+    "@types/trusted-types": "npm:*"
+  checksum: a34dcc4498ca250815ccf9aecbe82df96ba5db247d0440cf266a876757d47c52519c240db3475e794d7deb0d6b1af23328e02879be368ad0e26b20c0f0865dba
+  languageName: node
+  linkType: hard
+
 "@types/ejs@npm:^3.1.5":
   version: 3.1.5
   resolution: "@types/ejs@npm:3.1.5"
@@ -2247,7 +2277,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:*, @types/lodash@npm:^4.14.182":
+"@types/lodash@npm:*, @types/lodash@npm:^4, @types/lodash@npm:^4.14.182":
   version: 4.14.202
   resolution: "@types/lodash@npm:4.14.202"
   checksum: 6064d43c8f454170841bd67c8266cc9069d9e570a72ca63f06bceb484cb4a3ee60c9c1f305c1b9e3a87826049fd41124b8ef265c4dd08b00f6766609c7fe9973
@@ -2362,6 +2392,13 @@ __metadata:
   version: 4.0.5
   resolution: "@types/tough-cookie@npm:4.0.5"
   checksum: 68c6921721a3dcb40451543db2174a145ef915bc8bcbe7ad4e59194a0238e776e782b896c7a59f4b93ac6acefca9161fccb31d1ce3b3445cb6faa467297fb473
+  languageName: node
+  linkType: hard
+
+"@types/trusted-types@npm:*":
+  version: 2.0.7
+  resolution: "@types/trusted-types@npm:2.0.7"
+  checksum: 4c4855f10de7c6c135e0d32ce462419d8abbbc33713b31d294596c0cc34ae1fa6112a2f9da729c8f7a20707782b0d69da3b1f8df6645b0366d08825ca1522e0c
   languageName: node
   linkType: hard
 
@@ -4863,6 +4900,13 @@ __metadata:
   dependencies:
     domelementtype: "npm:^2.3.0"
   checksum: bba1e5932b3e196ad6862286d76adc89a0dbf0c773e5ced1eb01f9af930c50093a084eff14b8de5ea60b895c56a04d5de8bbc4930c5543d029091916770b2d2a
+  languageName: node
+  linkType: hard
+
+"dompurify@npm:^3.0.8":
+  version: 3.0.8
+  resolution: "dompurify@npm:3.0.8"
+  checksum: e89e03d3dbd99abd64cd90705ce2cdfbc60ee9726ee53f9860e8a2d91b828ef2c173e7031529f9a3aa169ad0fbb76115c6a6683b545bf1ac5d94cc6176fb2a50
   languageName: node
   linkType: hard
 
@@ -8573,6 +8617,24 @@ __metadata:
   version: 0.1.0
   resolution: "map-stream@npm:0.1.0"
   checksum: 7dd6debe511c1b55d9da75e1efa65a28b1252a2d8357938d2e49b412713c478efbaefb0cdf0ee0533540c3bf733e8f9f71e1a15aa0fe74bf71b64e75bf1576bd
+  languageName: node
+  linkType: hard
+
+"marked-mangle@npm:^1.1.6":
+  version: 1.1.6
+  resolution: "marked-mangle@npm:1.1.6"
+  peerDependencies:
+    marked: ">=4 <12"
+  checksum: 952e08abdec08b8a6e20fc5d73e683d169cb0f34dee368f29aefc2ee40f0755d149bb8d7fd09940538a86dfdfd186e7fe1a13b03d19a61d80571427ec1299e26
+  languageName: node
+  linkType: hard
+
+"marked@npm:^11.1.1":
+  version: 11.1.1
+  resolution: "marked@npm:11.1.1"
+  bin:
+    marked: bin/marked.js
+  checksum: 77137491bb9610ceaa42a2f487ea00ec13836f19c3d41cabb80f16b283461a1d14285de42725c09d8a2fb029ae10633b07e76afc76113c8067e68eaedfdf8bf6
   languageName: node
   linkType: hard
 
