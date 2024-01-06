@@ -8,7 +8,7 @@
 2 verbose packageConfigs Explicit "packages" configuration found in lerna.json. Resolving packages using the configured glob(s): ["packages/*","build/*/**"]
 3 verbose rootPath /Users/aesoper/Desktop/vue3use
 4 info versioning independent
-5 verbose session eed40e7043bf25a0
+5 verbose session 8b2f30237e205892
 6 verbose user-agent lerna/8.0.1/node@v18.18.0+x64 (darwin)
 7 silly argv { _: [ 'publish' ], composed: 'publish', lernaVersion: '8.0.1' }
 8 verbose packageConfigs Explicit "packages" configuration found in lerna.json. Resolving packages using the configured glob(s): ["packages/*","build/*/**"]
@@ -19,11 +19,11 @@
 13 verbose currentBranch main
 14 silly remoteBranchExists
 15 silly isBehindUpstream
-16 silly isBehindUpstream main is behind origin/main by 0 commit(s) and ahead by 3
+16 silly isBehindUpstream main is behind origin/main by 0 commit(s) and ahead by 1
 17 silly hasTags
 18 verbose hasTags true
-19 silly git-describe.sync "@aesoper/rxjs-axios@1.0.2-3-ga3bae88" => {"lastTagName":"@aesoper/rxjs-axios@1.0.2","lastVersion":"1.0.2","refCount":"3","sha":"a3bae88","isDirty":false}
-20 info Looking for changed packages since @aesoper/rxjs-axios@1.0.2
+19 silly git-describe.sync "@aesoper/eventbus@1.0.8-1-g76c6183" => {"lastTagName":"@aesoper/eventbus@1.0.8","lastVersion":"1.0.8","refCount":"1","sha":"76c6183","isDirty":false}
+20 info Looking for changed packages since @aesoper/eventbus@1.0.8
 21 info ignoring diff in paths matching [
 21 info ignoring diff in paths matching   'ignored-file',
 21 info ignoring diff in paths matching   '.gitignore',
@@ -41,56 +41,51 @@
 28 silly checking diff packages/config
 29 silly no diff found in @aesoper/config
 30 silly checking diff packages/eventbus
-31 silly no diff found in @aesoper/eventbus
-32 silly checking diff packages/factory
-33 silly no diff found in @aesoper/factory
-34 silly checking diff packages/hooks
-35 silly no diff found in @aesoper/hooks
-36 silly checking diff packages/hotkey
-37 silly no diff found in @aesoper/hotkey
-38 silly checking diff packages/i18n
-39 silly no diff found in @aesoper/i18n
-40 silly checking diff packages/logger
-41 silly no diff found in @aesoper/logger
-42 silly checking diff packages/preference
-43 silly no diff found in @aesoper/preference
-44 silly checking diff packages/rxjs-axios
-45 silly found diff in packages/rxjs-axios/package.json
-46 verbose filtered diff [ 'packages/rxjs-axios/package.json' ]
+31 silly found diff in packages/eventbus/package.json
+32 verbose filtered diff [ 'packages/eventbus/package.json' ]
+33 silly checking diff packages/factory
+34 silly no diff found in @aesoper/factory
+35 silly checking diff packages/hooks
+36 silly no diff found in @aesoper/hooks
+37 silly checking diff packages/hotkey
+38 silly no diff found in @aesoper/hotkey
+39 silly checking diff packages/i18n
+40 silly no diff found in @aesoper/i18n
+41 silly checking diff packages/logger
+42 silly no diff found in @aesoper/logger
+43 silly checking diff packages/preference
+44 silly no diff found in @aesoper/preference
+45 silly checking diff packages/rxjs-axios
+46 silly no diff found in @aesoper/rxjs-axios
 47 silly checking diff packages/shared
 48 silly no diff found in @aesoper/shared
 49 silly checking diff packages/storage
 50 silly no diff found in @aesoper/storage
-51 verbose updated @aesoper/rxjs-axios
-52 verbose git-describe undefined => "@aesoper/rxjs-axios@1.0.2-3-ga3bae88"
-53 silly git-describe parsed => {"lastTagName":"@aesoper/rxjs-axios@1.0.2","lastVersion":"1.0.2","refCount":"3","sha":"a3bae88","isDirty":false}
+51 verbose updated @aesoper/eventbus
+52 verbose git-describe undefined => "@aesoper/eventbus@1.0.8-1-g76c6183"
+53 silly git-describe parsed => {"lastTagName":"@aesoper/eventbus@1.0.8","lastVersion":"1.0.8","refCount":"1","sha":"76c6183","isDirty":false}
 54 info execute Skipping releases
 55 silly lifecycle No script for "preversion" in "vue3use", continuing
-56 silly lifecycle No script for "preversion" in "@aesoper/rxjs-axios", continuing
-57 verbose version @aesoper/rxjs-axios has no lockfile. Skipping lockfile update.
-58 silly lifecycle No script for "version" in "@aesoper/rxjs-axios", continuing
+56 silly lifecycle No script for "preversion" in "@aesoper/eventbus", continuing
+57 verbose version @aesoper/eventbus has no lockfile. Skipping lockfile update.
+58 silly lifecycle No script for "version" in "@aesoper/eventbus", continuing
 59 silly lifecycle No script for "version" in "vue3use", continuing
 60 verbose version Detected yarn version 4.0.2
 61 verbose version Updating root yarn.lock
-62 silly version Successfully applied prettier to updated file: packages/rxjs-axios/package.json
+62 silly version Successfully applied prettier to updated file: packages/eventbus/package.json
 63 silly version Failed to apply prettier to updated file: yarn.lock
-64 silly gitAdd [ 'packages/rxjs-axios/package.json', 'yarn.lock' ]
+64 silly gitAdd [ 'packages/eventbus/package.json', 'yarn.lock' ]
 65 silly gitCommit chore(release): publish %v
 65 silly gitCommit
-65 silly gitCommit  - @aesoper/rxjs-axios@1.0.4
+65 silly gitCommit  - @aesoper/eventbus@1.0.9
 66 verbose git [
 66 verbose git   'commit',
 66 verbose git   '-F',
-66 verbose git   '/private/var/folders/yc/swn83zm15c57rddbd8f5hr6c0000gn/T/cbdc215a-e230-4f6f-88f4-ef3217eab497/lerna-commit.txt'
+66 verbose git   '/private/var/folders/yc/swn83zm15c57rddbd8f5hr6c0000gn/T/3ac86cbb-cf32-4644-90f3-1e8ab6a1ee88/lerna-commit.txt'
 66 verbose git ]
-67 silly gitTag @aesoper/rxjs-axios@1.0.4 git tag %s -m %s
-68 verbose git [
-68 verbose git   'tag',
-68 verbose git   '@aesoper/rxjs-axios@1.0.4',
-68 verbose git   '-m',
-68 verbose git   '@aesoper/rxjs-axios@1.0.4'
-68 verbose git ]
-69 silly lifecycle No script for "postversion" in "@aesoper/rxjs-axios", continuing
+67 silly gitTag @aesoper/eventbus@1.0.9 git tag %s -m %s
+68 verbose git [ 'tag', '@aesoper/eventbus@1.0.9', '-m', '@aesoper/eventbus@1.0.9' ]
+69 silly lifecycle No script for "postversion" in "@aesoper/eventbus", continuing
 70 silly lifecycle No script for "postversion" in "vue3use", continuing
 71 info git Pushing tags...
 72 silly gitPush origin main
@@ -98,21 +93,21 @@
 74 notice Skipping all user and access validation due to third-party registry
 75 notice Make sure you're authenticated properly ¯\_(ツ)_/¯
 76 silly getCurrentSHA
-77 verbose getCurrentSHA b67520ed755158965ad611f32bad164eae1f5344
+77 verbose getCurrentSHA e71fd1395cf8baabd8a342eb864db7140e3170ec
 78 silly lifecycle No script for "prepublish" in "vue3use", continuing
 79 silly lifecycle No script for "prepare" in "vue3use", continuing
 80 silly lifecycle No script for "prepublishOnly" in "vue3use", continuing
 81 silly lifecycle No script for "prepack" in "vue3use", continuing
-82 verbose pack-directory packages/rxjs-axios
-83 silly lifecycle No script for "prepublish" in "@aesoper/rxjs-axios", continuing
-84 silly lifecycle No script for "prepare" in "@aesoper/rxjs-axios", continuing
-85 silly lifecycle No script for "prepublishOnly" in "@aesoper/rxjs-axios", continuing
-86 silly lifecycle No script for "prepack" in "@aesoper/rxjs-axios", continuing
-87 silly lifecycle No script for "postpack" in "@aesoper/rxjs-axios", continuing
-88 verbose packed packages/rxjs-axios
+82 verbose pack-directory packages/eventbus
+83 silly lifecycle No script for "prepublish" in "@aesoper/eventbus", continuing
+84 silly lifecycle No script for "prepare" in "@aesoper/eventbus", continuing
+85 silly lifecycle No script for "prepublishOnly" in "@aesoper/eventbus", continuing
+86 silly lifecycle No script for "prepack" in "@aesoper/eventbus", continuing
+87 silly lifecycle No script for "postpack" in "@aesoper/eventbus", continuing
+88 verbose packed packages/eventbus
 89 silly lifecycle No script for "postpack" in "vue3use", continuing
-90 verbose publish @aesoper/rxjs-axios
-91 silly FetchError: request to https://registry.npmjs.org/@aesoper%2frxjs-axios failed, reason: connect ETIMEDOUT 104.16.0.35:443
+90 verbose publish @aesoper/eventbus
+91 silly FetchError: request to https://registry.npmjs.org/@aesoper%2feventbus failed, reason: connect ETIMEDOUT 104.16.29.34:443
 91 silly     at ClientRequest.<anonymous> (/Users/aesoper/Desktop/vue3use/node_modules/minipass-fetch/lib/index.js:130:14)
 91 silly     at ClientRequest.emit (node:events:517:28)
 91 silly     at TLSSocket.socketErrorListener (node:_http_client:501:9)
@@ -120,7 +115,7 @@
 91 silly     at emitErrorNT (node:internal/streams/destroy:151:8)
 91 silly     at emitErrorCloseNT (node:internal/streams/destroy:116:3)
 91 silly     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
-91 silly  FetchError: request to https://registry.npmjs.org/@aesoper%2frxjs-axios failed, reason: connect ETIMEDOUT 104.16.0.35:443
+91 silly  FetchError: request to https://registry.npmjs.org/@aesoper%2feventbus failed, reason: connect ETIMEDOUT 104.16.29.34:443
 91 silly     at ClientRequest.<anonymous> (/Users/aesoper/Desktop/vue3use/node_modules/minipass-fetch/lib/index.js:130:14)
 91 silly     at ClientRequest.emit (node:events:517:28)
 91 silly     at TLSSocket.socketErrorListener (node:_http_client:501:9)
@@ -131,14 +126,14 @@
 91 silly   code: 'ETIMEDOUT',
 91 silly   errno: 'ETIMEDOUT',
 91 silly   syscall: 'connect',
-91 silly   address: '104.16.0.35',
+91 silly   address: '104.16.29.34',
 91 silly   port: 443,
 91 silly   type: 'system'
 91 silly }
-92 warn notice Package failed to publish: @aesoper/rxjs-axios
-93 error ETIMEDOUT request to https://registry.npmjs.org/@aesoper%2frxjs-axios failed, reason: connect ETIMEDOUT 104.16.0.35:443
+92 warn notice Package failed to publish: @aesoper/eventbus
+93 error ETIMEDOUT request to https://registry.npmjs.org/@aesoper%2feventbus failed, reason: connect ETIMEDOUT 104.16.29.34:443
 94 error errno "ETIMEDOUT" is not a valid exit code - exiting with code 1
-95 error FetchError: request to https://registry.npmjs.org/@aesoper%2frxjs-axios failed, reason: connect ETIMEDOUT 104.16.0.35:443
+95 error FetchError: request to https://registry.npmjs.org/@aesoper%2feventbus failed, reason: connect ETIMEDOUT 104.16.29.34:443
 95 error     at ClientRequest.<anonymous> (/Users/aesoper/Desktop/vue3use/node_modules/minipass-fetch/lib/index.js:130:14)
 95 error     at ClientRequest.emit (node:events:517:28)
 95 error     at TLSSocket.socketErrorListener (node:_http_client:501:9)
