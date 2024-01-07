@@ -171,6 +171,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aesoper/registry@workspace:packages/registry":
+  version: 0.0.0-use.local
+  resolution: "@aesoper/registry@workspace:packages/registry"
+  dependencies:
+    "@tsconfig/node18": "npm:^18.2.2"
+    "@vue/tsconfig": "npm:^0.4.0"
+  languageName: unknown
+  linkType: soft
+
 "@aesoper/rxjs-axios@workspace:packages/rxjs-axios":
   version: 0.0.0-use.local
   resolution: "@aesoper/rxjs-axios@workspace:packages/rxjs-axios"

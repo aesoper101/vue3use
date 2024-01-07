@@ -1,5 +1,4 @@
-import type { KeyHandler } from 'hotkeys-js';
-import type { HotkeysEvent } from 'hotkeys-js';
+import type { HotkeysEvent, KeyHandler } from 'hotkeys-js';
 
 export type HotKeyHandler = KeyHandler;
 export interface HotKyeBindOptions {
@@ -17,18 +16,18 @@ export interface UnbindKeyDisposer {
 }
 
 export interface HotKyeManager {
-  bindKey(
+  isPressed: (keyCode: number | string) => boolean;
+  getPressedKeyCodes: () => number[];
+  getAllKeyCodes: () => Omit<HotkeysEvent, 'method' | 'key'>[];
+  getPressedKeyString: () => string[];
+  deleteScope: (scopeName: string) => void;
+  trigger: (key: string, scope?: string) => void;
+  setScope: (scopeName: string) => void;
+  unbindKey: (key: string, scope?: string, handler?: HotKeyHandler) => void;
+  bindKey: (
     key: string,
     handler: HotKeyHandler,
-    option?: HotKyeBindOptions,
-  ): UnbindKeyDisposer;
-  unbindKey(key: string, scope?: string, handler?: HotKeyHandler): void;
-  setScope(scopeName: string): void;
-  getScope(): string;
-  deleteScope(scopeName: string): void;
-  getPressedKeyCodes(): number[];
-  isPressed(keyCode: number | string): boolean;
-  trigger(key: string, scope?: string): void;
-  getAllKeyCodes(): Omit<HotkeysEvent, 'method' | 'key'>;
-  getPressedKeyString(): string[];
+    options?: HotKyeBindOptions,
+  ) => () => void;
+  getScope: () => string;
 }

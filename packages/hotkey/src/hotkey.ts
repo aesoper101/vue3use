@@ -1,4 +1,4 @@
-import hotkeys from 'hotkeys-js';
+import hotkeys, { type HotkeysEvent } from 'hotkeys-js';
 
 import type {
   HotKeyHandler,
@@ -53,10 +53,10 @@ export const useHotKey = (): HotKyeManager => {
   };
 
   const trigger = (key: string, scope?: string) => {
-    hotkeys.trigger(key);
+    hotkeys.trigger(key, scope);
   };
 
-  const getAllKeyCodes = () => {
+  const getAllKeyCodes = (): Omit<HotkeysEvent, 'method' | 'key'>[] => {
     return hotkeys.getAllKeyCodes();
   };
 
