@@ -12,3 +12,4 @@ export * from './unique';
 export * from './sanitize';
 export * from './string';
 export * from './file';
+export * from './set';

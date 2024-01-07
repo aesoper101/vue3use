@@ -1,3 +1,5 @@
+import { isArray, isPlainObject } from 'lodash';
+
 export const isEmptyObject = (
   value: unknown,
 ): value is Record<string, never> => {
@@ -8,72 +10,70 @@ export const isEmptyObject = (
   );
 };
 
-export const removeObjectUndefined = (obj: { [key: string]: unknown }) => {
-  return Object.keys(obj).reduce((acc: { [key: string]: unknown }, key) => {
-    if (obj[key] !== undefined) {
-      acc[key] = obj[key];
-    }
-    return acc;
-  }, {});
-};
-
-export const deepRemoveObjectUndefined = (obj: { [key: string]: unknown }) => {
-  return Object.keys(obj).reduce((acc: { [key: string]: unknown }, key) => {
-    if (obj[key] !== undefined) {
-      if (typeof obj[key] === 'object') {
-        acc[key] = deepRemoveObjectUndefined(
-          obj[key] as { [key: string]: unknown },
-        );
-      } else {
-        acc[key] = obj[key];
+export function deepCloneWithoutNulls<T extends {}>(value: T): T {
+  if (isArray(value)) {
+    return value.map(deepCloneWithoutNulls) as unknown as T;
+  }
+  if (isPlainObject(value)) {
+    return Object.keys(value).reduce((acc: any, key) => {
+      const v = (value as any)[key];
+      if (v != null) {
+        acc[key] = deepCloneWithoutNulls(v);
       }
-    }
-    return acc;
-  }, {});
-};
+      return acc;
+    }, {});
+  }
+  return value;
+}
 
-export const removeObjectNull = (obj: { [key: string]: unknown }) => {
-  return Object.keys(obj).reduce((acc: { [key: string]: unknown }, key) => {
-    if (obj[key] !== null) {
-      acc[key] = obj[key];
-    }
-    return acc;
-  }, {});
-};
+export function sortedDeepCloneWithoutNulls<T extends {}>(value: T): T {
+  if (isArray(value)) {
+    return value.map(sortedDeepCloneWithoutNulls) as unknown as T;
+  }
+  if (isPlainObject(value)) {
+    return Object.keys(value)
+      .sort()
+      .reduce((acc: any, key) => {
+        const v = (value as any)[key];
+        if (v != null) {
+          acc[key] = sortedDeepCloneWithoutNulls(v);
+        }
+        return acc;
+      }, {});
+  }
+  return value;
+}
 
-export const deepRemoveObjectNull = (obj: { [key: string]: unknown }) => {
-  return Object.keys(obj).reduce((acc: { [key: string]: unknown }, key) => {
-    if (obj[key] !== null) {
-      if (typeof obj[key] === 'object') {
-        acc[key] = deepRemoveObjectNull(obj[key] as { [key: string]: unknown });
-      } else {
-        acc[key] = obj[key];
+export function deepCloneWithoutNonValues<T extends {}>(value: T): T {
+  if (isArray(value)) {
+    return value.map(deepCloneWithoutNonValues) as unknown as T;
+  }
+  if (isPlainObject(value)) {
+    return Object.keys(value).reduce((acc: any, key) => {
+      const v = (value as any)[key];
+      if (v != null || v != undefined) {
+        acc[key] = deepCloneWithoutNonValues(v);
       }
-    }
-    return acc;
-  }, {});
-};
+      return acc;
+    }, {});
+  }
+  return value;
+}
 
-export const removeObjectEmpty = (obj: { [key: string]: unknown }) => {
-  return Object.keys(obj).reduce((acc: { [key: string]: unknown }, key) => {
-    if (obj[key] !== '' || obj[key] !== null || obj[key] !== undefined) {
-      acc[key] = obj[key];
-    }
-    return acc;
-  }, {});
-};
-
-export const deepRemoveObjectEmpty = (obj: { [key: string]: unknown }) => {
-  return Object.keys(obj).reduce((acc: { [key: string]: unknown }, key) => {
-    if (obj[key] !== '' || obj[key] !== null || obj[key] !== undefined) {
-      if (typeof obj[key] === 'object') {
-        acc[key] = deepRemoveObjectEmpty(
-          obj[key] as { [key: string]: unknown },
-        );
-      } else {
-        acc[key] = obj[key];
-      }
-    }
-    return acc;
-  }, {});
-};
+export function sortedDeepCloneWithoutNonValues<T extends {}>(value: T): T {
+  if (isArray(value)) {
+    return value.map(sortedDeepCloneWithoutNonValues) as unknown as T;
+  }
+  if (isPlainObject(value)) {
+    return Object.keys(value)
+      .sort()
+      .reduce((acc: any, key) => {
+        const v = (value as any)[key];
+        if (v != null || v != undefined) {
+          acc[key] = sortedDeepCloneWithoutNonValues(v);
+        }
+        return acc;
+      }, {});
+  }
+  return value;
+}
