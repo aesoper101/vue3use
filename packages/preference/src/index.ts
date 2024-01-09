@@ -6,19 +6,30 @@ import { Preference } from './preference';
 export * from './interface';
 export * from './preference';
 
-const preference = new Preference();
+let preference = new Preference();
+
+/**
+ * @zh 设置偏好设置实例, 一般不需要设置, 除非需要自定义偏好设置,注意必须在使用偏好设置之前设置
+ * @en Set preference instance , generally no need to set, unless you need to customize the preference settings, note that you must set before using the preference settings
+ * @param instance
+ */
+export function setPreferenceInstance(instance: Preference) {
+  preference = instance;
+}
 
 export function getPreferenceInstance() {
   return preference;
 }
 
-function getPreference<T = any>(
+export function getPreference<T = any>(
   options: string,
   defaultValue?: T,
   module?: string,
 ): Nullable<T>;
-function getPreference<T = any>(options: PreferenceGetOptions<T>): Promise<T>;
-function getPreference<T = any>(
+export function getPreference<T = any>(
+  options: PreferenceGetOptions<T>,
+): Promise<T>;
+export function getPreference<T = any>(
   options: string | PreferenceGetOptions<T>,
   defaultValue?: T,
   module?: string,
@@ -43,9 +54,12 @@ function setPreference<T = any>(
   }
 }
 
-function hasPreference(key: string, module?: string): boolean;
-function hasPreference(options: { key: string; module?: string }): boolean;
-function hasPreference(
+export function hasPreference(key: string, module?: string): boolean;
+export function hasPreference(options: {
+  key: string;
+  module?: string;
+}): boolean;
+export function hasPreference(
   key: string | { key: string; module?: string },
   module?: string,
 ): boolean {
@@ -54,5 +68,3 @@ function hasPreference(
   }
   return preference.has(key.key, key.module);
 }
-
-export { getPreference, setPreference, hasPreference };

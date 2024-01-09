@@ -1,16 +1,29 @@
 import { isString } from '@aesoper/shared';
 
 import { Config } from './config';
-import type { ConfigSetOptions } from './interface';
+import type { ConfigInterface, ConfigSetOptions } from './interface';
 
 export * from './interface';
 export * from './config';
 
-const config = new Config();
+let config: ConfigInterface = new Config();
 
-function defineConfig<T = any>(key: string, value: T): T;
-function defineConfig<T = any>(options: ConfigSetOptions<T>): Promise<T>;
-function defineConfig<T = any>(
+/**
+ * @zh 设置配置实例, 一般不需要设置, 除非需要自定义配置,注意必须在使用配置之前设置
+ * @en Set config instance , generally no need to set, unless you need to customize the config, note that you must set before using the config
+ * @param instance
+ */
+export function setConfigInstance(instance: ConfigInterface) {
+  config = instance;
+}
+
+export function getConfigInstance(): ConfigInterface {
+  return config;
+}
+
+export function defineConfig<T = any>(key: string, value: T): T;
+export function defineConfig<T = any>(options: ConfigSetOptions<T>): Promise<T>;
+export function defineConfig<T = any>(
   key: string | ConfigSetOptions<T>,
   value?: T,
 ): any {
@@ -21,9 +34,9 @@ function defineConfig<T = any>(
   }
 }
 
-function getConfig<T = any>(key: string, defaultValue?: T): T;
-function getConfig<T = any>(options: ConfigSetOptions<T>): Promise<T>;
-function getConfig<T = any>(
+export function getConfig<T = any>(key: string, defaultValue?: T): T;
+export function getConfig<T = any>(options: ConfigSetOptions<T>): Promise<T>;
+export function getConfig<T = any>(
   key: string | ConfigSetOptions<T>,
   defaultValue?: T,
 ): any {
@@ -34,20 +47,14 @@ function getConfig<T = any>(
   }
 }
 
-function hasConfig(key: string): boolean {
+export function hasConfig(key: string): boolean {
   return config.has(key);
 }
 
-function batchSetConfig(options: Record<string, any>): void;
-function batchSetConfig(options: ConfigSetOptions[]): Promise<void>;
-function batchSetConfig(
+export function batchSetConfig(options: Record<string, any>): void;
+export function batchSetConfig(options: ConfigSetOptions[]): Promise<void>;
+export function batchSetConfig(
   options: Record<string, any> | ConfigSetOptions[],
 ): void | Promise<void> {
   return config.batchSet(options);
 }
-
-export function getConfigInstance() {
-  return config;
-}
-
-export { defineConfig, getConfig, hasConfig, batchSetConfig };

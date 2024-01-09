@@ -113,15 +113,67 @@ export const useI18n = () => {
   };
 };
 
-export type UseI18n = ReturnType<typeof useI18n>;
+export type UseI18nInstance = ReturnType<typeof useI18n>;
 
 export type TranslateFunc = () => string;
 
-export const i18n = (key: string, options?: any): TranslateFunc => {
-  const { t } = useI18n();
-  return () => t(key, options) || key;
-};
+type True = true;
+type False = false;
 
-export const translate = (fn: TranslateFunc): string => {
-  return fn();
-};
+export function t(key: string, options?: any, immediate?: False): TranslateFunc;
+export function t(key: string, options?: any, immediate?: True): string;
+export function t(
+  key: string,
+  options?: any,
+  immediate?: boolean,
+): TranslateFunc | string {
+  const { t: translate } = useI18n();
+  if (immediate === true) {
+    return translate(key, options);
+  }
+
+  if (!options) {
+    return () => translate(key) || key;
+  }
+
+  return () => translate(key, options) || key;
+}
+
+export function tm(key: string, immediate?: False): TranslateFunc;
+export function tm(key: string, immediate?: True): string;
+export function tm(key: string, immediate?: boolean): TranslateFunc | string {
+  const { tm: translate } = useI18n();
+  if (immediate === true) {
+    return translate(key);
+  }
+
+  return () => translate(key) || key;
+}
+
+export function rt(
+  key: string,
+  options?: any,
+  immediate?: False,
+): TranslateFunc;
+export function rt(key: string, options?: any, immediate?: True): string;
+export function rt(
+  key: string,
+  options?: any,
+  immediate?: boolean,
+): TranslateFunc | string {
+  const { rt: translate } = useI18n();
+  if (immediate === true) {
+    return translate(key, options);
+  }
+
+  if (!options) {
+    return () => translate(key) || key;
+  }
+
+  return () => translate(key, options) || key;
+}
+
+export function te(key: string): boolean {
+  const { te: translate } = useI18n();
+  return translate(key);
+}
