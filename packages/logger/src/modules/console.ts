@@ -4,32 +4,32 @@ export class ConsoleLogger implements ILogger {
   private readonly level: string = 'info';
   private readonly namespace: string = '';
 
-  constructor(options?: LoggerOptions) {
+  constructor(private readonly options?: LoggerOptions) {
     this.level = options?.level || 'info';
     this.namespace = options?.namespace || '';
   }
-  private group(): void {
+  private _group(): void {
     if (this.namespace) {
       console.group(this.namespace);
     }
   }
   debug(message: string, ...args: any[]): void {
     if (this.level === 'debug' || this.level === 'trace') {
-      this.group();
+      this._group();
       console.debug(message, ...args);
     }
   }
 
   error(message: string, ...args: any[]): void {
     if (this.level === 'error' || this.level === 'fatal') {
-      this.group();
+      this._group();
       console.error(message, ...args);
     }
   }
 
   fatal(message: string, ...args: any[]): void {
     if (this.level === 'fatal') {
-      this.group();
+      this._group();
       console.error(message, ...args);
     }
   }
@@ -40,14 +40,14 @@ export class ConsoleLogger implements ILogger {
       this.level === 'debug' ||
       this.level === 'trace'
     ) {
-      this.group();
+      this._group();
       console.info(message, ...args);
     }
   }
 
   trace(message: string, ...args: any[]): void {
     if (this.level === 'trace') {
-      this.group();
+      this._group();
       console.trace(message, ...args);
     }
   }
@@ -58,8 +58,15 @@ export class ConsoleLogger implements ILogger {
       this.level === 'error' ||
       this.level === 'fatal'
     ) {
-      this.group();
+      this._group();
       console.warn(message, ...args);
     }
+  }
+
+  group(name: string): ILogger {
+    return new ConsoleLogger({
+      ...(this.options || {}),
+      namespace: this.namespace ? `${this.namespace}:${name}` : name,
+    });
   }
 }

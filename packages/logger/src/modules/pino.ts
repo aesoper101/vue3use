@@ -5,7 +5,7 @@ import type { ILogger, LogLevel, LoggerOptions } from '../interface';
 export class PinoLogger implements ILogger {
   private readonly logger: Logger;
 
-  constructor(options?: LoggerOptions) {
+  constructor(private readonly options?: LoggerOptions) {
     this.logger = pino({
       name: options?.namespace,
       browser: { asObject: true },
@@ -53,5 +53,14 @@ export class PinoLogger implements ILogger {
 
   warn(message: string, ...args: any[]): void {
     this.logger.warn(message, ...args);
+  }
+
+  group(name: string): ILogger {
+    return new PinoLogger({
+      ...(this.options || {}),
+      namespace: this.options?.namespace
+        ? `${this.options?.namespace}:${name}`
+        : name,
+    });
   }
 }

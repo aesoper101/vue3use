@@ -10,7 +10,7 @@ import type {
 export class ConsolaLogger implements ILogger {
   private logger: ConsolaInstance;
 
-  constructor(options?: LoggerOptions) {
+  constructor(private readonly options?: LoggerOptions) {
     this.logger = createConsola({
       level: this.convertLogLevel(options?.level || 'info'),
     });
@@ -19,7 +19,7 @@ export class ConsolaLogger implements ILogger {
     }
   }
 
-  convertLogLevel(level: InnerLogLevel): LogLevel {
+  private convertLogLevel(level: InnerLogLevel): LogLevel {
     switch (level) {
       case 'trace':
         return 5;
@@ -64,5 +64,14 @@ export class ConsolaLogger implements ILogger {
 
   warn(message: string, ...args: any[]): void {
     this.logger.warn({ message, args });
+  }
+
+  group(name: string): ILogger {
+    return new ConsolaLogger({
+      ...(this.options || {}),
+      namespace: this.options?.namespace
+        ? `${this.options?.namespace}:${name}`
+        : name,
+    });
   }
 }

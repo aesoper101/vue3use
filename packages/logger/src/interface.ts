@@ -17,4 +17,6 @@ export interface ILogger {
   error(message: string, ...args: any[]): void;
 
   fatal(message: string, ...args: any[]): void;
+
+  group(name: string): ILogger;
 }

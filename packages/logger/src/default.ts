@@ -37,3 +37,7 @@ export function logError(message: string, ...args: any[]) {
 export function logFatal(message: string, ...args: any[]) {
   defaultLogger.fatal(message, ...args);
 }
+
+export function logGroup(name: string): ILogger {
+  return defaultLogger.group(name);
+}

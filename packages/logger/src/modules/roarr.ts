@@ -14,7 +14,7 @@ ROARR.write = (message: string) => {
 export class RoarrLogger implements ILogger {
   private readonly logger: Logger;
 
-  constructor(options?: LoggerOptions) {
+  constructor(private readonly options?: LoggerOptions) {
     this.logger = Roarr.child({
       namespace: options?.namespace || 'default',
     });
@@ -50,5 +50,14 @@ export class RoarrLogger implements ILogger {
 
   warn(message: string, ...args: any[]): void {
     this.logger.warn(this.stringifyMessage(message, ...args));
+  }
+
+  group(name: string): ILogger {
+    return new RoarrLogger({
+      ...(this.options || {}),
+      namespace: this.options?.namespace
+        ? `${this.options?.namespace}:${name}`
+        : name,
+    });
   }
 }
