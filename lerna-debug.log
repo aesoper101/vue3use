@@ -8,7 +8,7 @@
 2 verbose packageConfigs Explicit "packages" configuration found in lerna.json. Resolving packages using the configured glob(s): ["packages/*","build/*/**"]
 3 verbose rootPath /Users/aesoper/Desktop/vue3use
 4 info versioning independent
-5 verbose session 20e2502067136ff3
+5 verbose session a68cfa40eca9fa8d
 6 verbose user-agent lerna/8.0.1/node@v18.18.0+x64 (darwin)
 7 silly argv { _: [ 'publish' ], composed: 'publish', lernaVersion: '8.0.1' }
 8 verbose packageConfigs Explicit "packages" configuration found in lerna.json. Resolving packages using the configured glob(s): ["packages/*","build/*/**"]
@@ -22,8 +22,8 @@
 16 silly isBehindUpstream main is behind origin/main by 0 commit(s) and ahead by 1
 17 silly hasTags
 18 verbose hasTags true
-19 silly git-describe.sync "@aesoper/eventbus@1.0.9-1-g1544d70" => {"lastTagName":"@aesoper/eventbus@1.0.9","lastVersion":"1.0.9","refCount":"1","sha":"1544d70","isDirty":false}
-20 info Looking for changed packages since @aesoper/eventbus@1.0.9
+19 silly git-describe.sync "@aesoper/config@1.0.8-1-g8a869d5" => {"lastTagName":"@aesoper/config@1.0.8","lastVersion":"1.0.8","refCount":"1","sha":"8a869d5","isDirty":false}
+20 info Looking for changed packages since @aesoper/config@1.0.8
 21 info ignoring diff in paths matching [
 21 info ignoring diff in paths matching   'ignored-file',
 21 info ignoring diff in paths matching   '.gitignore',
@@ -41,102 +41,116 @@
 28 silly checking diff packages/config
 29 silly no diff found in @aesoper/config
 30 silly checking diff packages/eventbus
-31 silly found diff in packages/eventbus/package.json
-32 verbose filtered diff [ 'packages/eventbus/package.json' ]
-33 silly checking diff packages/factory
-34 silly no diff found in @aesoper/factory
-35 silly checking diff packages/hooks
-36 silly no diff found in @aesoper/hooks
-37 silly checking diff packages/hotkey
-38 silly no diff found in @aesoper/hotkey
-39 silly checking diff packages/i18n
-40 silly no diff found in @aesoper/i18n
-41 silly checking diff packages/logger
-42 silly no diff found in @aesoper/logger
+31 silly no diff found in @aesoper/eventbus
+32 silly checking diff packages/factory
+33 silly no diff found in @aesoper/factory
+34 silly checking diff packages/hooks
+35 silly no diff found in @aesoper/hooks
+36 silly checking diff packages/hotkey
+37 silly no diff found in @aesoper/hotkey
+38 silly checking diff packages/i18n
+39 silly no diff found in @aesoper/i18n
+40 silly checking diff packages/logger
+41 silly found diff in packages/logger/src/default.ts
+41 silly found diff in packages/logger/src/interface.ts
+41 silly found diff in packages/logger/src/modules/consola.ts
+41 silly found diff in packages/logger/src/modules/console.ts
+41 silly found diff in packages/logger/src/modules/pino.ts
+41 silly found diff in packages/logger/src/modules/roarr.ts
+42 verbose filtered diff [
+42 verbose filtered diff   'packages/logger/src/default.ts',
+42 verbose filtered diff   'packages/logger/src/interface.ts',
+42 verbose filtered diff   'packages/logger/src/modules/consola.ts',
+42 verbose filtered diff   'packages/logger/src/modules/console.ts',
+42 verbose filtered diff   'packages/logger/src/modules/pino.ts',
+42 verbose filtered diff   'packages/logger/src/modules/roarr.ts'
+42 verbose filtered diff ]
 43 silly checking diff packages/preference
 44 silly no diff found in @aesoper/preference
-45 silly checking diff packages/rxjs-axios
-46 silly no diff found in @aesoper/rxjs-axios
-47 silly checking diff packages/shared
-48 silly no diff found in @aesoper/shared
-49 silly checking diff packages/storage
-50 silly no diff found in @aesoper/storage
-51 verbose updated @aesoper/eventbus
-52 verbose git-describe undefined => "@aesoper/eventbus@1.0.9-1-g1544d70"
-53 silly git-describe parsed => {"lastTagName":"@aesoper/eventbus@1.0.9","lastVersion":"1.0.9","refCount":"1","sha":"1544d70","isDirty":false}
-54 info execute Skipping releases
-55 silly lifecycle No script for "preversion" in "vue3use", continuing
-56 silly lifecycle No script for "preversion" in "@aesoper/eventbus", continuing
-57 verbose version @aesoper/eventbus has no lockfile. Skipping lockfile update.
-58 silly lifecycle No script for "version" in "@aesoper/eventbus", continuing
-59 silly lifecycle No script for "version" in "vue3use", continuing
-60 verbose version Detected yarn version 4.0.2
-61 verbose version Updating root yarn.lock
-62 silly version Successfully applied prettier to updated file: packages/eventbus/package.json
-63 silly version Failed to apply prettier to updated file: yarn.lock
-64 silly gitAdd [ 'packages/eventbus/package.json', 'yarn.lock' ]
-65 silly gitCommit chore(release): publish %v
-65 silly gitCommit
-65 silly gitCommit  - @aesoper/eventbus@1.0.10
-66 verbose git [
-66 verbose git   'commit',
-66 verbose git   '-F',
-66 verbose git   '/private/var/folders/yc/swn83zm15c57rddbd8f5hr6c0000gn/T/e07c798d-802d-4508-b99a-e8d0ed5e4899/lerna-commit.txt'
-66 verbose git ]
-67 silly gitTag @aesoper/eventbus@1.0.10 git tag %s -m %s
-68 verbose git [ 'tag', '@aesoper/eventbus@1.0.10', '-m', '@aesoper/eventbus@1.0.10' ]
-69 silly lifecycle No script for "postversion" in "@aesoper/eventbus", continuing
-70 silly lifecycle No script for "postversion" in "vue3use", continuing
-71 info git Pushing tags...
-72 silly gitPush origin main
-73 info publish Publishing packages to npm...
-74 notice Skipping all user and access validation due to third-party registry
-75 notice Make sure you're authenticated properly ¯\_(ツ)_/¯
-76 silly getCurrentSHA
-77 verbose getCurrentSHA ebb9c5f757e6e0f229203683a0d029b073e20d87
-78 silly lifecycle No script for "prepublish" in "vue3use", continuing
-79 silly lifecycle No script for "prepare" in "vue3use", continuing
-80 silly lifecycle No script for "prepublishOnly" in "vue3use", continuing
-81 silly lifecycle No script for "prepack" in "vue3use", continuing
-82 verbose pack-directory packages/eventbus
-83 silly lifecycle No script for "prepublish" in "@aesoper/eventbus", continuing
-84 silly lifecycle No script for "prepare" in "@aesoper/eventbus", continuing
-85 silly lifecycle No script for "prepublishOnly" in "@aesoper/eventbus", continuing
-86 silly lifecycle No script for "prepack" in "@aesoper/eventbus", continuing
-87 silly lifecycle No script for "postpack" in "@aesoper/eventbus", continuing
-88 verbose packed packages/eventbus
-89 silly lifecycle No script for "postpack" in "vue3use", continuing
-90 verbose publish @aesoper/eventbus
-91 silly FetchError: request to https://registry.npmjs.org/@aesoper%2feventbus failed, reason: connect ETIMEDOUT 104.16.29.34:443
-91 silly     at ClientRequest.<anonymous> (/Users/aesoper/Desktop/vue3use/node_modules/minipass-fetch/lib/index.js:130:14)
-91 silly     at ClientRequest.emit (node:events:517:28)
-91 silly     at TLSSocket.socketErrorListener (node:_http_client:501:9)
-91 silly     at TLSSocket.emit (node:events:529:35)
-91 silly     at emitErrorNT (node:internal/streams/destroy:151:8)
-91 silly     at emitErrorCloseNT (node:internal/streams/destroy:116:3)
-91 silly     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
-91 silly  FetchError: request to https://registry.npmjs.org/@aesoper%2feventbus failed, reason: connect ETIMEDOUT 104.16.29.34:443
-91 silly     at ClientRequest.<anonymous> (/Users/aesoper/Desktop/vue3use/node_modules/minipass-fetch/lib/index.js:130:14)
-91 silly     at ClientRequest.emit (node:events:517:28)
-91 silly     at TLSSocket.socketErrorListener (node:_http_client:501:9)
-91 silly     at TLSSocket.emit (node:events:529:35)
-91 silly     at emitErrorNT (node:internal/streams/destroy:151:8)
-91 silly     at emitErrorCloseNT (node:internal/streams/destroy:116:3)
-91 silly     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
-91 silly   code: 'ETIMEDOUT',
-91 silly   errno: 'ETIMEDOUT',
-91 silly   syscall: 'connect',
-91 silly   address: '104.16.29.34',
-91 silly   port: 443,
-91 silly   type: 'system'
-91 silly }
-92 warn notice Package failed to publish: @aesoper/eventbus
-93 error ETIMEDOUT request to https://registry.npmjs.org/@aesoper%2feventbus failed, reason: connect ETIMEDOUT 104.16.29.34:443
-94 error errno "ETIMEDOUT" is not a valid exit code - exiting with code 1
-95 error FetchError: request to https://registry.npmjs.org/@aesoper%2feventbus failed, reason: connect ETIMEDOUT 104.16.29.34:443
-95 error     at ClientRequest.<anonymous> (/Users/aesoper/Desktop/vue3use/node_modules/minipass-fetch/lib/index.js:130:14)
-95 error     at ClientRequest.emit (node:events:517:28)
-95 error     at TLSSocket.socketErrorListener (node:_http_client:501:9)
-95 error     at TLSSocket.emit (node:events:529:35)
-95 error     at emitErrorNT (node:internal/streams/destroy:151:8)
-95 error     at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+45 silly checking diff packages/registry
+46 silly no diff found in @aesoper/registry
+47 silly checking diff packages/rxjs-axios
+48 silly no diff found in @aesoper/rxjs-axios
+49 silly checking diff packages/shared
+50 silly no diff found in @aesoper/shared
+51 silly checking diff packages/storage
+52 silly no diff found in @aesoper/storage
+53 verbose updated @aesoper/logger
+54 verbose git-describe undefined => "@aesoper/config@1.0.8-1-g8a869d5"
+55 silly git-describe parsed => {"lastTagName":"@aesoper/config@1.0.8","lastVersion":"1.0.8","refCount":"1","sha":"8a869d5","isDirty":false}
+56 info execute Skipping releases
+57 silly lifecycle No script for "preversion" in "vue3use", continuing
+58 silly lifecycle No script for "preversion" in "@aesoper/logger", continuing
+59 verbose version @aesoper/logger has no lockfile. Skipping lockfile update.
+60 silly lifecycle No script for "version" in "@aesoper/logger", continuing
+61 silly lifecycle No script for "version" in "vue3use", continuing
+62 verbose version Detected yarn version 4.0.2
+63 verbose version Updating root yarn.lock
+64 silly version Successfully applied prettier to updated file: packages/logger/package.json
+65 silly version Failed to apply prettier to updated file: yarn.lock
+66 silly gitAdd [ 'packages/logger/package.json', 'yarn.lock' ]
+67 silly gitCommit chore(release): publish %v
+67 silly gitCommit
+67 silly gitCommit  - @aesoper/logger@1.0.6
+68 verbose git [
+68 verbose git   'commit',
+68 verbose git   '-F',
+68 verbose git   '/private/var/folders/yc/swn83zm15c57rddbd8f5hr6c0000gn/T/c1fe2964-afd4-43f0-ba29-980ff3aab5e0/lerna-commit.txt'
+68 verbose git ]
+69 silly gitTag @aesoper/logger@1.0.6 git tag %s -m %s
+70 verbose git [ 'tag', '@aesoper/logger@1.0.6', '-m', '@aesoper/logger@1.0.6' ]
+71 silly lifecycle No script for "postversion" in "@aesoper/logger", continuing
+72 silly lifecycle No script for "postversion" in "vue3use", continuing
+73 info git Pushing tags...
+74 silly gitPush origin main
+75 info publish Publishing packages to npm...
+76 notice Skipping all user and access validation due to third-party registry
+77 notice Make sure you're authenticated properly ¯\_(ツ)_/¯
+78 silly getCurrentSHA
+79 verbose getCurrentSHA 786fb3cf2aa8f8b96c9052d9bb644084088beb99
+80 silly lifecycle No script for "prepublish" in "vue3use", continuing
+81 silly lifecycle No script for "prepare" in "vue3use", continuing
+82 silly lifecycle No script for "prepublishOnly" in "vue3use", continuing
+83 silly lifecycle No script for "prepack" in "vue3use", continuing
+84 verbose pack-directory packages/logger
+85 silly lifecycle No script for "prepublish" in "@aesoper/logger", continuing
+86 silly lifecycle No script for "prepare" in "@aesoper/logger", continuing
+87 silly lifecycle No script for "prepublishOnly" in "@aesoper/logger", continuing
+88 silly lifecycle No script for "prepack" in "@aesoper/logger", continuing
+89 silly lifecycle No script for "postpack" in "@aesoper/logger", continuing
+90 verbose packed packages/logger
+91 silly lifecycle No script for "postpack" in "vue3use", continuing
+92 verbose publish @aesoper/logger
+93 silly FetchError: request to https://registry.npmjs.org/@aesoper%2flogger failed, reason: connect ETIMEDOUT 104.16.24.34:443
+93 silly     at ClientRequest.<anonymous> (/Users/aesoper/Desktop/vue3use/node_modules/minipass-fetch/lib/index.js:130:14)
+93 silly     at ClientRequest.emit (node:events:517:28)
+93 silly     at TLSSocket.socketErrorListener (node:_http_client:501:9)
+93 silly     at TLSSocket.emit (node:events:529:35)
+93 silly     at emitErrorNT (node:internal/streams/destroy:151:8)
+93 silly     at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+93 silly     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+93 silly  FetchError: request to https://registry.npmjs.org/@aesoper%2flogger failed, reason: connect ETIMEDOUT 104.16.24.34:443
+93 silly     at ClientRequest.<anonymous> (/Users/aesoper/Desktop/vue3use/node_modules/minipass-fetch/lib/index.js:130:14)
+93 silly     at ClientRequest.emit (node:events:517:28)
+93 silly     at TLSSocket.socketErrorListener (node:_http_client:501:9)
+93 silly     at TLSSocket.emit (node:events:529:35)
+93 silly     at emitErrorNT (node:internal/streams/destroy:151:8)
+93 silly     at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+93 silly     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+93 silly   code: 'ETIMEDOUT',
+93 silly   errno: 'ETIMEDOUT',
+93 silly   syscall: 'connect',
+93 silly   address: '104.16.24.34',
+93 silly   port: 443,
+93 silly   type: 'system'
+93 silly }
+94 warn notice Package failed to publish: @aesoper/logger
+95 error ETIMEDOUT request to https://registry.npmjs.org/@aesoper%2flogger failed, reason: connect ETIMEDOUT 104.16.24.34:443
+96 error errno "ETIMEDOUT" is not a valid exit code - exiting with code 1
+97 error FetchError: request to https://registry.npmjs.org/@aesoper%2flogger failed, reason: connect ETIMEDOUT 104.16.24.34:443
+97 error     at ClientRequest.<anonymous> (/Users/aesoper/Desktop/vue3use/node_modules/minipass-fetch/lib/index.js:130:14)
+97 error     at ClientRequest.emit (node:events:517:28)
+97 error     at TLSSocket.socketErrorListener (node:_http_client:501:9)
+97 error     at TLSSocket.emit (node:events:529:35)
+97 error     at emitErrorNT (node:internal/streams/destroy:151:8)
+97 error     at emitErrorCloseNT (node:internal/streams/destroy:116:3)
