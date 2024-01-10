@@ -117,13 +117,21 @@ export type UseI18nInstance = ReturnType<typeof useI18n>;
 
 export type TranslateFunc = () => string;
 
+export type TranslateKey = string;
+
+export type TranslateArg = TranslateFunc | TranslateKey;
+
 type True = true;
 type False = false;
 
-export function t(key: string, options?: any, immediate?: False): TranslateFunc;
-export function t(key: string, options?: any, immediate?: True): string;
 export function t(
-  key: string,
+  key: TranslateKey,
+  options?: any,
+  immediate?: False,
+): TranslateFunc;
+export function t(key: TranslateKey, options?: any, immediate?: True): string;
+export function t(
+  key: TranslateKey,
   options?: any,
   immediate?: boolean,
 ): TranslateFunc | string {
@@ -139,9 +147,12 @@ export function t(
   return () => translate(key, options) || key;
 }
 
-export function tm(key: string, immediate?: False): TranslateFunc;
-export function tm(key: string, immediate?: True): string;
-export function tm(key: string, immediate?: boolean): TranslateFunc | string {
+export function tm(key: TranslateKey, immediate?: False): TranslateFunc;
+export function tm(key: TranslateKey, immediate?: True): string;
+export function tm(
+  key: TranslateKey,
+  immediate?: boolean,
+): TranslateFunc | string {
   const { tm: translate } = useI18n();
   if (immediate === true) {
     return translate(key);
@@ -155,9 +166,9 @@ export function rt(
   options?: any,
   immediate?: False,
 ): TranslateFunc;
-export function rt(key: string, options?: any, immediate?: True): string;
+export function rt(key: TranslateKey, options?: any, immediate?: True): string;
 export function rt(
-  key: string,
+  key: TranslateKey,
   options?: any,
   immediate?: boolean,
 ): TranslateFunc | string {
@@ -173,7 +184,15 @@ export function rt(
   return () => translate(key, options) || key;
 }
 
-export function te(key: string): boolean {
+export function te(key: TranslateKey): boolean {
   const { te: translate } = useI18n();
   return translate(key);
+}
+
+export function translateFrom(arg: TranslateArg): string {
+  if (typeof arg === 'function') {
+    return arg();
+  }
+
+  return arg;
 }

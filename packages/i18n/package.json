@@ -43,11 +43,11 @@
   },
   "dependencies": {
     "vue": "^3.3.10",
-    "vue-i18n": "^9.8.0"
+    "vue-i18n": "^9.9.0"
   },
   "peerDependencies": {
     "vue": "^3.3.10",
-    "vue-i18n": "^9.8.0"
+    "vue-i18n": "^9.9.0"
   },
   "publishConfig": {
     "access": "public",
