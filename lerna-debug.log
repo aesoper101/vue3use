@@ -8,7 +8,7 @@
 2 verbose packageConfigs Explicit "packages" configuration found in lerna.json. Resolving packages using the configured glob(s): ["packages/*","build/*/**"]
 3 verbose rootPath /Users/aesoper/Desktop/vue3use
 4 info versioning independent
-5 verbose session da1f6c4cdaff6ab3
+5 verbose session 83b519991927ecfb
 6 verbose user-agent lerna/8.0.1/node@v18.18.0+x64 (darwin)
 7 silly argv { _: [ 'publish' ], composed: 'publish', lernaVersion: '8.0.1' }
 8 verbose packageConfigs Explicit "packages" configuration found in lerna.json. Resolving packages using the configured glob(s): ["packages/*","build/*/**"]
@@ -19,11 +19,11 @@
 13 verbose currentBranch main
 14 silly remoteBranchExists
 15 silly isBehindUpstream
-16 silly isBehindUpstream main is behind origin/main by 0 commit(s) and ahead by 2
+16 silly isBehindUpstream main is behind origin/main by 0 commit(s) and ahead by 1
 17 silly hasTags
 18 verbose hasTags true
-19 silly git-describe.sync "@aesoper/logger@1.0.8-4-gdf011f2" => {"lastTagName":"@aesoper/logger@1.0.8","lastVersion":"1.0.8","refCount":"4","sha":"df011f2","isDirty":false}
-20 info Looking for changed packages since @aesoper/logger@1.0.8
+19 silly git-describe.sync "@aesoper/i18n@1.0.6-1-g458e596" => {"lastTagName":"@aesoper/i18n@1.0.6","lastVersion":"1.0.6","refCount":"1","sha":"458e596","isDirty":false}
+20 info Looking for changed packages since @aesoper/i18n@1.0.6
 21 info ignoring diff in paths matching [
 21 info ignoring diff in paths matching   'ignored-file',
 21 info ignoring diff in paths matching   '.gitignore',
@@ -50,19 +50,14 @@
 37 silly no diff found in @aesoper/hotkey
 38 silly checking diff packages/i18n
 39 silly found diff in packages/i18n/package.json
-39 silly found diff in packages/i18n/src/i18n.ts
-40 verbose filtered diff [ 'packages/i18n/package.json', 'packages/i18n/src/i18n.ts' ]
+40 verbose filtered diff [ 'packages/i18n/package.json' ]
 41 silly checking diff packages/logger
 42 silly no diff found in @aesoper/logger
 43 silly checking diff packages/preference
 44 silly no diff found in @aesoper/preference
 45 silly checking diff packages/registry
-46 silly found diff in packages/registry/src/interface.ts
-46 silly found diff in packages/registry/src/registry.ts
-47 verbose filtered diff [
-47 verbose filtered diff   'packages/registry/src/interface.ts',
-47 verbose filtered diff   'packages/registry/src/registry.ts'
-47 verbose filtered diff ]
+46 silly found diff in packages/registry/package.json
+47 verbose filtered diff [ 'packages/registry/package.json' ]
 48 silly checking diff packages/rxjs-axios
 49 silly no diff found in @aesoper/rxjs-axios
 50 silly checking diff packages/shared
@@ -71,14 +66,14 @@
 53 silly no diff found in @aesoper/storage
 54 verbose updated @aesoper/i18n
 55 verbose updated @aesoper/registry
-56 verbose git-describe undefined => "@aesoper/logger@1.0.8-4-gdf011f2"
-57 silly git-describe parsed => {"lastTagName":"@aesoper/logger@1.0.8","lastVersion":"1.0.8","refCount":"4","sha":"df011f2","isDirty":false}
+56 verbose git-describe undefined => "@aesoper/i18n@1.0.6-1-g458e596"
+57 silly git-describe parsed => {"lastTagName":"@aesoper/i18n@1.0.6","lastVersion":"1.0.6","refCount":"1","sha":"458e596","isDirty":false}
 58 info execute Skipping releases
 59 silly lifecycle No script for "preversion" in "vue3use", continuing
 60 silly lifecycle No script for "preversion" in "@aesoper/i18n", continuing
 61 silly lifecycle No script for "preversion" in "@aesoper/registry", continuing
-62 verbose version @aesoper/i18n has no lockfile. Skipping lockfile update.
-63 verbose version @aesoper/registry has no lockfile. Skipping lockfile update.
+62 verbose version @aesoper/registry has no lockfile. Skipping lockfile update.
+63 verbose version @aesoper/i18n has no lockfile. Skipping lockfile update.
 64 silly lifecycle No script for "version" in "@aesoper/i18n", continuing
 65 silly lifecycle No script for "version" in "@aesoper/registry", continuing
 66 silly lifecycle No script for "version" in "vue3use", continuing
@@ -94,17 +89,17 @@
 72 silly gitAdd ]
 73 silly gitCommit chore(release): publish %v
 73 silly gitCommit
-73 silly gitCommit  - @aesoper/i18n@1.0.6
-73 silly gitCommit  - @aesoper/registry@1.0.1
+73 silly gitCommit  - @aesoper/i18n@1.0.7
+73 silly gitCommit  - @aesoper/registry@1.0.2
 74 verbose git [
 74 verbose git   'commit',
 74 verbose git   '-F',
-74 verbose git   '/private/var/folders/yc/swn83zm15c57rddbd8f5hr6c0000gn/T/4ad5773b-7a02-4dfc-96f4-9c5bbfa2c9e5/lerna-commit.txt'
+74 verbose git   '/private/var/folders/yc/swn83zm15c57rddbd8f5hr6c0000gn/T/5c58ce33-14f2-4be5-9df9-f3fcc4c77263/lerna-commit.txt'
 74 verbose git ]
-75 silly gitTag @aesoper/i18n@1.0.6 git tag %s -m %s
-76 verbose git [ 'tag', '@aesoper/i18n@1.0.6', '-m', '@aesoper/i18n@1.0.6' ]
-77 silly gitTag @aesoper/registry@1.0.1 git tag %s -m %s
-78 verbose git [ 'tag', '@aesoper/registry@1.0.1', '-m', '@aesoper/registry@1.0.1' ]
+75 silly gitTag @aesoper/i18n@1.0.7 git tag %s -m %s
+76 verbose git [ 'tag', '@aesoper/i18n@1.0.7', '-m', '@aesoper/i18n@1.0.7' ]
+77 silly gitTag @aesoper/registry@1.0.2 git tag %s -m %s
+78 verbose git [ 'tag', '@aesoper/registry@1.0.2', '-m', '@aesoper/registry@1.0.2' ]
 79 silly lifecycle No script for "postversion" in "@aesoper/i18n", continuing
 80 silly lifecycle No script for "postversion" in "@aesoper/registry", continuing
 81 silly lifecycle No script for "postversion" in "vue3use", continuing
@@ -114,7 +109,7 @@
 85 notice Skipping all user and access validation due to third-party registry
 86 notice Make sure you're authenticated properly ¯\_(ツ)_/¯
 87 silly getCurrentSHA
-88 verbose getCurrentSHA 0e59e3248e1b5f338f7b81e08e861ee4a43b582b
+88 verbose getCurrentSHA 080c6f530087f01c4f457da17cff793fbd5e5bb6
 89 silly lifecycle No script for "prepublish" in "vue3use", continuing
 90 silly lifecycle No script for "prepare" in "vue3use", continuing
 91 silly lifecycle No script for "prepublishOnly" in "vue3use", continuing
@@ -136,7 +131,7 @@
 107 silly lifecycle No script for "postpack" in "vue3use", continuing
 108 verbose publish @aesoper/i18n
 109 verbose publish @aesoper/registry
-110 silly FetchError: request to https://registry.npmjs.org/@aesoper%2fregistry failed, reason: connect ETIMEDOUT 104.16.24.34:443
+110 silly FetchError: request to https://registry.npmjs.org/@aesoper%2fi18n failed, reason: connect ETIMEDOUT 104.16.24.34:443
 110 silly     at ClientRequest.<anonymous> (/Users/aesoper/Desktop/vue3use/node_modules/minipass-fetch/lib/index.js:130:14)
 110 silly     at ClientRequest.emit (node:events:517:28)
 110 silly     at TLSSocket.socketErrorListener (node:_http_client:501:9)
@@ -144,7 +139,7 @@
 110 silly     at emitErrorNT (node:internal/streams/destroy:151:8)
 110 silly     at emitErrorCloseNT (node:internal/streams/destroy:116:3)
 110 silly     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
-110 silly  FetchError: request to https://registry.npmjs.org/@aesoper%2fregistry failed, reason: connect ETIMEDOUT 104.16.24.34:443
+110 silly  FetchError: request to https://registry.npmjs.org/@aesoper%2fi18n failed, reason: connect ETIMEDOUT 104.16.24.34:443
 110 silly     at ClientRequest.<anonymous> (/Users/aesoper/Desktop/vue3use/node_modules/minipass-fetch/lib/index.js:130:14)
 110 silly     at ClientRequest.emit (node:events:517:28)
 110 silly     at TLSSocket.socketErrorListener (node:_http_client:501:9)
@@ -159,10 +154,10 @@
 110 silly   port: 443,
 110 silly   type: 'system'
 110 silly }
-111 warn notice Package failed to publish: @aesoper/registry
-112 error ETIMEDOUT request to https://registry.npmjs.org/@aesoper%2fregistry failed, reason: connect ETIMEDOUT 104.16.24.34:443
+111 warn notice Package failed to publish: @aesoper/i18n
+112 error ETIMEDOUT request to https://registry.npmjs.org/@aesoper%2fi18n failed, reason: connect ETIMEDOUT 104.16.24.34:443
 113 error errno "ETIMEDOUT" is not a valid exit code - exiting with code 1
-114 silly FetchError: request to https://registry.npmjs.org/@aesoper%2fi18n failed, reason: connect ETIMEDOUT 104.16.24.34:443
+114 silly FetchError: request to https://registry.npmjs.org/@aesoper%2fregistry failed, reason: connect ETIMEDOUT 104.16.24.34:443
 114 silly     at ClientRequest.<anonymous> (/Users/aesoper/Desktop/vue3use/node_modules/minipass-fetch/lib/index.js:130:14)
 114 silly     at ClientRequest.emit (node:events:517:28)
 114 silly     at TLSSocket.socketErrorListener (node:_http_client:501:9)
@@ -170,7 +165,7 @@
 114 silly     at emitErrorNT (node:internal/streams/destroy:151:8)
 114 silly     at emitErrorCloseNT (node:internal/streams/destroy:116:3)
 114 silly     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
-114 silly  FetchError: request to https://registry.npmjs.org/@aesoper%2fi18n failed, reason: connect ETIMEDOUT 104.16.24.34:443
+114 silly  FetchError: request to https://registry.npmjs.org/@aesoper%2fregistry failed, reason: connect ETIMEDOUT 104.16.24.34:443
 114 silly     at ClientRequest.<anonymous> (/Users/aesoper/Desktop/vue3use/node_modules/minipass-fetch/lib/index.js:130:14)
 114 silly     at ClientRequest.emit (node:events:517:28)
 114 silly     at TLSSocket.socketErrorListener (node:_http_client:501:9)
@@ -185,10 +180,10 @@
 114 silly   port: 443,
 114 silly   type: 'system'
 114 silly }
-115 warn notice Package failed to publish: @aesoper/i18n
-116 error ETIMEDOUT request to https://registry.npmjs.org/@aesoper%2fi18n failed, reason: connect ETIMEDOUT 104.16.24.34:443
+115 warn notice Package failed to publish: @aesoper/registry
+116 error ETIMEDOUT request to https://registry.npmjs.org/@aesoper%2fregistry failed, reason: connect ETIMEDOUT 104.16.24.34:443
 117 error errno "ETIMEDOUT" is not a valid exit code - exiting with code 1
-118 error FetchError: request to https://registry.npmjs.org/@aesoper%2fregistry failed, reason: connect ETIMEDOUT 104.16.24.34:443
+118 error FetchError: request to https://registry.npmjs.org/@aesoper%2fi18n failed, reason: connect ETIMEDOUT 104.16.24.34:443
 118 error     at ClientRequest.<anonymous> (/Users/aesoper/Desktop/vue3use/node_modules/minipass-fetch/lib/index.js:130:14)
 118 error     at ClientRequest.emit (node:events:517:28)
 118 error     at TLSSocket.socketErrorListener (node:_http_client:501:9)
