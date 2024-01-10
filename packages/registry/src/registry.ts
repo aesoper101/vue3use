@@ -111,7 +111,16 @@ export class Registry<T extends RegistryItem> {
   }
 
   find(predicate: (value: T, index: number, obj: T[]) => boolean): T[] {
-    return this.ordered.slice().filter(predicate);
+    const found: T[] = [];
+    const copy = this.ordered.slice();
+    for (let i = 0; i < this.ordered.length; i++) {
+      const v = this.ordered[i];
+      if (predicate(v, i, copy)) {
+        found.push(v);
+      }
+    }
+
+    return found;
   }
 
   remove(id: string) {
@@ -126,6 +135,18 @@ export class Registry<T extends RegistryItem> {
   }
 
   private sort() {
-    // TODO sort the list
+    // TODO：是留给调用者排序还是自己排序还需要考虑？
+    // this.ordered.sort((a, b) => {
+    //   if (a.sortIndex && b.sortIndex) {
+    //     return a.sortIndex - b.sortIndex;
+    //   }
+    //   if (a.sortIndex) {
+    //     return -1;
+    //   }
+    //   if (b.sortIndex) {
+    //     return 1;
+    //   }
+    //   return a.id.localeCompare(b.id);
+    // });
   }
 }
