@@ -3,29 +3,29 @@ export interface RegistryItem {
    * 唯一标识符
    * Unique identifier for the plugin
    */
-  id: string;
+  readonly id: string;
 
   /**
-   * 名称，可以更改而不会破坏配置
-   * Display Name, can change without breaking configs
+   * 名称
+   * Display Name
    */
-  name: string;
+  readonly name: string;
 
   /**
    * 类型
    * The type of plugin
    */
-  type: string;
+  readonly type: string;
 
   /**
    * 描述
    * The description of the plugin
    */
-  description?: string;
+  readonly description?: string;
 
   /**
    * 别名，当ID更改时，我们可能需要向后兼容（'current' => 'last'）
    * when the ID changes, we may want backwards compatibility ('current' => 'last')
    */
-  aliasIds?: string[];
+  readonly aliasIds?: string[];
 }
