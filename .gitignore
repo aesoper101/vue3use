@@ -18,6 +18,9 @@ lib/
 es/
 coverage
 node_modules
+*.log
+*.out
+
 
 
 
