@@ -8,6 +8,7 @@ const factoryInstanceMap = new Map<string, any>();
 export interface defineFactoryOptions {
   singleton?: boolean;
   override?: boolean;
+  scope?: string;
 }
 
 export function defineFactory<Args extends any[] = any[], Instance = any>(
@@ -15,8 +16,12 @@ export function defineFactory<Args extends any[] = any[], Instance = any>(
   constructor: FactoryFunction<Args, Instance>,
   options?: defineFactoryOptions,
 ): void {
+  const oldName = name;
+  name = options?.scope ? `${options.scope}/${name}` : name;
   if (factoryMap.has(name) && !options?.override) {
-    throw new Error(`Factory ${name} already exists`);
+    throw new Error(
+      `Factory ${options?.scope ? name : oldName} already exists`,
+    );
   }
 
   factoryMap.set(name, (...args: Args) => {
@@ -30,14 +35,17 @@ export function defineFactory<Args extends any[] = any[], Instance = any>(
   });
 }
 
-export function hasFactory(name: string): boolean {
+export function hasFactory(name: string, scope?: string): boolean {
+  name = scope ? `${scope}/${name}` : name;
   return factoryMap.has(name);
 }
 
 export function createInstance<Args extends any[] = any[], Instance = any>(
   name: string,
+  scope?: string,
   ...args: Args
 ): Instance {
+  name = scope ? `${scope}/${name}` : name;
   const constructor = factoryMap.get(name);
   if (!constructor) {
     throw new Error(`Factory ${name} does not exist`);

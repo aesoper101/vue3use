@@ -39,7 +39,7 @@ describe('factory', () => {
       (name: string, age: number) => new TestClass(name, age),
       { singleton: true },
     );
-    const result2 = createInstance('test2', 'test', 10);
+    const result2 = createInstance('test2', undefined, 'test', 10);
     expect(result2).toBeInstanceOf(TestClass);
     expect(result2.getName()).toBe('test');
     expect(result2.getAge()).toBe(10);
@@ -58,7 +58,7 @@ describe('factory', () => {
       { singleton: false },
     );
 
-    const result4 = createInstance('test3', 'test', 10);
+    const result4 = createInstance('test3', undefined, 'test', 10);
     expect(result4).toBeInstanceOf(TestClass);
     expect(result4.getName()).toBe('test');
     expect(result4.getAge()).toBe(10);
@@ -66,7 +66,7 @@ describe('factory', () => {
     result4.setName('test2');
     result4.setAge(11);
 
-    const result5 = createInstance('test3', 'test', 10);
+    const result5 = createInstance('test3', undefined, 'test', 10);
     expect(result5).toBeInstanceOf(TestClass);
     expect(result5.getName()).toBe('test');
     expect(result5.getAge()).toBe(10);
