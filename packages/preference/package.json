@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/preference",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "> TODO: description",
   "author": {
     "name": "aesoper",
@@ -38,8 +38,8 @@
     "test": "vitest run --coverage"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "^1.1.5",
-    "@aesoper/storage": "^1.1.5",
+    "@aesoper/build-cli": "^1.1.6",
+    "@aesoper/storage": "^1.1.6",
     "@tsconfig/node18": "^18.2.2",
     "@vue/tsconfig": "^0.4.0"
   },
