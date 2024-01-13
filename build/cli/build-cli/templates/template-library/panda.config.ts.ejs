@@ -1,0 +1,27 @@
+import { defineConfig } from '@pandacss/dev';
+import pandaPreset from '@pandacss/preset-panda';
+
+export default defineConfig({
+  presets: [pandaPreset],
+  // Whether to use css reset
+  preflight: true,
+
+  // Where to look for your css declarations
+  include: [
+    './src/**/*.{js,jsx,ts,tsx,vue}',
+  ],
+
+  // Files to exclude
+  exclude: [],
+
+  // Useful for theme customization
+  theme: {
+    extend: {},
+  },
+
+  emitPackage: true,
+  // The output directory for your css system
+  outdir: '<%= pandaOutDir %>',
+  jsxFramework: 'vue',
+  jsxFactory: 'panda',
+});

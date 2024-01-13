@@ -25,15 +25,13 @@
     "dist",
     "es",
     "lib"
-  ],
-<% if (style) { %>
+  ],<% if (style==='less') { %>
   "sideEffects": [
     "dist/*",
     "es/**/style/*",
     "lib/**/style/*",
     "*.less"
-  ],
-<% } %>
+  ],<% } %>
   "repository": {
     "type": "git",
     "url": "<%= gitURL %>",
@@ -42,15 +40,22 @@
   "scripts": {
     "build": "yarn run build:library && <% if (style) { %> yarn run build:style && <% } %>yarn run dtsgen",
     "build:library": "build-cli build:library -u",
-    "dtsgen": "build-cli dtsgen 'src/**/*.{ts,tsx,vue}' -o es",
-<% if (style) { %>
+    "dtsgen": "build-cli dtsgen 'src/**/*.{ts,tsx,vue}' -o es",<% if (style === 'less') { %>
     "build:style": "yarn run lessgen && build-cli build:style",
-    "lessgen": "build-cli lessgen",
-<% } %>
+    "lessgen": "build-cli lessgen",<% } else if (style === 'panda') {%>
+    "build:style": "yarn run panda:build",
+    "prepare": "yarn run panda:codegen",
+    "panda:codegen": "panda codegen --clean",
+    "panda:build": "yarn run panda:buildinfo && yarn run panda:cssgen",
+    "panda:cssgen": "panda cssgen --clean",
+    "panda:buildinfo": "panda ship --outfile dist/panda.buildinfo.json && yarn run panda:copy",
+    "panda:copy": "cp dist/panda.buildinfo.json lib/panda.buildinfo.json && cp dist/panda.buildinfo.json es/panda.buildinfo.json",<% } %>
     "clean": "build-cli clean",
     "test": "vitest run --coverage"
   },
-  "devDependencies": {
+  "devDependencies": {<% if (style === 'panda') { %>
+    "@pandacss/dev": "^0.26.2",
+    "autoprefixer": "^10.4.16",<% } %>
     "@tsconfig/node18": "^18.2.2",
     "@vue/tsconfig": "^0.4.0"
   },

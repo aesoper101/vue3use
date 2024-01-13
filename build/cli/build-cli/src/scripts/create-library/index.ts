@@ -12,11 +12,14 @@ import path from 'path';
 import { readPackageSync } from 'read-pkg';
 import { simpleGit } from 'simple-git';
 
+type StyleType = 'less' | 'panda';
+
 interface CreateLibraryOptions {
   projectName: string;
   packageName?: string;
   workspaceDir?: string;
-  style?: boolean;
+  style?: StyleType;
+  pandaOutDir?: string;
 }
 
 interface TemplateData {
@@ -26,7 +29,8 @@ interface TemplateData {
   gitEmail: string;
   unpkgName: string;
   repositoryDir: string;
-  style?: boolean;
+  style?: StyleType;
+  pandaOutDir?: string;
 }
 
 const isWorkspaceRoot = (cwd: string) => {
@@ -78,6 +82,7 @@ export default async function run(options: CreateLibraryOptions) {
 
   const packageName = options.packageName || options.projectName;
   const libraryName = packageName.split('/').reverse()[0];
+  const scope = packageName.split('/')[0];
   let libraryRoot = path.join(
     cwd,
     workspaceDir,
@@ -118,6 +123,10 @@ export default async function run(options: CreateLibraryOptions) {
     gitURL: gitURL.value || '',
     style: options.style,
     repositoryDir: path.relative(cwd, libraryRoot).replace(/\\/g, '/'),
+    pandaOutDir:
+      options.pandaOutDir || scope.startsWith('@')
+        ? `${scope}/styled-system`
+        : 'styled-system',
   };
 
   // 获取模板文件
@@ -147,6 +156,14 @@ export default async function run(options: CreateLibraryOptions) {
       (err: Error | null, str: string) => {
         if (err) {
           console.log(chalk.red(err));
+          return;
+        }
+
+        if (
+          options.style !== 'panda' &&
+          (path.basename(file, '.ejs') === 'panda.config.ts' ||
+            path.basename(file, '.ejs') === 'postcss.config.cjs')
+        ) {
           return;
         }
 
@@ -185,5 +202,19 @@ export default async function run(options: CreateLibraryOptions) {
     return;
   } else {
     console.log(chalk.green('Installing dependencies success.'));
+  }
+
+  if (options?.style === 'panda') {
+    console.log(chalk.green('Panda codegen...'));
+
+    const { exitCode: ecode } = await execa('yarn', ['run', 'panda:codegen'], {
+      cwd: libraryRoot,
+    });
+    if (ecode !== 0) {
+      console.log(chalk.yellow('Panda codegen failed.'));
+      return;
+    } else {
+      console.log(chalk.green('Panda codegen success.'));
+    }
   }
 }

@@ -50,7 +50,10 @@ program
     '-p, --packageName <packageName>',
     'Specify the packageName of the library',
   )
-  .option('-s, --style', 'Library has style file, it must be set.', false)
+  .option(
+    '-s, --style <style>',
+    'Specify the style of the library, value: less, panda',
+  )
   .action(async (projectName, { workspaceDir, packageName, style }) => {
     await createLibrary({
       projectName,
