@@ -1,4 +1,26 @@
-import { isArray, isPlainObject } from 'lodash';
+import { isArray } from 'lodash';
+
+import { isObject } from './is';
+
+const prototypeHasOwnProperty = Object.prototype.hasOwnProperty;
+export function hasOwnProperty(
+  obj: any,
+  key: string | number | symbol,
+): boolean {
+  return obj && prototypeHasOwnProperty.call(obj, key);
+}
+
+export function isPlainObject(value: any): value is any {
+  if (!isObject(value)) {
+    return false;
+  }
+  const proto = Object.getPrototypeOf(value);
+  return (
+    proto === Object.prototype ||
+    proto === null ||
+    Object.getPrototypeOf(proto) === null
+  );
+}
 
 export const isEmptyObject = (
   value: unknown,

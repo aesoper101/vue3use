@@ -1,10 +1,18 @@
 import { type Ref, ref } from 'vue';
 
-export function useState<T>(initialState: T): [Ref<T>, (value: T) => T] {
-  const state = ref(initialState) as Ref<T>;
-  const setState = (value: T): T => {
-    state.value = value;
-    return value;
-  };
-  return [state, setState];
+export default function useState<T, R = Ref<T>>(
+  defaultStateValue?: T | (() => T),
+): [R, (val: T) => void] {
+  const initValue: T =
+    typeof defaultStateValue === 'function'
+      ? (defaultStateValue as any)()
+      : defaultStateValue;
+
+  const innerValue = ref(initValue) as Ref<T>;
+
+  function triggerChange(newValue: T) {
+    innerValue.value = newValue;
+  }
+
+  return [innerValue as unknown as R, triggerChange];
 }

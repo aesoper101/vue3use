@@ -1,58 +1,20 @@
-import {
-  type ComputedRef,
-  type PropType,
-  computed,
-  defineComponent,
-  inject,
-  provide,
-} from 'vue';
+import { inject, provide, reactive, watchEffect } from 'vue';
 
-export function createContext<T>(defaultValue: T) {
-  const contextSymbolKey = Symbol('CREATE_CONTEXT_KEY');
-  // eslint-disable-next-line vue/one-component-per-file
-  const Provider = defineComponent({
-    props: {
-      value: {
-        type: [
-          Object,
-          Number,
-          String,
-          Boolean,
-          null,
-          undefined,
-          Function,
-        ] as PropType<T>,
-        required: true,
-      },
-    },
-    setup(props, { slots }) {
-      provide(
-        contextSymbolKey,
-        computed(() => props.value || defaultValue),
-      );
-      return () => {
-        return slots.default?.();
-      };
-    },
-  });
-
-  const useContext = () =>
-    inject<ComputedRef<T>>(
-      contextSymbolKey,
-      computed(() => defaultValue),
-    );
-
-  // eslint-disable-next-line vue/one-component-per-file
-  const Consumer = defineComponent({
-    setup(props, ctx) {
-      const value = useContext();
-      return () => ctx.slots.default?.(value.value);
-    },
-  });
-
+export function createContext<T extends Record<string, any>>(defaultValue?: T) {
+  const contextKey = Symbol('contextKey');
+  const useProvide = (props: T, newProps?: T) => {
+    const mergedProps = reactive<T>({} as T);
+    provide(contextKey, mergedProps);
+    watchEffect(() => {
+      Object.assign(mergedProps, props, newProps || {});
+    });
+    return mergedProps;
+  };
+  const useInject = () => {
+    return inject(contextKey, defaultValue as T) || ({} as T);
+  };
   return {
-    Provider,
-    Consumer,
-    useContext,
+    useProvide,
+    useInject,
   };
 }
