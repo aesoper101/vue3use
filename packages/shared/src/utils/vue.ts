@@ -67,7 +67,7 @@ export const renderCondition = (
   return condition ? trueContent : falseContent;
 };
 
-export default function usePropOrSlot<T extends Record<string, any>>(
+export function usePropOrSlot<T extends Record<string, any>>(
   props: T,
   slots: Slots,
   propName: string,
