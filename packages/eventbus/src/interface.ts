@@ -64,3 +64,12 @@ export interface IEventBus {
 export interface IScopedEventBus {
   newScopedBus(key: string, filter: EventFilterOptions): IEventBus;
 }
+
+export abstract class BusEventWithPayload<T> extends BusEventBase {
+  readonly payload: T;
+
+  constructor(payload: T) {
+    super();
+    this.payload = payload;
+  }
+}

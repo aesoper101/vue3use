@@ -134,6 +134,10 @@ export class Registry<T extends RegistryItem> {
     }
   }
 
+  size(): number {
+    return this.ordered.length;
+  }
+
   private sort() {
     // TODO：是留给调用者排序还是自己排序还需要考虑？
     // this.ordered.sort((a, b) => {
