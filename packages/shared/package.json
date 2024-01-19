@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/shared",
-  "version": "1.1.16",
+  "version": "1.1.17",
   "description": "> normalize, utils, types, etc.",
   "author": {
     "name": "aesoper",
@@ -37,7 +37,7 @@
     "test": "vitest run --coverage"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "^1.1.8",
+    "@aesoper/build-cli": "^1.1.9",
     "@tsconfig/node18": "^18.2.2",
     "@types/dompurify": "^3",
     "@types/lodash": "^4",
