@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/shared",
-  "version": "1.1.22",
+  "version": "1.1.23",
   "description": "> normalize, utils, types, etc.",
   "homepage": "https://github.com/aesoper101/vue3use#readme",
   "bugs": {
@@ -48,7 +48,7 @@
     "xss": "^1.0.14"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "^1.1.14",
+    "@aesoper/build-cli": "^1.1.15",
     "@tsconfig/node18": "^18.2.2",
     "@types/dompurify": "^3.0.5",
     "@types/lodash": "^4.14.202",
