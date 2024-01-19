@@ -5,6 +5,7 @@ import { execa } from 'execa';
 import fs from 'fs-extra';
 import * as glob from 'glob';
 import inquirer from 'inquirer';
+import latestVersion from 'latest-version';
 import { minimatch } from 'minimatch';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -20,6 +21,7 @@ interface CreateLibraryOptions {
   workspaceDir?: string;
   style?: StyleType;
   pandaOutDir?: string;
+  pandaVersion?: string;
 }
 
 interface TemplateData {
@@ -31,6 +33,7 @@ interface TemplateData {
   repositoryDir: string;
   style?: StyleType;
   pandaOutDir?: string;
+  pandaVersion?: string;
 }
 
 const isWorkspaceRoot = (cwd: string) => {
@@ -114,6 +117,23 @@ export default async function run(options: CreateLibraryOptions) {
   const gitUser = await git.getConfig('user.name');
   const gitEmail = await git.getConfig('user.email');
   const gitURL = await git.getConfig('remote.origin.url');
+
+  // fetch panda latest version if style is panda
+  if (options.style === 'panda' && !options.pandaVersion) {
+    console.log(chalk.green('Fetching panda latest version...'));
+
+    await latestVersion('@pandacss/dev')
+      .then((value) => {
+        options.pandaVersion = value;
+        console.log(chalk.green(`Panda latest version: ${value}`));
+      })
+      .catch((err) => {
+        console.log(chalk.yellow('Fetching panda latest version failed.'));
+        console.log(chalk.yellow(err));
+        options.pandaVersion = '0.27.3';
+        return;
+      });
+  }
 
   const renderData: TemplateData = {
     packageName,

@@ -54,14 +54,29 @@ program
     '-s, --style <style>',
     'Specify the style of the library, value: less, panda',
   )
-  .action(async (projectName, { workspaceDir, packageName, style }) => {
-    await createLibrary({
+  .option(
+    '-o, --pandaOutDir <pandaOutDir>',
+    'Specify the panda out dir, default "@scopedxxx/style-system"',
+  )
+  .option(
+    '-v, --pandaVersion <pandaVersion>',
+    'Specify the panda version, default latest',
+  )
+  .action(
+    async (
       projectName,
-      workspaceDir,
-      packageName,
-      style,
-    });
-  });
+      { workspaceDir, packageName, style, pandaVersion, pandaOutDir },
+    ) => {
+      await createLibrary({
+        projectName,
+        workspaceDir,
+        packageName,
+        pandaVersion,
+        pandaOutDir,
+        style,
+      });
+    },
+  );
 
 program
   .command('build:style')
