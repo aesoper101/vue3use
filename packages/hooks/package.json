@@ -2,17 +2,21 @@
   "name": "@aesoper/hooks",
   "version": "1.0.10",
   "description": "> TODO: description",
+  "homepage": "https://github.com/aesoper101/vue3use#readme",
+  "bugs": {
+    "url": "https://github.com/aesoper101/vue3use/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aesoper101/vue3use.git",
+    "directory": "packages/hooks"
+  },
+  "license": "MIT",
   "author": {
     "name": "aesoper",
     "email": "weilanzhuan@163.com"
   },
-  "homepage": "",
-  "license": "MIT",
   "type": "module",
-  "main": "./lib/index.js",
-  "module": "./es/index.js",
-  "types": "./es/index.d.ts",
-  "unpkg": "./dist/hooks.min.js",
   "exports": {
     ".": {
       "import": "./es/index.js",
@@ -20,29 +24,28 @@
       "types": "./es/index.d.ts"
     }
   },
+  "main": "./lib/index.js",
+  "unpkg": "./dist/hooks.min.js",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
   "files": [
     "dist",
     "es",
     "lib"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aesoper101/vue3use.git",
-    "directory": "packages/hooks"
-  },
   "scripts": {
     "build": "yarn run build:library && yarn run dtsgen",
     "build:library": "build-cli build:library -u",
     "dtsgen": "build-cli dtsgen 'src/**/*.{ts,tsx,vue}' -o es",
     "test": "vitest run --coverage"
   },
+  "dependencies": {
+    "vue": "^3.3.10"
+  },
   "devDependencies": {
     "@aesoper/build-cli": "^1.1.9",
     "@tsconfig/node18": "^18.2.2",
     "@vue/tsconfig": "^0.4.0"
-  },
-  "dependencies": {
-    "vue": "^3.3.10"
   },
   "peerDependencies": {
     "vue": "^3.3.10"
@@ -51,5 +54,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "a244248f940f4437ac11191358b90bcccd7756a1"
+  "gitHead": "a244248f940f4437ac11191358b90bcccd7756a1",
+  "readme": "ERROR: No README data found!",
+  "_id": "@aesoper/hooks@1.0.10"
 }

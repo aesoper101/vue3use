@@ -2,17 +2,21 @@
   "name": "@aesoper/rxjs-axios",
   "version": "1.0.17",
   "description": "> TODO: description",
+  "homepage": "https://github.com/aesoper101/vue3use#readme",
+  "bugs": {
+    "url": "https://github.com/aesoper101/vue3use/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/aesoper101/vue3use.git",
+    "directory": "packages/rxjs-axios"
+  },
+  "license": "MIT",
   "author": {
     "name": "aesoper",
     "email": "weilanzhuan@163.com"
   },
-  "homepage": "",
-  "license": "MIT",
   "type": "module",
-  "main": "./lib/index.js",
-  "module": "./es/index.js",
-  "types": "./es/index.d.ts",
-  "unpkg": "./dist/rxjs-axios.min.js",
   "exports": {
     ".": {
       "import": "./es/index.js",
@@ -20,32 +24,21 @@
       "types": "./es/index.d.ts"
     }
   },
+  "main": "./lib/index.js",
+  "unpkg": "./dist/rxjs-axios.min.js",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
   "files": [
     "dist",
     "es",
     "lib"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:aesoper101/vue3use.git",
-    "directory": "packages/rxjs-axios"
-  },
   "scripts": {
     "build": "yarn run build:library && yarn run dtsgen",
     "build:library": "build-cli build:library -u",
-    "dtsgen": "build-cli dtsgen 'src/**/*.{ts,tsx,vue}' -o es",
     "clean": "build-cli clean",
+    "dtsgen": "build-cli dtsgen 'src/**/*.{ts,tsx,vue}' -o es",
     "test": "vitest run --coverage"
-  },
-  "devDependencies": {
-    "@tsconfig/node18": "^18.2.2",
-    "@types/qs": "^6",
-    "@types/uuid": "^9",
-    "@vue/tsconfig": "^0.4.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
     "@aesoper/shared": "^1.1.17",
@@ -57,10 +50,22 @@
     "uuid": "^9.0.1",
     "vue": "^3.3.10"
   },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.2",
+    "@types/qs": "^6",
+    "@types/uuid": "^9",
+    "@vue/tsconfig": "^0.4.0"
+  },
   "peerDependencies": {
     "axios": "^1.6.3",
     "rxjs": "^7.8.1",
     "vue": "^3.3.10"
   },
-  "gitHead": "a244248f940f4437ac11191358b90bcccd7756a1"
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "gitHead": "a244248f940f4437ac11191358b90bcccd7756a1",
+  "readme": "ERROR: No README data found!",
+  "_id": "@aesoper/rxjs-axios@1.0.17"
 }

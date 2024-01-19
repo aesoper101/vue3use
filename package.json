@@ -6,13 +6,13 @@
   "bugs": {
     "url": "https://github.com/aesoper101/vue3use/issues"
   },
-  "author": {
-    "name": "aesoper",
-    "email": "weilanzhuan@163.com"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aesoper101/vue3use.git"
+  },
+  "author": {
+    "name": "aesoper",
+    "email": "weilanzhuan@163.com"
   },
   "workspaces": [
     "packages/*",

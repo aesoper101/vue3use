@@ -122,17 +122,19 @@ export default async function run(options: CreateLibraryOptions) {
   if (options.style === 'panda' && !options.pandaVersion) {
     console.log(chalk.green('Fetching panda latest version...'));
 
-    await latestVersion('@pandacss/dev')
-      .then((value) => {
-        options.pandaVersion = value;
-        console.log(chalk.green(`Panda latest version: ${value}`));
-      })
-      .catch((err) => {
-        console.log(chalk.yellow('Fetching panda latest version failed.'));
-        console.log(chalk.yellow(err));
-        options.pandaVersion = '0.27.3';
-        return;
-      });
+    const version = await latestVersion('@pandacss/dev');
+    if (version) {
+      options.pandaVersion = version;
+      console.log(chalk.green(`Panda latest version: ${version}`));
+    } else {
+      console.log(
+        chalk.yellow(
+          'Fetching panda latest version failed. Use default version 0.27.3',
+        ),
+      );
+      options.pandaVersion = '0.27.3';
+      return;
+    }
   }
 
   const renderData: TemplateData = {
