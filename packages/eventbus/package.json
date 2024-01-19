@@ -56,7 +56,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "2950dc2f62ed3ce79aedf415bf30c39658b9a151",
+  "gitHead": "fd04f5987e484f419b9c75cff51c02f95d7a68c5",
   "readme": "ERROR: No README data found!",
   "_id": "@aesoper/eventbus@1.0.21"
 }
