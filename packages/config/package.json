@@ -48,9 +48,9 @@
   "devDependencies": {
     "@aesoper/build-cli": "^1.1.14",
     "@tsconfig/node18": "^18.2.2",
-    "@types/lodash.get": "^4",
-    "@types/lodash.has": "^4",
-    "@vue/tsconfig": "^0.4.0"
+    "@types/lodash.get": "^4.4.9",
+    "@types/lodash.has": "^4.5.9",
+    "@vue/tsconfig": "^0.5.1"
   },
   "publishConfig": {
     "access": "public",

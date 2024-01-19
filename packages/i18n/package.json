@@ -40,13 +40,13 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
-    "vue": "^3.3.10",
+    "vue": "^3.4.15",
     "vue-i18n": "^9.9.0"
   },
   "devDependencies": {
     "@aesoper/build-cli": "^1.1.14",
     "@tsconfig/node18": "^18.2.2",
-    "@vue/tsconfig": "^0.4.0"
+    "@vue/tsconfig": "^0.5.1"
   },
   "peerDependencies": {
     "vue": "^3.3.10",

@@ -43,18 +43,18 @@
   "dependencies": {
     "@aesoper/shared": "^1.1.22",
     "@fingerprintjs/fingerprintjs": "^4.2.1",
-    "axios": "^1.6.3",
+    "axios": "^1.6.5",
     "axios-auth-refresh": "^3.3.6",
     "qs": "^6.11.2",
     "rxjs": "^7.8.1",
     "uuid": "^9.0.1",
-    "vue": "^3.3.10"
+    "vue": "^3.4.15"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",
-    "@types/qs": "^6",
-    "@types/uuid": "^9",
-    "@vue/tsconfig": "^0.4.0"
+    "@types/qs": "^6.9.11",
+    "@types/uuid": "^9.0.7",
+    "@vue/tsconfig": "^0.5.1"
   },
   "peerDependencies": {
     "axios": "^1.6.3",

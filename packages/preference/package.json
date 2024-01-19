@@ -44,7 +44,7 @@
     "@aesoper/build-cli": "^1.1.14",
     "@aesoper/storage": "^1.1.14",
     "@tsconfig/node18": "^18.2.2",
-    "@vue/tsconfig": "^0.4.0"
+    "@vue/tsconfig": "^0.5.1"
   },
   "publishConfig": {
     "access": "public",

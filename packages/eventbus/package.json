@@ -47,7 +47,7 @@
   "devDependencies": {
     "@aesoper/build-cli": "^1.1.14",
     "@tsconfig/node18": "^18.2.2",
-    "@vue/tsconfig": "^0.4.0"
+    "@vue/tsconfig": "^0.5.1"
   },
   "peerDependencies": {
     "rxjs": "^7.8.1"

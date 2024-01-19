@@ -43,16 +43,16 @@
     "@braintree/sanitize-url": "^7.0.0",
     "dompurify": "^3.0.8",
     "lodash": "^4.17.21",
-    "vue": "^3.3.10",
+    "vue": "^3.4.15",
     "vue-types": "^5.1.1",
     "xss": "^1.0.14"
   },
   "devDependencies": {
     "@aesoper/build-cli": "^1.1.14",
     "@tsconfig/node18": "^18.2.2",
-    "@types/dompurify": "^3",
-    "@types/lodash": "^4",
-    "@vue/tsconfig": "^0.4.0"
+    "@types/dompurify": "^3.0.5",
+    "@types/lodash": "^4.14.202",
+    "@vue/tsconfig": "^0.5.1"
   },
   "peerDependencies": {
     "@braintree/sanitize-url": "^7.0.0",
