@@ -54,7 +54,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "a244248f940f4437ac11191358b90bcccd7756a1",
+  "gitHead": "3909fe00ffeafa16f774fa7ab1ad4e5674e19745",
   "readme": "ERROR: No README data found!",
   "_id": "@aesoper/hooks@1.0.10"
 }
