@@ -132,7 +132,6 @@ export default async function run(options: CreateLibraryOptions) {
           'Fetching panda latest version failed. Use default version 0.27.3',
         ),
       );
-      options.pandaVersion = '0.27.3';
       return;
     }
   }
@@ -149,6 +148,7 @@ export default async function run(options: CreateLibraryOptions) {
       options.pandaOutDir || scope.startsWith('@')
         ? `${scope}/styled-system`
         : 'styled-system',
+    pandaVersion: options.pandaVersion || '0.27.3',
   };
 
   // 获取模板文件
