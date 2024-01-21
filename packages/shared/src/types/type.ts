@@ -38,3 +38,5 @@ export type IsAny<T> = IfAny<T, true, false>;
 export type IfEmpty<T, Y, N> = T extends never | '' | null | undefined ? Y : N;
 
 export type IfExtends<T, X, Y, N> = T extends X ? Y : N;
+
+export type UID = string | number;

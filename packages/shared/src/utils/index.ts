@@ -17,3 +17,4 @@ export * from './classname';
 export * from './animation-frame';
 export * from './vue-props';
 export * from './dom';
+export * from './tree';
