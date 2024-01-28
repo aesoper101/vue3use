@@ -21,6 +21,8 @@ export async function build(input: string, options?: BuildOptions) {
       allowJs: true,
       declaration: true,
       emitDeclarationOnly: true,
+      // declarationDir: path.resolve(root, './types'),
+      noEmit: false,
       // strict: true,
       // target: ScriptTarget.ES2022,
       // module: ModuleKind.ESNext,
@@ -39,14 +41,14 @@ export async function build(input: string, options?: BuildOptions) {
       rootDir: path.resolve(root, 'src'),
     });
   }
-  if (options?.outDir) {
+  if (options && options.outDir) {
     project.compilerOptions.set({
       outDir: path.resolve(root, options.outDir),
     });
   }
 
   const ignoreFiles = ['**/__test__/*', '**/__tests__/*', '**/__demo__/*'];
-  if (options?.ignore) {
+  if (options && options.ignore) {
     ignoreFiles.push(...options.ignore);
   }
   const files = glob.sync(input, {
@@ -58,7 +60,7 @@ export async function build(input: string, options?: BuildOptions) {
     files.map(async (file) => {
       const content = await fs.promises.readFile(
         path.resolve(root, file),
-        'utf8',
+        'utf8'
       );
       if (file.endsWith('.vue')) {
         const sfc = parse(content);
@@ -72,7 +74,7 @@ export async function build(input: string, options?: BuildOptions) {
           }
           const sourceFile = project.createSourceFile(
             path.relative(root, file).replace('.vue', isTSX ? '.tsx' : '.ts'),
-            scriptContent,
+            scriptContent
           );
           if (sourceFile) {
             removeVueSpecifier(sourceFile);
@@ -85,14 +87,14 @@ export async function build(input: string, options?: BuildOptions) {
           content,
           {
             overwrite: true,
-          },
+          }
         );
         if (sourceFile) {
           removeVueSpecifier(sourceFile);
           sourceFiles.push(sourceFile);
         }
       }
-    }),
+    })
   );
 
   try {
@@ -100,7 +102,7 @@ export async function build(input: string, options?: BuildOptions) {
       sourceFiles.map(async (sourceFile) => {
         // eslint-disable-next-line no-console
         console.log(
-          chalk.green(`Transform start: ${sourceFile.getFilePath()}`),
+          chalk.green(`Transform start: ${sourceFile.getFilePath()}`)
         );
         const diagnostics = sourceFile.getPreEmitDiagnostics();
         // eslint-disable-next-line no-console
@@ -114,9 +116,9 @@ export async function build(input: string, options?: BuildOptions) {
             await fs.writeFile(filepath, outputFile.getText(), 'utf8');
             // eslint-disable-next-line no-console
             console.log(chalk.green(`Emitted ${filepath}`));
-          }),
+          })
         );
-      }),
+      })
     );
   } catch (e: any) {
     console.log(chalk.red(e.message || 'Transform failed'));

@@ -40,6 +40,7 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
+    "@vueuse/core": "^10.7.2",
     "vue": "^3.4.15"
   },
   "devDependencies": {
@@ -48,6 +49,7 @@
     "@vue/tsconfig": "^0.5.1"
   },
   "peerDependencies": {
+    "@vueuse/core": "^10.7.2",
     "vue": "^3.3.10"
   },
   "publishConfig": {
@@ -56,5 +58,5 @@
   },
   "gitHead": "fd04f5987e484f419b9c75cff51c02f95d7a68c5",
   "readme": "ERROR: No README data found!",
-  "_id": "@aesoper/hooks@1.0.10"
+  "_id": "@aesoper/hooks@1.0.16"
 }

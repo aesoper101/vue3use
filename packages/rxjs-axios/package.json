@@ -43,7 +43,7 @@
   "dependencies": {
     "@aesoper/shared": "^1.1.23",
     "@fingerprintjs/fingerprintjs": "^4.2.1",
-    "axios": "^1.6.5",
+    "axios": "^1.6.7",
     "axios-auth-refresh": "^3.3.6",
     "qs": "^6.11.2",
     "rxjs": "^7.8.1",
@@ -53,7 +53,7 @@
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",
     "@types/qs": "^6.9.11",
-    "@types/uuid": "^9.0.7",
+    "@types/uuid": "^9.0.8",
     "@vue/tsconfig": "^0.5.1"
   },
   "peerDependencies": {
@@ -67,5 +67,5 @@
   },
   "gitHead": "fd04f5987e484f419b9c75cff51c02f95d7a68c5",
   "readme": "ERROR: No README data found!",
-  "_id": "@aesoper/rxjs-axios@1.0.17"
+  "_id": "@aesoper/rxjs-axios@1.0.23"
 }
