@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/storage",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "description": "> TODO: description",
   "homepage": "https://github.com/aesoper101/vue3use#readme",
   "bugs": {
@@ -44,7 +44,7 @@
     "zipson": "0.2.12"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "^1.1.17",
+    "@aesoper/build-cli": "^1.1.18",
     "@tsconfig/node18": "^18.2.2",
     "@vue/tsconfig": "^0.5.1"
   },
