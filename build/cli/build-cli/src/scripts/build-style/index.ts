@@ -17,7 +17,7 @@ interface Options {
 
 const run = async (options: Options = { image: 'file' }) => {
   const root = process.cwd();
-  // 拷贝less文件到目标文件，index.less编译生成index.css
+  // 拷贝less文件到目标文件，index.less编译生成index.css index.min.css
   const files = glob.sync('**/*.{less,js}', {
     cwd: path.resolve(root, 'src'),
   });
