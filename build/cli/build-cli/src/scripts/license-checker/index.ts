@@ -19,7 +19,7 @@ export default async function run(options: Omit<InitOpts, 'start'> = {}) {
       out: 'third-party-licenses.json',
       summary: true,
     },
-    options || {}
+    options || {},
   ) as InitOpts;
   checker.init(opts, (err, packages) => {
     if (err) {
@@ -36,7 +36,7 @@ export default async function run(options: Omit<InitOpts, 'start'> = {}) {
 
     if (licenseSet.size > 1) {
       console.error(
-        chalk.red('The license of the dependent package is inconsistent')
+        chalk.red('The license of the dependent package is inconsistent'),
       );
       process.exit(1);
     }
@@ -60,14 +60,11 @@ export default async function run(options: Omit<InitOpts, 'start'> = {}) {
 
     // Add third-party-licenses.json file to the files field of the package.json file
     const workspacePackageJson = readPackageSync({ cwd: cwd });
-    if (
-      workspacePackageJson.files &&
-      workspacePackageJson.files.includes(opts.out)
-    ) {
+    if (workspacePackageJson.files?.includes(opts.out)) {
       console.log(
         chalk.green(
-          'The third-party-licenses.json file already exists in the files field of the package.json file'
-        )
+          'The third-party-licenses.json file already exists in the files field of the package.json file',
+        ),
       );
       return;
     } else {
@@ -75,8 +72,8 @@ export default async function run(options: Omit<InitOpts, 'start'> = {}) {
       workspacePackageJson.files.push(opts.out);
       console.log(
         chalk.green(
-          'Add third-party-licenses.json file to the files field of the package.json file'
-        )
+          'Add third-party-licenses.json file to the files field of the package.json file',
+        ),
       );
       writePackageSync(path.join(cwd, 'package.json'), workspacePackageJson);
       sortPackage(cwd);
