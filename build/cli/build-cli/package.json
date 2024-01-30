@@ -84,7 +84,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "f9db64aad510a9aed33b7c857d38d383ecb8f06a",
+  "gitHead": "246bcfe70580234570504e126e80db1eea024b0d",
   "readme": "ERROR: No README data found!",
   "_id": "@aesoper/build-cli@1.1.15"
 }
