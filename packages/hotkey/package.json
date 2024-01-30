@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/hotkey",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "> TODO: description",
   "homepage": "https://github.com/aesoper101/vue3use#readme",
   "bugs": {
@@ -43,7 +43,7 @@
     "hotkeys-js": "^3.13.5"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "^1.1.22",
+    "@aesoper/build-cli": "^1.1.23",
     "@tsconfig/node18": "^18.2.2",
     "@vue/tsconfig": "^0.5.1"
   },
