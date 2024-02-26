@@ -44,6 +44,7 @@
     "@aesoper/shared": "^1.1.31"
   },
   "devDependencies": {
+    "@aesoper/build-cli": "^1.1.23",
     "@tsconfig/node18": "^18.2.2",
     "@vue/tsconfig": "^0.5.1"
   },

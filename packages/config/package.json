@@ -41,6 +41,7 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
+    "@aesoper/build-cli": "^1.1.23",
     "@aesoper/shared": "^1.1.31",
     "lodash.get": "^4.4.2",
     "lodash.has": "^4.5.2"

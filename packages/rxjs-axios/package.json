@@ -51,6 +51,7 @@
     "vue": "^3.4.20"
   },
   "devDependencies": {
+    "@aesoper/build-cli": "^1.1.23",
     "@tsconfig/node18": "^18.2.2",
     "@types/qs": "^6.9.11",
     "@types/uuid": "^9.0.8",

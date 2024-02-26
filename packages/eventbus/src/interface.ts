@@ -73,3 +73,29 @@ export abstract class BusEventWithPayload<T> extends BusEventBase {
     this.payload = payload;
   }
 }
+
+/**
+ * @public
+ */
+export interface AppEvent<T> {
+  readonly name: string;
+  payload?: T;
+}
+
+/** @public */
+export interface LegacyEventHandler<T> {
+  (payload: T): void;
+  wrapper?: (event: BusEvent) => void;
+}
+
+/** @public */
+export interface LegacyEmitter {
+  emit<T>(event: AppEvent<T> | string, payload?: T): void;
+
+  on<T>(event: AppEvent<T> | string, handler: LegacyEventHandler<T>): void;
+
+  off<T>(
+    event: AppEvent<T> | string,
+    handler: (payload?: T | any) => void,
+  ): void;
+}

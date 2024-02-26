@@ -1,17 +1,19 @@
 import EventEmitter from 'eventemitter3';
 import { Observable, Subscriber, type Unsubscribable } from 'rxjs';
 import { filter } from 'rxjs/operators';
-
 import type {
+  AppEvent,
   BusEvent,
   BusEventHandler,
   BusEventType,
   EventFilterOptions,
   IEventBus,
   IScopedEventBus,
+  LegacyEmitter,
+  LegacyEventHandler,
 } from './interface';
 
-export class EventBus implements IEventBus, IScopedEventBus {
+export class EventBus implements IEventBus, IScopedEventBus, LegacyEmitter {
   private emitter: EventEmitter;
   private subscribers = new Map<Function, Subscriber<BusEvent>>();
 
@@ -58,6 +60,43 @@ export class EventBus implements IEventBus, IScopedEventBus {
       sub.complete();
       this.subscribers.delete(key);
     }
+  }
+
+  /**
+   * Legacy functions
+   */
+  emit<T>(event: AppEvent<T> | string, payload?: T | any): void {
+    // console.log(`Deprecated emitter function used (emit), use $emit`);
+
+    if (typeof event === 'string') {
+      this.emitter.emit(event, { type: event, payload });
+    } else {
+      this.emitter.emit(event.name, { type: event.name, payload });
+    }
+  }
+
+  on<T>(event: AppEvent<T> | string, handler: LegacyEventHandler<T>) {
+    // console.log(`Deprecated emitter function used (on), use $on`);
+
+    // need this wrapper to make old events compatible with old handlers
+    handler.wrapper = (emittedEvent: BusEvent) => {
+      handler(emittedEvent.payload);
+    };
+
+    if (typeof event === 'string') {
+      this.emitter.on(event, handler.wrapper);
+    } else {
+      this.emitter.on(event.name, handler.wrapper);
+    }
+  }
+
+  off<T>(event: AppEvent<T> | string, handler: LegacyEventHandler<T>) {
+    if (typeof event === 'string') {
+      this.emitter.off(event, handler.wrapper);
+      return;
+    }
+
+    this.emitter.off(event.name, handler.wrapper);
   }
 }
 
