@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/i18n",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "description": "> TODO: description",
   "homepage": "https://github.com/aesoper101/vue3use#readme",
   "bugs": {
@@ -44,7 +44,7 @@
     "vue-i18n": "^9.9.1"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "^1.1.23",
+    "@aesoper/build-cli": "^1.1.24",
     "@tsconfig/node18": "^18.2.2",
     "@vue/tsconfig": "^0.5.1"
   },
