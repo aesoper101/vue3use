@@ -33,7 +33,7 @@ program
   .description('emit .d.ts files for vue files.')
   .option(
     '-o, --outDir <direname>',
-    'Specify an output folder for all emitted files'
+    'Specify an output folder for all emitted files',
   )
   .option('-i, --ignore <ignores...>', 'Specify files to ignore')
   .action(async (files, options) => {
@@ -45,28 +45,28 @@ program
   .description('create a library project.')
   .option(
     '-w, --workspaceDir <workspaceDir>',
-    'a Specify the workspaceDir of the' + ' library, default "packages"'
+    'a Specify the workspaceDir of the' + ' library, default "packages"',
   )
   .option(
     '-p, --packageName <packageName>',
-    'Specify the packageName of the library'
+    'Specify the packageName of the library',
   )
   .option(
     '-s, --style <style>',
-    'Specify the style of the library, value: less, panda'
+    'Specify the style of the library, value: less, panda',
   )
   .option(
     '-o, --pandaOutDir <pandaOutDir>',
-    'Specify the panda out dir, default "@scopedxxx/style-system"'
+    'Specify the panda out dir, default "@scopedxxx/style-system"',
   )
   .option(
     '-v, --pandaVersion <pandaVersion>',
-    'Specify the panda version, default latest'
+    'Specify the panda version, default latest',
   )
   .action(
     async (
       projectName,
-      { workspaceDir, packageName, style, pandaVersion, pandaOutDir }
+      { workspaceDir, packageName, style, pandaVersion, pandaOutDir },
     ) => {
       await createLibrary({
         projectName,
@@ -76,7 +76,7 @@ program
         pandaOutDir,
         style,
       });
-    }
+    },
   );
 
 program
@@ -85,7 +85,7 @@ program
   .option(
     '-i, --image <image>',
     'image option, available values: base64, file, none',
-    'base64'
+    'base64',
   )
   .option('-m, --imagemin', 'compress images when image is file')
   .action(async ({ image, imagemin }) => {
@@ -137,11 +137,11 @@ program
   .option('-t, --excludeLicenses <excludeLicenses>', 'exclude licenses')
   .option(
     '-w, --csvComponentPrefix <csvComponentPrefix>',
-    'csv component prefix'
+    'csv component prefix',
   )
   .option(
     '-u, --excludePackagesStartingWith <excludePackagesStartingWith>',
-    'exclude packages starting with'
+    'exclude packages starting with',
   )
   .option('-y, --summary', 'summary')
   .action(async (options) => {

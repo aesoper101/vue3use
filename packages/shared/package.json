@@ -41,9 +41,9 @@
   },
   "dependencies": {
     "@braintree/sanitize-url": "^7.0.0",
-    "dompurify": "^3.0.8",
+    "dompurify": "^3.0.9",
     "lodash": "^4.17.21",
-    "vue": "^3.4.15",
+    "vue": "^3.4.20",
     "vue-types": "^5.1.1",
     "xss": "^1.0.14"
   },
@@ -68,5 +68,5 @@
   },
   "gitHead": "aa1fba3fff410301de3bcb4bd5fa09c33e8ef7e4",
   "readme": "ERROR: No README data found!",
-  "_id": "@aesoper/shared@1.1.24"
+  "_id": "@aesoper/shared@1.1.31"
 }

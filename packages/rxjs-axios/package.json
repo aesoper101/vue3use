@@ -42,13 +42,13 @@
   },
   "dependencies": {
     "@aesoper/shared": "^1.1.31",
-    "@fingerprintjs/fingerprintjs": "^4.2.1",
+    "@fingerprintjs/fingerprintjs": "^4.2.2",
     "axios": "^1.6.7",
     "axios-auth-refresh": "^3.3.6",
     "qs": "^6.11.2",
     "rxjs": "^7.8.1",
     "uuid": "^9.0.1",
-    "vue": "^3.4.15"
+    "vue": "^3.4.20"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",
@@ -67,5 +67,5 @@
   },
   "gitHead": "aa1fba3fff410301de3bcb4bd5fa09c33e8ef7e4",
   "readme": "ERROR: No README data found!",
-  "_id": "@aesoper/rxjs-axios@1.0.24"
+  "_id": "@aesoper/rxjs-axios@1.0.31"
 }

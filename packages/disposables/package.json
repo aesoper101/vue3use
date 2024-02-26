@@ -1,6 +1,6 @@
 {
-  "name": "@aesoper/preference",
-  "version": "1.0.21",
+  "name": "@aesoper/disposables",
+  "version": "0.0.0",
   "description": "> TODO: description",
   "homepage": "https://github.com/aesoper101/vue3use#readme",
   "bugs": {
@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/aesoper101/vue3use.git",
-    "directory": "packages/preference"
+    "directory": "packages/disposables"
   },
   "license": "MIT",
   "author": {
@@ -25,7 +25,7 @@
     }
   },
   "main": "./lib/index.js",
-  "unpkg": "./dist/preference.min.js",
+  "unpkg": "./dist/disposables.min.js",
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
   "files": [
@@ -40,9 +40,10 @@
     "dtsgen": "build-cli dtsgen 'src/**/*.{ts,tsx,vue}' -o es",
     "test": "vitest run --coverage"
   },
+  "dependencies": {
+    "@aesoper/shared": "^1.1.31"
+  },
   "devDependencies": {
-    "@aesoper/build-cli": "^1.1.23",
-    "@aesoper/storage": "^1.1.23",
     "@tsconfig/node18": "^18.2.2",
     "@vue/tsconfig": "^0.5.1"
   },
@@ -50,7 +51,6 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "aa1fba3fff410301de3bcb4bd5fa09c33e8ef7e4",
   "readme": "ERROR: No README data found!",
-  "_id": "@aesoper/preference@1.0.21"
+  "_id": "@aesoper/disposables@0.0.0"
 }

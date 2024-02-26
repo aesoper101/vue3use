@@ -17,3 +17,5 @@ export * from './classname';
 export * from './animation-frame';
 export * from './dom';
 export * from './tree';
+export * from './functional';
+export * from './assert';

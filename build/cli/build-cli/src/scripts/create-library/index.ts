@@ -50,8 +50,8 @@ export default async function run(options: CreateLibraryOptions) {
   if (!isRoot) {
     console.log(
       chalk.red(
-        'You must run this command at the root of a workspace. Please change your current working directory and try again.'
-      )
+        'You must run this command at the root of a workspace. Please change your current working directory and try again.',
+      ),
     );
     return;
   }
@@ -68,8 +68,8 @@ export default async function run(options: CreateLibraryOptions) {
   if (path.isAbsolute(workspaceDir)) {
     console.log(
       chalk.red(
-        'The workspace directory you specified must be a relative path.'
-      )
+        'The workspace directory you specified must be a relative path.',
+      ),
     );
     return;
   }
@@ -77,8 +77,8 @@ export default async function run(options: CreateLibraryOptions) {
   if (!minimatch.match(workspaces, workspaceDir)) {
     console.log(
       chalk.red(
-        'The workspace directory you specified does not exist. Please change your current working directory and try again.'
-      )
+        'The workspace directory you specified does not exist. Please change your current working directory and try again.',
+      ),
     );
     return;
   }
@@ -89,7 +89,7 @@ export default async function run(options: CreateLibraryOptions) {
   let libraryRoot = path.join(
     cwd,
     workspaceDir,
-    options.projectName || libraryName
+    options.projectName || libraryName,
   );
 
   if (fs.existsSync(libraryRoot)) {
@@ -129,8 +129,8 @@ export default async function run(options: CreateLibraryOptions) {
     } else {
       console.log(
         chalk.yellow(
-          'Fetching panda latest version failed. Use default version 0.27.3'
-        )
+          'Fetching panda latest version failed. Use default version 0.27.3',
+        ),
       );
       return;
     }
@@ -155,7 +155,7 @@ export default async function run(options: CreateLibraryOptions) {
   const currentModulePath = dirname(fileURLToPath(import.meta.url));
   const templateDir = path.resolve(
     currentModulePath,
-    '../templates/template-library'
+    '../templates/template-library',
   );
 
   console.log(chalk.green(`Library Name: ${libraryName}`));
@@ -192,14 +192,14 @@ export default async function run(options: CreateLibraryOptions) {
         const targetFile = path.join(
           libraryRoot,
           path.dirname(file),
-          path.basename(file, '.ejs')
+          path.basename(file, '.ejs'),
         );
 
         fs.ensureDirSync(path.dirname(targetFile));
         fs.writeFileSync(targetFile, str);
 
         console.log(chalk.green(`Generate ${targetFile} OK.`));
-      }
+      },
     );
   });
 

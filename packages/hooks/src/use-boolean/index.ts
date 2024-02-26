@@ -9,7 +9,7 @@ export function useBoolean(initialState = false) {
       off: () => setValue(false),
       toggle: () => setValue(!value.value),
     }),
-    []
+    [],
   );
 
   return [value, callbacks] as const;

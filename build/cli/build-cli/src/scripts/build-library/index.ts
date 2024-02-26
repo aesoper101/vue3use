@@ -13,7 +13,7 @@ interface BuildLibraryOptions {
   licenseCheck?: boolean;
 }
 async function run(
-  options: BuildLibraryOptions = { umd: false, licenseCheck: false }
+  options: BuildLibraryOptions = { umd: false, licenseCheck: false },
 ) {
   const { umd, licenseCheck } = options;
 
@@ -26,7 +26,7 @@ async function run(
   const customConfig = hasViteConfigFile
     ? await loadConfigFromFile(
         { mode: 'production', command: 'build' },
-        viteConfigFilePath
+        viteConfigFilePath,
       )
     : {};
 

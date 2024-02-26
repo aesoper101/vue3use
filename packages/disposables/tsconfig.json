@@ -4,9 +4,9 @@
     "@vue/tsconfig/tsconfig.dom.json"
   ],
   "compilerOptions": {
+    "target": "ES2022",
     "types": ["node"],
     "outDir": "dist",
-    "target": "ES2022",
     "lib": ["ES2022"]
   }
 }
