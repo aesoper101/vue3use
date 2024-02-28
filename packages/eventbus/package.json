@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/eventbus",
-  "version": "1.0.40",
+  "version": "1.0.41",
   "description": "> TODO: description",
   "homepage": "https://github.com/aesoper101/vue3use#readme",
   "bugs": {
@@ -40,12 +40,12 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
-    "@aesoper/shared": "^1.1.36",
+    "@aesoper/shared": "^1.1.37",
     "eventemitter3": "^5.0.1",
     "rxjs": "^7.8.1"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "^1.1.28",
+    "@aesoper/build-cli": "^1.1.29",
     "@tsconfig/node18": "^18.2.2",
     "@vue/tsconfig": "^0.5.1"
   },
