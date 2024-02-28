@@ -12,12 +12,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aesoper/build-cli@npm:^1.1.23, @aesoper/build-cli@npm:^1.1.24, @aesoper/build-cli@workspace:build/cli/build-cli":
+"@aesoper/build-cli@npm:^1.1.23, @aesoper/build-cli@npm:^1.1.25, @aesoper/build-cli@workspace:build/cli/build-cli":
   version: 0.0.0-use.local
   resolution: "@aesoper/build-cli@workspace:build/cli/build-cli"
   dependencies:
     "@aesoper/vite-plugin-cssjs": "npm:^1.1.8"
-    "@aesoper/vite-plugin-external": "npm:^1.1.8"
+    "@aesoper/vite-plugin-external": "npm:^1.1.9"
     "@tsconfig/node18": "npm:^18.2.2"
     "@types/clean-css": "npm:^4.2.11"
     "@types/ejs": "npm:^3.1.5"
@@ -72,7 +72,7 @@ __metadata:
   resolution: "@aesoper/config@workspace:packages/config"
   dependencies:
     "@aesoper/build-cli": "npm:^1.1.23"
-    "@aesoper/shared": "npm:^1.1.32"
+    "@aesoper/shared": "npm:^1.1.33"
     "@tsconfig/node18": "npm:^18.2.2"
     "@types/lodash.get": "npm:^4.4.9"
     "@types/lodash.has": "npm:^4.5.9"
@@ -86,8 +86,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aesoper/disposables@workspace:packages/disposables"
   dependencies:
-    "@aesoper/build-cli": "npm:^1.1.24"
-    "@aesoper/shared": "npm:^1.1.32"
+    "@aesoper/build-cli": "npm:^1.1.25"
+    "@aesoper/shared": "npm:^1.1.33"
     "@tsconfig/node18": "npm:^18.2.2"
     "@vue/tsconfig": "npm:^0.5.1"
   peerDependencies:
@@ -99,8 +99,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aesoper/eventbus@workspace:packages/eventbus"
   dependencies:
-    "@aesoper/build-cli": "npm:^1.1.24"
-    "@aesoper/shared": "npm:^1.1.32"
+    "@aesoper/build-cli": "npm:^1.1.25"
+    "@aesoper/shared": "npm:^1.1.33"
     "@tsconfig/node18": "npm:^18.2.2"
     "@vue/tsconfig": "npm:^0.5.1"
     eventemitter3: "npm:^5.0.1"
@@ -114,7 +114,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aesoper/factory@workspace:packages/factory"
   dependencies:
-    "@aesoper/build-cli": "npm:^1.1.24"
+    "@aesoper/build-cli": "npm:^1.1.25"
     "@tsconfig/node18": "npm:^18.2.2"
     "@vue/tsconfig": "npm:^0.5.1"
   languageName: unknown
@@ -124,7 +124,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aesoper/hooks@workspace:packages/hooks"
   dependencies:
-    "@aesoper/build-cli": "npm:^1.1.24"
+    "@aesoper/build-cli": "npm:^1.1.25"
     "@tsconfig/node18": "npm:^18.2.2"
     "@vue/tsconfig": "npm:^0.5.1"
     "@vueuse/core": "npm:^10.8.0"
@@ -139,7 +139,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aesoper/hotkey@workspace:packages/hotkey"
   dependencies:
-    "@aesoper/build-cli": "npm:^1.1.24"
+    "@aesoper/build-cli": "npm:^1.1.25"
     "@tsconfig/node18": "npm:^18.2.2"
     "@vue/tsconfig": "npm:^0.5.1"
     hotkeys-js: "npm:^3.13.7"
@@ -152,7 +152,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aesoper/i18n@workspace:packages/i18n"
   dependencies:
-    "@aesoper/build-cli": "npm:^1.1.24"
+    "@aesoper/build-cli": "npm:^1.1.25"
     "@tsconfig/node18": "npm:^18.2.2"
     "@vue/tsconfig": "npm:^0.5.1"
     vue: "npm:^3.4.20"
@@ -167,7 +167,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aesoper/logger@workspace:packages/logger"
   dependencies:
-    "@aesoper/build-cli": "npm:^1.1.24"
+    "@aesoper/build-cli": "npm:^1.1.25"
     "@tsconfig/node18": "npm:^18.2.2"
     "@vue/tsconfig": "npm:^0.5.1"
     consola: "npm:^3.2.3"
@@ -181,8 +181,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aesoper/preference@workspace:packages/preference"
   dependencies:
-    "@aesoper/build-cli": "npm:^1.1.24"
-    "@aesoper/storage": "npm:^1.1.24"
+    "@aesoper/build-cli": "npm:^1.1.25"
+    "@aesoper/storage": "npm:^1.1.25"
     "@tsconfig/node18": "npm:^18.2.2"
     "@vue/tsconfig": "npm:^0.5.1"
   languageName: unknown
@@ -192,7 +192,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aesoper/registry@workspace:packages/registry"
   dependencies:
-    "@aesoper/build-cli": "npm:^1.1.24"
+    "@aesoper/build-cli": "npm:^1.1.25"
     "@tsconfig/node18": "npm:^18.2.2"
     "@vue/tsconfig": "npm:^0.5.1"
   languageName: unknown
@@ -202,8 +202,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aesoper/rxjs-axios@workspace:packages/rxjs-axios"
   dependencies:
-    "@aesoper/build-cli": "npm:^1.1.24"
-    "@aesoper/shared": "npm:^1.1.32"
+    "@aesoper/build-cli": "npm:^1.1.25"
+    "@aesoper/shared": "npm:^1.1.33"
     "@fingerprintjs/fingerprintjs": "npm:^4.2.2"
     "@tsconfig/node18": "npm:^18.2.2"
     "@types/qs": "npm:^6.9.11"
@@ -222,11 +222,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aesoper/shared@npm:^1.1.32, @aesoper/shared@workspace:packages/shared":
+"@aesoper/shared@npm:^1.1.33, @aesoper/shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@aesoper/shared@workspace:packages/shared"
   dependencies:
-    "@aesoper/build-cli": "npm:^1.1.24"
+    "@aesoper/build-cli": "npm:^1.1.25"
     "@braintree/sanitize-url": "npm:^7.0.0"
     "@tsconfig/node18": "npm:^18.2.2"
     "@types/dompurify": "npm:^3.0.5"
@@ -247,11 +247,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aesoper/storage@npm:^1.1.24, @aesoper/storage@workspace:packages/storage":
+"@aesoper/storage@npm:^1.1.25, @aesoper/storage@workspace:packages/storage":
   version: 0.0.0-use.local
   resolution: "@aesoper/storage@workspace:packages/storage"
   dependencies:
-    "@aesoper/build-cli": "npm:^1.1.24"
+    "@aesoper/build-cli": "npm:^1.1.25"
     "@tsconfig/node18": "npm:^18.2.2"
     "@vue/tsconfig": "npm:^0.5.1"
     pify: "npm:^6.1.0"
@@ -271,7 +271,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aesoper/vite-plugin-external@npm:^1.1.8, @aesoper/vite-plugin-external@workspace:build/plugin/vite-plugin-external":
+"@aesoper/vite-plugin-external@npm:^1.1.9, @aesoper/vite-plugin-external@workspace:build/plugin/vite-plugin-external":
   version: 0.0.0-use.local
   resolution: "@aesoper/vite-plugin-external@workspace:build/plugin/vite-plugin-external"
   dependencies:
