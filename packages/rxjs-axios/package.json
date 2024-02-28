@@ -66,7 +66,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "f8fa9daf09135870e86ebb1c68e53d53196df054",
+  "gitHead": "6e66e960f823dc78308a61bd2bb5521fc5d0319a",
   "readme": "ERROR: No README data found!",
   "_id": "@aesoper/rxjs-axios@1.0.38"
 }
