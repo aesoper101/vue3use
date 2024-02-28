@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/config",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "description": "> TODO: description",
   "homepage": "https://github.com/aesoper101/vue3use#readme",
   "bugs": {
@@ -41,7 +41,7 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
-    "@aesoper/shared": "^1.1.40",
+    "@aesoper/shared": "^1.1.41",
     "lodash.get": "^4.4.2",
     "lodash.has": "^4.5.2"
   },
