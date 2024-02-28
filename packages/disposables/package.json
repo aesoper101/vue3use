@@ -48,10 +48,13 @@
     "@tsconfig/node18": "^18.2.2",
     "@vue/tsconfig": "^0.5.1"
   },
+  "peerDependencies": {
+    "@aesoper/shared": "^1.1.32"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "@aesoper/disposables@0.0.0"
+  "_id": "@aesoper/disposables@0.0.1"
 }

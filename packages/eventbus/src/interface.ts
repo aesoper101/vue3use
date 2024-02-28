@@ -23,6 +23,7 @@ export abstract class BusEventBase implements BusEvent {
 
 export interface BusEventType<T extends BusEvent> {
   type: string;
+
   new (...args: any[]): T;
 }
 
@@ -85,6 +86,7 @@ export interface AppEvent<T> {
 /** @public */
 export interface LegacyEventHandler<T> {
   (payload: T): void;
+
   wrapper?: (event: BusEvent) => void;
 }
 

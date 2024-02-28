@@ -1,7 +1,8 @@
-import type { IDisposable, IDisposableTracker } from './interface';
 import { createSingleCallFunction } from '@aesoper/shared';
 import { Disposable } from './disposable';
 import { DisposableStore } from './disposable-store';
+import { dispose } from './dispose';
+import type { IDisposable, IDisposableTracker } from './interface';
 
 /**
  * Check if `thing` is {@link IDisposable disposable}.

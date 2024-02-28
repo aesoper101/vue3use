@@ -1,3 +1,4 @@
+import { createSingleCallFunction } from '@aesoper/shared';
 import type { IDisposable } from './interface';
 
 export class RefCountedDisposable {

@@ -6,7 +6,6 @@
   "compilerOptions": {
     "types": ["node"],
     "outDir": "dist",
-    "target": "ES2022",
-    "lib": ["ES2022"]
+    "target": "ES2022"
   }
 }
