@@ -14,6 +14,8 @@ export default function ExternalPlugin(): Plugin {
         return false;
       }
 
+      console.log(result?.id);
+
       return null;
     },
   };

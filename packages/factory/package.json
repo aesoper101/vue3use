@@ -41,7 +41,7 @@
     "test": "vitest run --coverage"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "^1.1.25",
+    "@aesoper/build-cli": "workspace:^",
     "@tsconfig/node18": "^18.2.2",
     "@vue/tsconfig": "^0.5.1"
   },
@@ -49,7 +49,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "aa1fba3fff410301de3bcb4bd5fa09c33e8ef7e4",
+  "gitHead": "26ad5f8fcecbb4fa81b1a550eba5962fef7a341a",
   "readme": "ERROR: No README data found!",
   "_id": "@aesoper/factory@1.0.25"
 }

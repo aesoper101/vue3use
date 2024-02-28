@@ -41,13 +41,13 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
-    "@aesoper/build-cli": "^1.1.25",
-    "@aesoper/shared": "^1.1.33",
+    "@aesoper/build-cli": "workspace:^",
+    "@aesoper/shared": "workspace:^",
     "lodash.get": "^4.4.2",
     "lodash.has": "^4.5.2"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "^1.1.23",
+    "@aesoper/build-cli": "workspace:^",
     "@tsconfig/node18": "^18.2.2",
     "@types/lodash.get": "^4.4.9",
     "@types/lodash.has": "^4.5.9",
@@ -57,7 +57,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "aa1fba3fff410301de3bcb4bd5fa09c33e8ef7e4",
+  "gitHead": "26ad5f8fcecbb4fa81b1a550eba5962fef7a341a",
   "readme": "ERROR: No README data found!",
   "_id": "@aesoper/config@1.0.30"
 }

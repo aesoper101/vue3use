@@ -41,20 +41,21 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
-    "@aesoper/shared": "^1.1.33"
+    "@aesoper/shared": "workspace:^"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "^1.1.25",
+    "@aesoper/build-cli": "workspace:^",
     "@tsconfig/node18": "^18.2.2",
     "@vue/tsconfig": "^0.5.1"
   },
   "peerDependencies": {
-    "@aesoper/shared": "^1.1.32"
+    "@aesoper/shared": "workspace:^"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "@aesoper/disposables@0.0.1"
+  "_id": "@aesoper/disposables@0.0.1",
+  "gitHead": "26ad5f8fcecbb4fa81b1a550eba5962fef7a341a"
 }

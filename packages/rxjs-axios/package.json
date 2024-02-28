@@ -41,7 +41,7 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
-    "@aesoper/shared": "^1.1.33",
+    "@aesoper/shared": "workspace:^",
     "@fingerprintjs/fingerprintjs": "^4.2.2",
     "axios": "^1.6.7",
     "axios-auth-refresh": "^3.3.6",
@@ -51,7 +51,7 @@
     "vue": "^3.4.20"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "^1.1.25",
+    "@aesoper/build-cli": "workspace:^",
     "@tsconfig/node18": "^18.2.2",
     "@types/qs": "^6.9.11",
     "@types/uuid": "^9.0.8",
@@ -66,7 +66,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "aa1fba3fff410301de3bcb4bd5fa09c33e8ef7e4",
+  "gitHead": "26ad5f8fcecbb4fa81b1a550eba5962fef7a341a",
   "readme": "ERROR: No README data found!",
   "_id": "@aesoper/rxjs-axios@1.0.32"
 }
