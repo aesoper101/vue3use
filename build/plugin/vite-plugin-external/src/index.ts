@@ -4,7 +4,7 @@ export default function ExternalPlugin(): Plugin {
   return {
     name: 'vite:external-node_modules',
     enforce: 'pre',
-    async resolveId(source: string, importer) {
+    async resolveId(source: string, importer: string | undefined) {
       const result = await this.resolve(source, importer, {
         skipSelf: true,
         custom: { 'node-resolve': {} },
