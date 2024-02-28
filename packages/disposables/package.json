@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/disposables",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "> TODO: description",
   "homepage": "https://github.com/aesoper101/vue3use#readme",
   "bugs": {
@@ -41,7 +41,7 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
-    "@aesoper/shared": "^1.1.41"
+    "@aesoper/shared": "^1.1.42"
   },
   "devDependencies": {
     "@aesoper/build-cli": "^1.1.30",
