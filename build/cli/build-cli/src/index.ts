@@ -1,10 +1,9 @@
 #!/usr/bin/env node
-import { Command } from 'commander';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import path from 'path';
+import { Command } from 'commander';
 import { readPackageSync } from 'read-pkg';
-
 import buildLibrary from './scripts/build-library';
 import buildStyle from './scripts/build-style';
 import cleanCache from './scripts/clean-cache';
@@ -63,10 +62,21 @@ program
     '-v, --pandaVersion <pandaVersion>',
     'Specify the panda version, default latest',
   )
+  .option(
+    '-V, --buildCliVersion <buildCliVersion>',
+    'Specify the buildCliVersion',
+  )
   .action(
     async (
       projectName,
-      { workspaceDir, packageName, style, pandaVersion, pandaOutDir },
+      {
+        workspaceDir,
+        packageName,
+        style,
+        pandaVersion,
+        pandaOutDir,
+        buildCliVersion,
+      },
     ) => {
       await createLibrary({
         projectName,
@@ -74,6 +84,7 @@ program
         packageName,
         pandaVersion,
         pandaOutDir,
+        buildCliVersion,
         style,
       });
     },

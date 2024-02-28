@@ -1,3 +1,6 @@
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import path from 'path';
 import chalk from 'chalk';
 import * as ChangeCase from 'change-case';
 import ejs from 'ejs';
@@ -7,9 +10,6 @@ import * as glob from 'glob';
 import inquirer from 'inquirer';
 import latestVersion from 'latest-version';
 import { minimatch } from 'minimatch';
-import { dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import path from 'path';
 import { readPackageSync } from 'read-pkg';
 import { simpleGit } from 'simple-git';
 
@@ -22,6 +22,7 @@ interface CreateLibraryOptions {
   style?: StyleType;
   pandaOutDir?: string;
   pandaVersion?: string;
+  buildCliVersion?: string;
 }
 
 interface TemplateData {
@@ -34,6 +35,7 @@ interface TemplateData {
   style?: StyleType;
   pandaOutDir?: string;
   pandaVersion?: string;
+  buildCliVersion?: string;
 }
 
 const isWorkspaceRoot = (cwd: string) => {
@@ -136,6 +138,23 @@ export default async function run(options: CreateLibraryOptions) {
     }
   }
 
+  if (!options.buildCliVersion) {
+    console.log(chalk.green('Fetching build-cli latest version...'));
+
+    const version = await latestVersion('@aesoper/build-cli');
+    if (version) {
+      options.buildCliVersion = version;
+      console.log(chalk.green(`Build-cli latest version: ${version}`));
+    } else {
+      console.log(
+        chalk.yellow(
+          'Fetching build-cli latest version failed. Use default version 1.1.24',
+        ),
+      );
+      return;
+    }
+  }
+
   const renderData: TemplateData = {
     packageName,
     unpkgName: ChangeCase.kebabCase(libraryName),
@@ -149,6 +168,7 @@ export default async function run(options: CreateLibraryOptions) {
         ? `${scope}/styled-system`
         : 'styled-system',
     pandaVersion: options.pandaVersion || '0.27.3',
+    buildCliVersion: options.buildCliVersion || '1.1.24',
   };
 
   // 获取模板文件
