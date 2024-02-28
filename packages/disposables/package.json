@@ -55,7 +55,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "gitHead": "26ad5f8fcecbb4fa81b1a550eba5962fef7a341a",
   "readme": "ERROR: No README data found!",
-  "_id": "@aesoper/disposables@0.0.1",
-  "gitHead": "26ad5f8fcecbb4fa81b1a550eba5962fef7a341a"
+  "_id": "@aesoper/disposables@0.0.2"
 }
