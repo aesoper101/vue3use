@@ -1,3 +1,5 @@
+import type { Thenable } from '../types';
+
 export const isUndefined = (val: any): val is undefined => val === undefined;
 export const isBoolean = (val: any): val is boolean => typeof val === 'boolean';
 export const isNumber = (val: any): val is number => typeof val === 'number';
@@ -30,4 +32,11 @@ export function isObject(obj: any): obj is Record<string, any> {
 
 export function isIterable<T>(obj: unknown): obj is Iterable<T> {
   return !!obj && typeof (obj as any)[Symbol.iterator] === 'function';
+}
+
+export function isThenable<T>(obj: unknown): obj is Promise<T> {
+  return !!obj && typeof (obj as unknown as Promise<T>).then === 'function';
+}
+export function isPromise<T>(obj: unknown): obj is Thenable<T> {
+  return isThenable(obj);
 }

@@ -19,3 +19,4 @@ export * from './dom';
 export * from './tree';
 export * from './functional';
 export * from './assert';
+export * from './async';

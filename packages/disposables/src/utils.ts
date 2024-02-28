@@ -146,3 +146,41 @@ export function disposeOnReturn(fn: (store: DisposableStore) => void): void {
     store.dispose();
   }
 }
+
+/**
+ * @en Creates a timeout that can be disposed using its returned value.
+ * @zh 创建一个可以通过返回值释放的超时。
+ *
+ * @param handler The timeout handler.
+ * @param timeout An optional timeout in milliseconds.
+ * @param store An optional {@link DisposableStore} that will have the timeout disposable managed automatically.
+ *
+ * @example
+ * const store = new DisposableStore;
+ * // Call the timeout after 1000ms at which point it will be automatically
+ * // evicted from the store.
+ * const timeoutDisposable = disposableTimeout(() => {}, 1000, store);
+ *
+ * if (foo) {
+ *   // Cancel the timeout and evict it from store.
+ *   timeoutDisposable.dispose();
+ * }
+ */
+export function disposableTimeout(
+  handler: () => void,
+  timeout = 0,
+  store?: DisposableStore,
+): IDisposable {
+  const timer = setTimeout(() => {
+    handler();
+    if (store) {
+      disposable.dispose();
+    }
+  }, timeout);
+  const disposable = toDisposable(() => {
+    clearTimeout(timer);
+    store?.deleteAndLeak(disposable);
+  });
+  store?.add(disposable);
+  return disposable;
+}
