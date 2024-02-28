@@ -1,4 +1,4 @@
-export type FactoryFunction<Args extends any[] = any[], Instance = any> = (
+export type FactoryFunction<Instance = any, Args extends any[] = any[]> = (
   ...args: Args
 ) => Instance;
 
@@ -11,9 +11,9 @@ export interface defineFactoryOptions {
   scope?: string;
 }
 
-export function defineFactory<Args extends any[] = any[], Instance = any>(
+export function defineFactory<Instance = any, Args extends any[] = any[]>(
   name: string,
-  constructor: FactoryFunction<Args, Instance>,
+  constructor: FactoryFunction<Instance, Args>,
   options?: defineFactoryOptions,
 ): void {
   const oldName = name;
@@ -40,7 +40,7 @@ export function hasFactory(name: string, scope?: string): boolean {
   return factoryMap.has(name);
 }
 
-export function createInstance<Args extends any[] = any[], Instance = any>(
+export function createInstance<Instance = any, Args extends any[] = any[]>(
   name: string,
   scope?: string,
   ...args: Args

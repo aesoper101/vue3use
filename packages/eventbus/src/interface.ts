@@ -96,6 +96,8 @@ export interface LegacyEmitter {
 
   on<T>(event: AppEvent<T> | string, handler: LegacyEventHandler<T>): void;
 
+  once<T>(event: AppEvent<T> | string, handler: LegacyEventHandler<T>): void;
+
   off<T>(
     event: AppEvent<T> | string,
     handler: (payload?: T | any) => void,

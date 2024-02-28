@@ -1,7 +1,9 @@
 import { LocalStorage, MemoryStorage, SessionStorage } from './drivers';
 import type { Storage, StorageOptions } from './interface';
 
-type StorageConstructor = new (options?: StorageOptions) => Storage;
+type StorageConstructor<T extends StorageOptions = StorageOptions> = new (
+  options?: T,
+) => Storage;
 
 const registry = new Map<string, StorageConstructor>();
 registry.set('localStorage', LocalStorage);

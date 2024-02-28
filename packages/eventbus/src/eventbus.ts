@@ -66,8 +66,6 @@ export class EventBus implements IEventBus, IScopedEventBus, LegacyEmitter {
    * Legacy functions
    */
   emit<T>(event: AppEvent<T> | string, payload?: T | any): void {
-    // console.log(`Deprecated emitter function used (emit), use $emit`);
-
     if (typeof event === 'string') {
       this.emitter.emit(event, { type: event, payload });
     } else {
@@ -76,8 +74,6 @@ export class EventBus implements IEventBus, IScopedEventBus, LegacyEmitter {
   }
 
   on<T>(event: AppEvent<T> | string, handler: LegacyEventHandler<T>) {
-    // console.log(`Deprecated emitter function used (on), use $on`);
-
     // need this wrapper to make old events compatible with old handlers
     handler.wrapper = (emittedEvent: BusEvent) => {
       handler(emittedEvent.payload);
@@ -87,6 +83,19 @@ export class EventBus implements IEventBus, IScopedEventBus, LegacyEmitter {
       this.emitter.on(event, handler.wrapper);
     } else {
       this.emitter.on(event.name, handler.wrapper);
+    }
+  }
+
+  once<T>(event: AppEvent<T> | string, handler: LegacyEventHandler<T>) {
+    // need this wrapper to make old events compatible with old handlers
+    handler.wrapper = (emittedEvent: BusEvent) => {
+      handler(emittedEvent.payload);
+    };
+
+    if (typeof event === 'string') {
+      this.emitter.once(event, handler.wrapper);
+    } else {
+      this.emitter.once(event.name, handler.wrapper);
     }
   }
 
