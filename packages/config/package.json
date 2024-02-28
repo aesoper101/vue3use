@@ -41,13 +41,12 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
-    "@aesoper/build-cli": "^1.1.27",
     "@aesoper/shared": "^1.1.35",
     "lodash.get": "^4.4.2",
     "lodash.has": "^4.5.2"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "workspace:^",
+    "@aesoper/build-cli": "^1.1.27",
     "@tsconfig/node18": "^18.2.2",
     "@types/lodash.get": "^4.4.9",
     "@types/lodash.has": "^4.5.9",
@@ -59,5 +58,5 @@
   },
   "gitHead": "a60f700dc67887b9e6ae55be391bc33362c98ca0",
   "readme": "ERROR: No README data found!",
-  "_id": "@aesoper/config@1.0.31"
+  "_id": "@aesoper/config@1.0.33"
 }

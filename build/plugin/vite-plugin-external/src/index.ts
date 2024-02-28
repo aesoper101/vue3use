@@ -14,7 +14,10 @@ export default function ExternalPlugin(): Plugin {
         return false;
       }
 
-      console.log(result?.id);
+      // ignore scoped packages
+      if (/^@[a-zA-Z][a-zA-Z0-9-]*\/[a-zA-Z0-9-]+$/.test(source)) {
+        return false;
+      }
 
       return null;
     },
