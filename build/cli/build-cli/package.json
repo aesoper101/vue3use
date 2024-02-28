@@ -67,8 +67,8 @@
     "write-package": "^7.0.1"
   },
   "devDependencies": {
-    "@aesoper/vite-plugin-cssjs": "workspace:^",
-    "@aesoper/vite-plugin-external": "workspace:^",
+    "@aesoper/vite-plugin-cssjs": "^1.1.8",
+    "@aesoper/vite-plugin-external": "^1.1.10",
     "@tsconfig/node18": "^18.2.2",
     "@types/clean-css": "^4.2.11",
     "@types/ejs": "^3.1.5",
@@ -84,7 +84,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "26ad5f8fcecbb4fa81b1a550eba5962fef7a341a",
+  "gitHead": "a60f700dc67887b9e6ae55be391bc33362c98ca0",
   "readme": "ERROR: No README data found!",
   "_id": "@aesoper/build-cli@1.1.23"
 }
