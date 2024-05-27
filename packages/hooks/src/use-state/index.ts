@@ -1,6 +1,6 @@
-import { type Ref, ref } from 'vue';
+import { ref, type Ref } from 'vue';
 
-export default function useState<T, R = Ref<T>>(
+export function useState<T, R = Ref<T>>(
   defaultStateValue?: T | (() => T),
 ): [R, (val: T) => void] {
   const initValue: T =
