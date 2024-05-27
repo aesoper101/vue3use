@@ -233,14 +233,14 @@ __metadata:
     dompurify: "npm:^3.0.9"
     lodash: "npm:^4.17.21"
     vue: "npm:^3.4.20"
-    vue-types: "npm:^5.1.1"
+    vue-types: "npm:^5.1.2"
     xss: "npm:^1.0.14"
   peerDependencies:
     "@braintree/sanitize-url": ^7.0.0
     dompurify: ^3.0.8
     lodash: ^4.17.21
     vue: ^3.3.10
-    vue-types: ^5.1.1
+    vue-types: ^5.1.2
     xss: ^1.0.14
   languageName: unknown
   linkType: soft
@@ -13799,9 +13799,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-types@npm:^5.1.1":
-  version: 5.1.1
-  resolution: "vue-types@npm:5.1.1"
+"vue-types@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "vue-types@npm:5.1.2"
   dependencies:
     is-plain-object: "npm:5.0.0"
   peerDependencies:
@@ -13809,7 +13809,7 @@ __metadata:
   peerDependenciesMeta:
     vue:
       optional: true
-  checksum: 52be98ec8c5c6f5016a503db7a00757b5ea1cb5020d6e2b61a56cc1a7bbd05d65e86223a248a99be4a53941cb8d03afe73ae5943affe102c23327129be5dfee8
+  checksum: c7f8e9a78ec9b2592598ac59e0bec2c671930df63bbbdc084929d5bd01642d652f02a80904bf9a1414b17a8ed9c29283ea56765bbb11d0ce48f3093892dfff9d
   languageName: node
   linkType: hard
 

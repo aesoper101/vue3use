@@ -44,7 +44,7 @@
     "dompurify": "^3.0.9",
     "lodash": "^4.17.21",
     "vue": "^3.4.20",
-    "vue-types": "^5.1.1",
+    "vue-types": "^5.1.2",
     "xss": "^1.0.14"
   },
   "devDependencies": {
@@ -59,7 +59,7 @@
     "dompurify": "^3.0.8",
     "lodash": "^4.17.21",
     "vue": "^3.3.10",
-    "vue-types": "^5.1.1",
+    "vue-types": "^5.1.2",
     "xss": "^1.0.14"
   },
   "publishConfig": {
@@ -68,5 +68,5 @@
   },
   "gitHead": "8f0cd7117676e28ea0af4423725ce24885f39581",
   "readme": "ERROR: No README data found!",
-  "_id": "@aesoper/shared@1.1.38"
+  "_id": "@aesoper/shared@1.1.42"
 }

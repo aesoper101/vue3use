@@ -1,5 +1,5 @@
 import { useMemo } from '../use-memo';
-import useState from '../use-state';
+import { useState } from '../use-state';
 
 export function useBoolean(initialState = false) {
   const [value, setValue] = useState(initialState);
