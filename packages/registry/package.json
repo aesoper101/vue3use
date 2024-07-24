@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@aesoper/build-cli": "^1.1.30",
-    "@tsconfig/node18": "^18.2.2",
+    "@tsconfig/node18": "^18.2.4",
     "@vue/tsconfig": "^0.5.1"
   },
   "publishConfig": {
