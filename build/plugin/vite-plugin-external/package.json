@@ -47,7 +47,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "f8fa9daf09135870e86ebb1c68e53d53196df054",
+  "gitHead": "e9a9ad1d5d52db1b17ebfb62d5f096cd48264c4a",
   "readme": "ERROR: No README data found!",
   "_id": "@aesoper/vite-plugin-external@1.1.7"
 }

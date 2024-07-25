@@ -47,7 +47,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "fd04f5987e484f419b9c75cff51c02f95d7a68c5",
+  "gitHead": "e9a9ad1d5d52db1b17ebfb62d5f096cd48264c4a",
   "readme": "ERROR: No README data found!",
   "_id": "@aesoper/vite-plugin-cssjs@1.1.7"
 }
