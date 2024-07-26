@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/logger",
-  "version": "1.0.45",
+  "version": "1.0.46",
   "description": "> TODO: description",
   "homepage": "https://github.com/aesoper101/vue3use#readme",
   "bugs": {
@@ -47,7 +47,7 @@
     "roarr": "^7.21.1"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "^1.2.6",
+    "@aesoper/build-cli": "^1.2.7",
     "@tsconfig/node18": "^18.2.4",
     "@vue/tsconfig": "^0.5.1"
   },

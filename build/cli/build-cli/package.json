@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/build-cli",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "> TODO: description",
   "homepage": "https://github.com/aesoper101/vue3use#readme",
   "bugs": {
@@ -67,8 +67,8 @@
     "write-package": "^7.0.1"
   },
   "devDependencies": {
-    "@aesoper/vite-plugin-cssjs": "^1.2.6",
-    "@aesoper/vite-plugin-external": "^1.1.21",
+    "@aesoper/vite-plugin-cssjs": "^1.2.7",
+    "@aesoper/vite-plugin-external": "^1.1.22",
     "@tsconfig/node18": "^18.2.4",
     "@types/clean-css": "^4.2.11",
     "@types/ejs": "^3.1.5",
