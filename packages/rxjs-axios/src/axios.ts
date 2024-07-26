@@ -1,18 +1,16 @@
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import axios, {
   AxiosError,
+  isAxiosError,
+  isCancel,
   type AxiosInstance,
   type AxiosRequestConfig,
   type AxiosResponse,
-  isAxiosError,
-  isCancel,
 } from 'axios';
 import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import qs from 'qs';
-import { Observable, lastValueFrom } from 'rxjs';
-
+import { lastValueFrom, Observable } from 'rxjs';
 import { ref } from 'vue';
-
 import type { RequestInterceptor, ResponseInterceptor } from './interface';
 import {
   RequestHeaders,
@@ -25,7 +23,7 @@ import {
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 
 class HttpClient implements RxjsAxiosAPI {
-  private _axiosInstance: AxiosInstance;
+  private readonly _axiosInstance: AxiosInstance;
   private deviceID?: string | null = null;
   private fetchMap: Map<string, RxjsAxiosRequestConfig> = new Map();
 
