@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/hooks",
-  "version": "1.0.40",
+  "version": "1.0.41",
   "description": "> TODO: description",
   "homepage": "https://github.com/aesoper101/vue3use#readme",
   "bugs": {
@@ -44,7 +44,7 @@
     "vue": "^3.4.34"
   },
   "devDependencies": {
-    "@aesoper/build-cli": "^1.2.3",
+    "@aesoper/build-cli": "^1.2.4",
     "@tsconfig/node18": "^18.2.4",
     "@vue/tsconfig": "^0.5.1"
   },
