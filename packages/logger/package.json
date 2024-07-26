@@ -55,7 +55,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "2d7066ef5566abfebc86124d04602ae49cfaf2f6",
+  "gitHead": "98e740120efc575376abeadca80db016614d1754",
   "readme": "ERROR: No README data found!",
   "_id": "@aesoper/logger@1.0.42"
 }
