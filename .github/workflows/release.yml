@@ -16,5 +16,5 @@ jobs:
       - run: yarn build
       - uses: plutotcool/release@v1
         with:
-          github_token:  ${{ secrets.GITHUB_TOKEN }}
-          npm_token: ${{ secrets.NPM_TOKEN }}
+          github_token:  ${{ secrets.M_GITHUB_TOKEN }}
+          npm_token: ${{ secrets.M_NPM_TOKEN }}
