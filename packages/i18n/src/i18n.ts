@@ -1,6 +1,5 @@
-import { type App, getCurrentInstance } from 'vue';
+import { getCurrentInstance, type App } from 'vue';
 import { createI18n, useI18n as useOfficeI18n } from 'vue-i18n';
-
 import type {
   I18nInterface,
   I18nOptions,
@@ -114,85 +113,3 @@ export const useI18n = () => {
 };
 
 export type UseI18nInstance = ReturnType<typeof useI18n>;
-
-export type TranslateFunc = () => string;
-
-export type TranslateKey = string;
-
-export type TranslateArg = TranslateFunc | TranslateKey;
-
-type True = true;
-type False = false;
-
-export function t(
-  key: TranslateKey,
-  options?: any,
-  immediate?: False,
-): TranslateFunc;
-export function t(key: TranslateKey, options?: any, immediate?: True): string;
-export function t(
-  key: TranslateKey,
-  options?: any,
-  immediate?: boolean,
-): TranslateFunc | string {
-  const { t: translate } = useI18n();
-  if (immediate === true) {
-    return translate(key, options);
-  }
-
-  if (!options) {
-    return () => translate(key) || key;
-  }
-
-  return () => translate(key, options) || key;
-}
-
-export function tm(key: TranslateKey, immediate?: False): TranslateFunc;
-export function tm(key: TranslateKey, immediate?: True): string;
-export function tm(
-  key: TranslateKey,
-  immediate?: boolean,
-): TranslateFunc | string {
-  const { tm: translate } = useI18n();
-  if (immediate === true) {
-    return translate(key);
-  }
-
-  return () => translate(key) || key;
-}
-
-export function rt(
-  key: string,
-  options?: any,
-  immediate?: False,
-): TranslateFunc;
-export function rt(key: TranslateKey, options?: any, immediate?: True): string;
-export function rt(
-  key: TranslateKey,
-  options?: any,
-  immediate?: boolean,
-): TranslateFunc | string {
-  const { rt: translate } = useI18n();
-  if (immediate === true) {
-    return translate(key, options);
-  }
-
-  if (!options) {
-    return () => translate(key) || key;
-  }
-
-  return () => translate(key, options) || key;
-}
-
-export function te(key: TranslateKey): boolean {
-  const { te: translate } = useI18n();
-  return translate(key);
-}
-
-export function translateFrom(arg: TranslateArg): string {
-  if (typeof arg === 'function') {
-    return arg();
-  }
-
-  return arg;
-}

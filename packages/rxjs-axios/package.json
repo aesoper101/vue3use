@@ -42,7 +42,6 @@
   },
   "dependencies": {
     "@aesoper/shared": "^1.1.53",
-    "@fingerprintjs/fingerprintjs": "^4.4.3",
     "axios": "^1.7.2",
     "axios-auth-refresh": "^3.3.6",
     "qs": "^6.12.3",

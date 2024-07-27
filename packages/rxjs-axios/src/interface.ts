@@ -5,22 +5,10 @@ import type {
 } from 'axios';
 import type { AxiosAuthRefreshOptions } from 'axios-auth-refresh';
 import type { Observable } from 'rxjs';
-
 import type { Ref } from 'vue';
 
 export interface RxjsAxiosRequestConfig extends AxiosRequestConfig {
   [key: string]: any;
-}
-
-type True = true;
-export interface ReactiveRequestOptions {
-  isReactiveReturn: True;
-}
-
-export function isReactiveRequestOptions(
-  options: any,
-): options is ReactiveRequestOptions {
-  return options && options.isReactiveReturn === true;
 }
 
 export interface RxjsReactiveResponse<T = any> {
@@ -39,8 +27,8 @@ export interface RxjsAxiosOptions
   refreshAccessToken?: <T = any>(
     response: AxiosResponse,
   ) => Observable<AxiosResponse<T>>;
-  requestInterceptor?: RequestInterceptor;
-  responseInterceptor?: ResponseInterceptor;
+  requestInterceptors?: RequestInterceptor[];
+  responseInterceptors?: ResponseInterceptor[];
 }
 
 export interface RequestInterceptor {
@@ -56,11 +44,13 @@ export interface ResponseInterceptor {
   ) => AxiosResponse | Promise<AxiosResponse>;
   onRejected?: (error: any) => any;
 }
-export enum RequestHeaders {
-  HeaderDeviceID = 'X-Device-Id',
-}
 
 export interface RxjsAxiosAPI {
+  request<T = any>(
+    url: string,
+    config?: RxjsAxiosRequestConfig,
+  ): RxjsReactiveResponse<T>;
+
   request<T = any>(
     config: RxjsAxiosRequestConfig,
   ): Observable<AxiosResponse<T>>;
@@ -68,39 +58,86 @@ export interface RxjsAxiosAPI {
   get<T = any>(
     url: string,
     config?: RxjsAxiosRequestConfig,
-  ): Observable<AxiosResponse<T>>;
+  ): RxjsReactiveResponse<T>;
+
+  get<T = any>(config: RxjsAxiosRequestConfig): Observable<AxiosResponse<T>>;
 
   delete<T = any>(
     url: string,
     config?: RxjsAxiosRequestConfig,
-  ): Observable<AxiosResponse<T>>;
+  ): RxjsReactiveResponse<T>;
+
+  delete<T = any>(config: RxjsAxiosRequestConfig): Observable<AxiosResponse<T>>;
 
   head<T = any>(
     url: string,
     config?: RxjsAxiosRequestConfig,
-  ): Observable<AxiosResponse<T>>;
+  ): RxjsReactiveResponse<T>;
 
-  post<T = any>(
-    url: string,
-    data?: any,
-    config?: RxjsAxiosRequestConfig,
-  ): Observable<AxiosResponse<T>>;
+  head<T = any>(config: RxjsAxiosRequestConfig): Observable<AxiosResponse<T>>;
 
-  put<T = any>(
+  post<T = any, D = any>(
     url: string,
-    data?: any,
+    data?: D,
     config?: RxjsAxiosRequestConfig,
-  ): Observable<AxiosResponse<T>>;
+  ): RxjsReactiveResponse<T>;
 
-  patch<T = any>(
+  post<T = any>(config: RxjsAxiosRequestConfig): Observable<AxiosResponse<T>>;
+
+  put<T = any, D = any>(
     url: string,
-    data?: any,
+    data?: D,
     config?: RxjsAxiosRequestConfig,
-  ): Observable<AxiosResponse<T>>;
+  ): RxjsReactiveResponse<T>;
+
+  put<T = any>(config: RxjsAxiosRequestConfig): Observable<AxiosResponse<T>>;
+
+  patch<T = any, D = any>(
+    url: string,
+    data?: D,
+    config?: RxjsAxiosRequestConfig,
+  ): RxjsReactiveResponse<T>;
+
+  patch<T = any>(config: RxjsAxiosRequestConfig): Observable<AxiosResponse<T>>;
 
   getUri(config?: RxjsAxiosRequestConfig): string;
 
-  transformResponseReactive<T = any>(
-    response: () => Observable<AxiosResponse<T>>,
+  options<T = any>(
+    url: string,
+    config?: RxjsAxiosRequestConfig,
   ): RxjsReactiveResponse<T>;
+
+  options<T = any>(
+    config: RxjsAxiosRequestConfig,
+  ): Observable<AxiosResponse<T>>;
+
+  postForm<T = any, D = any>(
+    url: string,
+    data?: D,
+    config?: RxjsAxiosRequestConfig,
+  ): RxjsReactiveResponse<T>;
+
+  postForm<T = any>(
+    config: RxjsAxiosRequestConfig,
+  ): Observable<AxiosResponse<T>>;
+
+  putForm<T = any, D = any>(
+    url: string,
+    data?: D,
+    config?: RxjsAxiosRequestConfig,
+  ): RxjsReactiveResponse<T>;
+
+  putForm<T = any>(
+    config: RxjsAxiosRequestConfig,
+  ): Observable<AxiosResponse<T>>;
+
+  patchForm<T = any, D = any>(
+    url: string,
+    data?: D,
+    config?: RxjsAxiosRequestConfig,
+  ): RxjsReactiveResponse<T>;
+
+  patchForm<T = any>(
+    config: RxjsAxiosRequestConfig,
+  ): Observable<AxiosResponse<T>>;
 }
