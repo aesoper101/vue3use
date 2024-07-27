@@ -65,7 +65,7 @@ __metadata:
   resolution: "@aesoper/config@workspace:packages/config"
   dependencies:
     "@aesoper/build-cli": "npm:^1.2.9"
-    "@aesoper/shared": "npm:^1.1.53"
+    "@aesoper/shared": "npm:^1.1.54"
     "@tsconfig/node18": "npm:^18.2.4"
     "@types/lodash.get": "npm:^4.4.9"
     "@types/lodash.has": "npm:^4.5.9"
@@ -80,7 +80,7 @@ __metadata:
   resolution: "@aesoper/disposables@workspace:packages/disposables"
   dependencies:
     "@aesoper/build-cli": "npm:^1.2.9"
-    "@aesoper/shared": "npm:^1.1.53"
+    "@aesoper/shared": "npm:^1.1.54"
     "@tsconfig/node18": "npm:^18.2.4"
     "@vue/tsconfig": "npm:^0.5.1"
   languageName: unknown
@@ -91,7 +91,7 @@ __metadata:
   resolution: "@aesoper/eventbus@workspace:packages/eventbus"
   dependencies:
     "@aesoper/build-cli": "npm:^1.2.9"
-    "@aesoper/shared": "npm:^1.1.53"
+    "@aesoper/shared": "npm:^1.1.54"
     "@tsconfig/node18": "npm:^18.2.4"
     "@vue/tsconfig": "npm:^0.5.1"
     eventemitter3: "npm:^5.0.1"
@@ -173,7 +173,7 @@ __metadata:
   resolution: "@aesoper/preference@workspace:packages/preference"
   dependencies:
     "@aesoper/build-cli": "npm:^1.2.9"
-    "@aesoper/storage": "npm:^1.1.45"
+    "@aesoper/storage": "npm:^1.1.46"
     "@tsconfig/node18": "npm:^18.2.4"
     "@vue/tsconfig": "npm:^0.5.1"
   languageName: unknown
@@ -194,8 +194,7 @@ __metadata:
   resolution: "@aesoper/rxjs-axios@workspace:packages/rxjs-axios"
   dependencies:
     "@aesoper/build-cli": "npm:^1.2.9"
-    "@aesoper/shared": "npm:^1.1.53"
-    "@fingerprintjs/fingerprintjs": "npm:^4.4.3"
+    "@aesoper/shared": "npm:^1.1.54"
     "@tsconfig/node18": "npm:^18.2.4"
     "@types/qs": "npm:^6.9.15"
     "@types/uuid": "npm:^10.0.0"
@@ -213,7 +212,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aesoper/shared@npm:^1.1.53, @aesoper/shared@workspace:packages/shared":
+"@aesoper/shared@npm:^1.1.54, @aesoper/shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@aesoper/shared@workspace:packages/shared"
   dependencies:
@@ -238,7 +237,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aesoper/storage@npm:^1.1.45, @aesoper/storage@workspace:packages/storage":
+"@aesoper/storage@npm:^1.1.46, @aesoper/storage@workspace:packages/storage":
   version: 0.0.0-use.local
   resolution: "@aesoper/storage@workspace:packages/storage"
   dependencies:
@@ -1501,15 +1500,6 @@ __metadata:
   version: 8.57.0
   resolution: "@eslint/js@npm:8.57.0"
   checksum: 10c0/9a518bb8625ba3350613903a6d8c622352ab0c6557a59fe6ff6178bf882bf57123f9d92aa826ee8ac3ee74b9c6203fe630e9ee00efb03d753962dcf65ee4bd94
-  languageName: node
-  linkType: hard
-
-"@fingerprintjs/fingerprintjs@npm:^4.4.3":
-  version: 4.4.3
-  resolution: "@fingerprintjs/fingerprintjs@npm:4.4.3"
-  dependencies:
-    tslib: "npm:^2.4.1"
-  checksum: 10c0/9f33014ac0ad404ac899144176717d0b5edefbb7d332f9e42ae544a745647a94f2305b8edbd94df9abd0b315e8822ecb44ff569cce1972244838267a29ff5b32
   languageName: node
   linkType: hard
 
@@ -13579,7 +13569,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:^2.4.0, tslib@npm:^2.4.1, tslib@npm:^2.6.2":
+"tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:^2.4.0, tslib@npm:^2.6.2":
   version: 2.6.3
   resolution: "tslib@npm:2.6.3"
   checksum: 10c0/2598aef53d9dbe711af75522464b2104724d6467b26a60f2bdac8297d2b5f1f6b86a71f61717384aa8fd897240467aaa7bcc36a0700a0faf751293d1331db39a
