@@ -9,7 +9,7 @@ import axios, {
 } from 'axios';
 import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import qs from 'qs';
-import { lastValueFrom, type Observable } from 'rxjs';
+import { lastValueFrom, Observable } from 'rxjs';
 import { ref } from 'vue';
 import {
   type RequestInterceptor,
@@ -28,11 +28,11 @@ export class HttpClient implements RxjsAxiosAPI {
     this._axiosInstance = axios.create({
       ..._options,
     });
-    this._options?.requestInterceptors.forEach((interceptor) => {
+    this._options?.requestInterceptors?.forEach((interceptor) => {
       this._addRequestInterceptor(interceptor);
     });
 
-    this._options?.responseInterceptors.forEach((interceptor) => {
+    this._options?.responseInterceptors?.forEach((interceptor) => {
       this._addResponseInterceptor(interceptor);
     });
     this.setRefreshTokenInterceptor();
@@ -256,7 +256,12 @@ export class HttpClient implements RxjsAxiosAPI {
     config?: RxjsAxiosRequestConfig,
   ): any {
     if (typeof url === 'string') {
-      return this._reactiveRequest<T>(url, config);
+      const _config = config || {};
+      return this._reactiveRequest<T>({
+        ..._config,
+        method: 'get',
+        url: url,
+      });
     }
     return this._request<T>(url);
   }
@@ -381,7 +386,7 @@ export class HttpClient implements RxjsAxiosAPI {
   ): any {
     if (typeof url === 'string') {
       const _config = config || {};
-      const headers = AxiosHeaders.from(_config.headers || {});
+      const headers = AxiosHeaders.from(_config.headers || ({} as any));
       headers.set('Content-Type', 'multipart/form-data', true);
       return this._reactiveRequest<T>({
         ..._config,
@@ -392,7 +397,7 @@ export class HttpClient implements RxjsAxiosAPI {
       });
     }
 
-    const headers = AxiosHeaders.from(url?.headers || {});
+    const headers = AxiosHeaders.from(url?.headers || ({} as any));
     headers.set('Content-Type', 'multipart/form-data', true);
     return this._request<T>({
       ...url,
@@ -427,7 +432,7 @@ export class HttpClient implements RxjsAxiosAPI {
       });
     }
 
-    const headers = AxiosHeaders.from(url?.headers || {});
+    const headers = AxiosHeaders.from(url?.headers || ({} as any));
     headers.set('Content-Type', 'multipart/form-data', true);
     return this._request<T>({
       ...url,
@@ -451,7 +456,7 @@ export class HttpClient implements RxjsAxiosAPI {
   ): any {
     if (typeof url === 'string') {
       const _config = config || {};
-      const headers = AxiosHeaders.from(_config.headers || {});
+      const headers = AxiosHeaders.from(_config.headers || ({} as any));
       headers.set('Content-Type', 'multipart/form-data', true);
       return this._reactiveRequest<T>({
         ..._config,
@@ -462,7 +467,7 @@ export class HttpClient implements RxjsAxiosAPI {
       });
     }
 
-    const headers = AxiosHeaders.from(url?.headers || {});
+    const headers = AxiosHeaders.from(url?.headers || ({} as any));
     headers.set('Content-Type', 'multipart/form-data', true);
     return this._request<T>({
       ...url,

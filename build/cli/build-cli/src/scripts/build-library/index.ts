@@ -1,8 +1,7 @@
+import path from 'path';
 import chalk from 'chalk';
 import fs from 'fs-extra';
-import path from 'path';
 import { build, loadConfigFromFile, mergeConfig } from 'vite';
-
 import config from '../../configs/vite.lib.prod';
 import getUmdConfig from '../../configs/vite.lib.prod.umd';
 import licenseChecker from '../license-checker';
@@ -41,6 +40,7 @@ async function run(
   if (licenseCheck) {
     console.log(chalk.green('License check...'));
     await licenseChecker({
+      //@ts-ignore
       start: process.cwd(),
     });
   }
