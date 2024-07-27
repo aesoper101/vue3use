@@ -20,6 +20,8 @@ import {
   type RxjsReactiveResponse,
 } from './interface';
 
+axios.defaults.headers.common['Content-Type'] = 'application/json';
+
 export class HttpClient implements RxjsAxiosAPI {
   private readonly _axiosInstance: AxiosInstance;
   private fetchMap: Map<string, RxjsAxiosRequestConfig> = new Map();

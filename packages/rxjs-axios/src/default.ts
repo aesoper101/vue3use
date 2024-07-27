@@ -148,7 +148,7 @@ export function patchForm<T = any>(
 ): Observable<AxiosResponse<T>>;
 export function patchForm<T = any, D = any>(
   url: string | RxjsAxiosRequestConfig,
-  data?,
+  data?: D,
   config?: RxjsAxiosRequestConfig,
 ): any {
   if (typeof url === 'string') {
@@ -167,7 +167,7 @@ export function postForm<T = any>(
 ): Observable<AxiosResponse<T>>;
 export function postForm<T = any, D = any>(
   url: string | RxjsAxiosRequestConfig,
-  data?,
+  data?: D,
   config?: RxjsAxiosRequestConfig,
 ): any {
   if (typeof url === 'string') {
@@ -186,7 +186,7 @@ export function putForm<T = any>(
 ): Observable<AxiosResponse<T>>;
 export function putForm<T = any, D = any>(
   url: string | RxjsAxiosRequestConfig,
-  data?,
+  data?: D,
   config?: RxjsAxiosRequestConfig,
 ): any {
   if (typeof url === 'string') {
@@ -217,7 +217,9 @@ export function del<T = any>(
   url: string,
   config?: RxjsAxiosRequestConfig,
 ): RxjsReactiveResponse<T>;
-export function del<T = any>(config: RxjsAxiosRequestConfig): Observable;
+export function del<T = any>(
+  config: RxjsAxiosRequestConfig,
+): Observable<AxiosResponse<T>>;
 export function del<T = any>(
   url: string | RxjsAxiosRequestConfig,
   config?: RxjsAxiosRequestConfig,
