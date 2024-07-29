@@ -70,7 +70,6 @@ export const createI18nInstance = (options?: I18nOptions) => {
   return {
     i18n: i18nInstance,
     install: (app: App) => {
-      console.log('install i18n');
       app.use(i18nInstance.innerI18n);
     },
   };
@@ -121,6 +120,7 @@ export const g_te = useI18n().te;
 export const g_d = useI18n().d;
 export const g_n = useI18n().n;
 export const g_getLocale = useI18n().getLocale;
+export const g_setLocale = useI18n().setLocale;
 export const g_getLocaleMessage = useI18n().getLocaleMessage;
 export const g_setLocaleMessage = useI18n().setLocaleMessage;
 export const g_setLocaleMessages = useI18n().setLocaleMessages;
