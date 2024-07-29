@@ -1,6 +1,6 @@
 {
   "name": "@aesoper/preference",
-  "version": "1.0.46",
+  "version": "1.0.47",
   "description": "> TODO: description",
   "homepage": "https://github.com/aesoper101/vue3use#readme",
   "bugs": {
@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@aesoper/build-cli": "^1.2.10",
-    "@aesoper/storage": "^1.1.48",
+    "@aesoper/storage": "^1.1.49",
     "@tsconfig/node18": "^18.2.4",
     "@vue/tsconfig": "^0.5.1"
   },
