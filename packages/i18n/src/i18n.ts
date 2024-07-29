@@ -113,3 +113,14 @@ export const useI18n = () => {
 };
 
 export type UseI18nInstance = ReturnType<typeof useI18n>;
+
+export const g_t = useI18n().t;
+export const g_tm = useI18n().tm;
+export const g_rt = useI18n().rt;
+export const g_te = useI18n().te;
+export const g_d = useI18n().d;
+export const g_n = useI18n().n;
+export const g_getLocale = useI18n().getLocale;
+export const g_getLocaleMessage = useI18n().getLocaleMessage;
+export const g_setLocaleMessage = useI18n().setLocaleMessage;
+export const g_setLocaleMessages = useI18n().setLocaleMessages;
