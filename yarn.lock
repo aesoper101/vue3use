@@ -65,7 +65,7 @@ __metadata:
   resolution: "@aesoper/config@workspace:packages/config"
   dependencies:
     "@aesoper/build-cli": "npm:^1.2.10"
-    "@aesoper/shared": "npm:^1.1.57"
+    "@aesoper/shared": "npm:^1.1.58"
     "@tsconfig/node18": "npm:^18.2.4"
     "@types/lodash.get": "npm:^4.4.9"
     "@types/lodash.has": "npm:^4.5.9"
@@ -80,7 +80,7 @@ __metadata:
   resolution: "@aesoper/disposables@workspace:packages/disposables"
   dependencies:
     "@aesoper/build-cli": "npm:^1.2.10"
-    "@aesoper/shared": "npm:^1.1.57"
+    "@aesoper/shared": "npm:^1.1.58"
     "@tsconfig/node18": "npm:^18.2.4"
     "@vue/tsconfig": "npm:^0.5.1"
   languageName: unknown
@@ -91,7 +91,7 @@ __metadata:
   resolution: "@aesoper/eventbus@workspace:packages/eventbus"
   dependencies:
     "@aesoper/build-cli": "npm:^1.2.10"
-    "@aesoper/shared": "npm:^1.1.57"
+    "@aesoper/shared": "npm:^1.1.58"
     "@tsconfig/node18": "npm:^18.2.4"
     "@vue/tsconfig": "npm:^0.5.1"
     eventemitter3: "npm:^5.0.1"
@@ -173,7 +173,7 @@ __metadata:
   resolution: "@aesoper/preference@workspace:packages/preference"
   dependencies:
     "@aesoper/build-cli": "npm:^1.2.10"
-    "@aesoper/storage": "npm:^1.1.49"
+    "@aesoper/storage": "npm:^1.1.50"
     "@tsconfig/node18": "npm:^18.2.4"
     "@vue/tsconfig": "npm:^0.5.1"
   languageName: unknown
@@ -194,7 +194,7 @@ __metadata:
   resolution: "@aesoper/rxjs-axios@workspace:packages/rxjs-axios"
   dependencies:
     "@aesoper/build-cli": "npm:^1.2.10"
-    "@aesoper/shared": "npm:^1.1.57"
+    "@aesoper/shared": "npm:^1.1.58"
     "@tsconfig/node18": "npm:^18.2.4"
     "@types/qs": "npm:^6.9.15"
     "@types/uuid": "npm:^10.0.0"
@@ -212,7 +212,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aesoper/shared@npm:^1.1.57, @aesoper/shared@workspace:packages/shared":
+"@aesoper/shared@npm:^1.1.58, @aesoper/shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@aesoper/shared@workspace:packages/shared"
   dependencies:
@@ -237,7 +237,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aesoper/storage@npm:^1.1.49, @aesoper/storage@workspace:packages/storage":
+"@aesoper/storage@npm:^1.1.50, @aesoper/storage@workspace:packages/storage":
   version: 0.0.0-use.local
   resolution: "@aesoper/storage@workspace:packages/storage"
   dependencies:
