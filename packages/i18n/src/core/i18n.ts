@@ -40,7 +40,17 @@ export function createI18n(
     globalInjection: true,
   },
 ) {
-  i18n = createOfficeI18n(options);
+  i18n = createOfficeI18n(
+    Object.assign(
+      {
+        locale: 'zh_CN',
+        fallbackLocale: 'en_US',
+        globalInjection: true,
+        legacy: false,
+      },
+      options || {},
+    ),
+  );
   return i18n;
 }
 
