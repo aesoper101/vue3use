@@ -62,7 +62,7 @@ export default async function run(options: CreateLibraryOptions) {
   const workspaces = workspacePackageJson.workspaces
     ? Array.isArray(workspacePackageJson.workspaces)
       ? workspacePackageJson.workspaces
-      : workspacePackageJson.workspaces.packages ?? ['packages/*']
+      : (workspacePackageJson.workspaces.packages ?? ['packages/*'])
     : ['packages/*'];
 
   const workspaceDir = options.workspaceDir || 'packages';

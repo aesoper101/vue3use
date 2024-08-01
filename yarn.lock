@@ -147,7 +147,7 @@ __metadata:
     "@tsconfig/node18": "npm:^18.2.4"
     "@vue/tsconfig": "npm:^0.5.1"
     vue: "npm:^3.4.34"
-    vue-i18n: "npm:^9.13.1"
+    vue-i18n: "npm:10.0.0-beta.5"
   peerDependencies:
     vue: ^3.3.10
     vue-i18n: ^9.9.0
@@ -185,6 +185,16 @@ __metadata:
   dependencies:
     "@aesoper/build-cli": "npm:^1.2.10"
     "@tsconfig/node18": "npm:^18.2.4"
+    "@vue/tsconfig": "npm:^0.5.1"
+  languageName: unknown
+  linkType: soft
+
+"@aesoper/request@workspace:packages/request":
+  version: 0.0.0-use.local
+  resolution: "@aesoper/request@workspace:packages/request"
+  dependencies:
+    "@aesoper/build-cli": "npm:^1.2.10"
+    "@tsconfig/node18": "npm:^18.2.2"
     "@vue/tsconfig": "npm:^0.5.1"
   languageName: unknown
   linkType: soft
@@ -1722,30 +1732,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@intlify/core-base@npm:9.13.1":
-  version: 9.13.1
-  resolution: "@intlify/core-base@npm:9.13.1"
+"@intlify/core-base@npm:10.0.0-beta.5":
+  version: 10.0.0-beta.5
+  resolution: "@intlify/core-base@npm:10.0.0-beta.5"
   dependencies:
-    "@intlify/message-compiler": "npm:9.13.1"
-    "@intlify/shared": "npm:9.13.1"
-  checksum: 10c0/baa11b13f3cfdb137159872bd0bcab54fcb6d896fec5910e5189def1f2d836f87bf435eacfe4c471d5e21960c3878c333b7a20d8be17b54303fdf3130466f4b3
+    "@intlify/message-compiler": "npm:10.0.0-beta.5"
+    "@intlify/shared": "npm:10.0.0-beta.5"
+  checksum: 10c0/7f635fd3f4c6420acf47b3a80be66597c4581628c97c680e91edb6b798c98bb2cd1526cffd57d3f62da1320322e76b03901bf5c580d92905c489a739ae81ed36
   languageName: node
   linkType: hard
 
-"@intlify/message-compiler@npm:9.13.1":
-  version: 9.13.1
-  resolution: "@intlify/message-compiler@npm:9.13.1"
+"@intlify/message-compiler@npm:10.0.0-beta.5":
+  version: 10.0.0-beta.5
+  resolution: "@intlify/message-compiler@npm:10.0.0-beta.5"
   dependencies:
-    "@intlify/shared": "npm:9.13.1"
+    "@intlify/shared": "npm:10.0.0-beta.5"
     source-map-js: "npm:^1.0.2"
-  checksum: 10c0/024ed92a5ef2f8012e4db91c5aca89b1b226c1380d2ee429b0e062611d639e0f4d05c5e0c017fc5834bc769819a9c58c4eb07febff39c3487a98910805583435
+  checksum: 10c0/691bc8d0d12e6c7ad124d6fbe4e91f6e57eb8bc28dea80b4be4f1dabbb0d5eb1d94097184c21261feeffa488a5beb6ef1d4b18fd211a31434f1e64f3c55b2734
   languageName: node
   linkType: hard
 
-"@intlify/shared@npm:9.13.1":
-  version: 9.13.1
-  resolution: "@intlify/shared@npm:9.13.1"
-  checksum: 10c0/ffd9255c0702e71b712cabfe523b8a2db250b205d31740290ece3577832bddfce4af7c7bda20212fe662ba701e1a045e49adb7b76b0a52c9e60db1a7c0bd1df2
+"@intlify/shared@npm:10.0.0-beta.5":
+  version: 10.0.0-beta.5
+  resolution: "@intlify/shared@npm:10.0.0-beta.5"
+  checksum: 10c0/4b3746b23f8f68f4b145bddb82f4f4068a644c7ecd606accaa208f1ec971595b8a9716d2400f5d22e6e1b3eeaeff38c5d1dd37431029b183622146520912c71f
   languageName: node
   linkType: hard
 
@@ -2791,7 +2801,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/node18@npm:^18.2.4":
+"@tsconfig/node18@npm:^18.2.2, @tsconfig/node18@npm:^18.2.4":
   version: 18.2.4
   resolution: "@tsconfig/node18@npm:18.2.4"
   checksum: 10c0/cdfd17f212660374eb2765cd5907b2252e43cfa2623cd52307a49f004327ef49bbe7d53c78b0aca57f33e9a5cb0d7d2eb5ded9be1235e6212f65c9f0699322b6
@@ -14144,16 +14154,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-i18n@npm:^9.13.1":
-  version: 9.13.1
-  resolution: "vue-i18n@npm:9.13.1"
+"vue-i18n@npm:10.0.0-beta.5":
+  version: 10.0.0-beta.5
+  resolution: "vue-i18n@npm:10.0.0-beta.5"
   dependencies:
-    "@intlify/core-base": "npm:9.13.1"
-    "@intlify/shared": "npm:9.13.1"
+    "@intlify/core-base": "npm:10.0.0-beta.5"
+    "@intlify/shared": "npm:10.0.0-beta.5"
     "@vue/devtools-api": "npm:^6.5.0"
   peerDependencies:
     vue: ^3.0.0
-  checksum: 10c0/ffe8d9cdad8a5f1c93d0088c7b4368711b8370bafd7b3145bbd908a8b6ebc2c56f78765795a105892a90a3f2a9be3d473106e8f00ec6864b8649afeadf6e05d5
+  checksum: 10c0/8613b4d81c1e2bf29de9f2aa76878a227d839963a78d368aebf1c2fa7f53617803143b3c59678f97d685c6d50c989b18fa8bf425f9a4420ff5bfd9dbd00068a5
   languageName: node
   linkType: hard
 

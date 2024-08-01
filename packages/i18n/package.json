@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "vue": "^3.4.34",
-    "vue-i18n": "^9.13.1"
+    "vue-i18n": "10.0.0-beta.5"
   },
   "devDependencies": {
     "@aesoper/build-cli": "^1.2.10",
@@ -50,7 +50,7 @@
   },
   "peerDependencies": {
     "vue": "^3.3.10",
-    "vue-i18n": "^9.9.0"
+    "vue-i18n": "^10.0.0-beta.5"
   },
   "publishConfig": {
     "access": "public",
@@ -58,5 +58,5 @@
   },
   "gitHead": "cdb077b7b32c17d0014c682cd625a7ba20d75470",
   "readme": "ERROR: No README data found!",
-  "_id": "@aesoper/i18n@1.0.54"
+  "_id": "@aesoper/i18n@1.0.55"
 }
